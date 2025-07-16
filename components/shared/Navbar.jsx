@@ -8,10 +8,32 @@ import Link from 'next/link'
 import Toggle from '../UI/toggle'
 import CartSidebar from '../cart/CartSidebar'
 import UserAvatar from '../UI/userAvatar'
+import { useEffect } from 'react'
+import axios from 'axios'
+import SummaryApi from '@/common'
 
 
 const Navbar = () => {
-  const {userDetail} = useAppContext()
+  const {userDetail,setUserDetail,setDigitals, setClothes} = useAppContext()
+  const fetchDigitalCategories = async () => {
+    const { data } = await axios.get(SummaryApi.getDigitalsCategory.url)
+    const responseData = await axios.get(SummaryApi.getClothCategory.url)
+    setDigitals(data?.data)
+    setClothes(responseData?.data?.data)
+  }
+
+  useEffect(() => {
+
+    fetchDigitalCategories()
+  }, [])
+  const fetchUserDetails = async () => {
+    const { data } = await axios(SummaryApi.userDetails.url)
+    setUserDetail(data?.data)
+  }
+  useEffect(() => {
+    fetchUserDetails()
+  }, [])
+
   return (
     <nav className='w-full flex flex-col fixed nav-clr shadow lg:top-8  py-6 px-3  lg:px-12  z-50 dark:shadow-gray-600'>
       

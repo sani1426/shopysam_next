@@ -5,9 +5,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const AppContext = createContext()
 
 export const AppContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem('theme') || 'light'
-  )
+  const [theme, setTheme] = useState('light')
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
   const [digitalBrand , setDigitalBrand]=useState([])

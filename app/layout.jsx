@@ -2,6 +2,7 @@ import { Montserrat_Alternates, Poppins } from 'next/font/google'
 import './globals.css'
 import { AppContextProvider } from '@/context/appContext'
 import { Providers } from '@/context/HeroUIProvider'
+import { Toaster } from 'sonner'
 
 const montserrat = Montserrat_Alternates({
   variable: '--font-montserrat',

@@ -1,6 +1,7 @@
 import { Montserrat_Alternates, Poppins } from 'next/font/google'
 import './globals.css'
 import { AppContextProvider } from '@/context/appContext'
+import { Providers } from '@/context/HeroUIProvider'
 
 const montserrat = Montserrat_Alternates({
   variable: '--font-montserrat',
@@ -23,9 +24,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={`${montserrat.variable} ${poppins.variable}`}>
-        <AppContextProvider>
-          <main>{children}</main>
-        </AppContextProvider>
+        <Providers>
+          <AppContextProvider>
+            <main>{children}</main>
+          </AppContextProvider>
+        </Providers>
       </body>
     </html>
   )

@@ -1,5 +1,6 @@
 import {Navbar ,NavbarContent,NavbarItem} from '@heroui/react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+
 import { RiMenu5Fill } from 'react-icons/ri'
 
 const AdminHeader = () => {
@@ -14,7 +15,7 @@ const AdminHeader = () => {
           <RiMenu5Fill />
         </button>
         <Link
-            to='/'
+            href='/'
             className='font-bold text-2xl bg-gradient-to-r from-blue-600  via-red-600 to-orange-600 bg-clip-text text-transparent'
           >
             Shopysam

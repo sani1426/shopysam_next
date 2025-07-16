@@ -10,9 +10,10 @@ import { LuLayoutDashboard } from 'react-icons/lu'
 import { FaShirt } from "react-icons/fa6";
 import { FiPhoneCall } from 'react-icons/fi'
 import { LiaBoxSolid } from 'react-icons/lia'
-import { Link } from 'react-router-dom'
+
 import { MdOutlineWatchLater } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
+import Link from 'next/link';
 
 const SidebarMenu = () => {
   return (
@@ -34,7 +35,7 @@ const SidebarMenu = () => {
               <FaHome className='text-3xl text-red-600' />
             }
           >
-            <Link className='text-xl' to='/'>
+            <Link className='text-xl' href='/'>
               Home
             </Link>
           </DropdownItem>
@@ -44,7 +45,7 @@ const SidebarMenu = () => {
               <FaShirt className='text-3xl text-blue-600' />
             }
           >
-            <Link className='text-xl' to='/fashion'>
+            <Link className='text-xl' href='/fashion'>
               Fashion
             </Link>
           </DropdownItem>
@@ -54,7 +55,7 @@ const SidebarMenu = () => {
               <LuLayoutDashboard className='text-3xl text-purple-600' />
             }
           >
-            <Link className='text-xl' to='/dashboard'>
+            <Link className='text-xl' href='/dashboard'>
               Dashboard
             </Link>
           </DropdownItem>
@@ -63,21 +64,21 @@ const SidebarMenu = () => {
         <DropdownItem
           startContent={<MdOutlineWatchLater className='text-3xl text-orange-600' />}
         >
-          <Link className='text-xl' to='/new-arrivals'>
+          <Link className='text-xl' href='/new-arrivals'>
             New Arrivals
           </Link>
         </DropdownItem>
         <DropdownItem
           startContent={<FiPhoneCall className='text-3xl text-yellow-600' />}
         >
-          <Link className='text-xl' to='/call'>
+          <Link className='text-xl' href='/call'>
             Call Us
           </Link>
         </DropdownItem>
         <DropdownItem
           startContent={<LiaBoxSolid className='text-4xl text-green-600' />}
         >
-          <Link className='text-xl' to='/about'>
+          <Link className='text-xl' href='/about'>
             About Us
           </Link>
         </DropdownItem>

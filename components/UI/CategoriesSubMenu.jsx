@@ -1,4 +1,4 @@
-
+"use client"
 import {
   Drawer,
   DrawerContent,
@@ -10,11 +10,13 @@ AccordionItem ,
   Button,
 } from '@heroui/react'
 
-import { Link } from 'react-router-dom'
+
 import { TfiAngleDown } from "react-icons/tfi";
-import { useAppContext } from '../../../context/appContext'
+
 import { RiMenu2Fill } from "react-icons/ri";
 import {FaRegSquarePlus} from 'react-icons/fa6'
+import { useAppContext } from '@/context/appContext';
+import Link from 'next/link';
 
 const CategoryMenu = () => {
   const { digitals, clothes } = useAppContext()
@@ -68,7 +70,7 @@ const CategoryMenu = () => {
 <div className='flex flex-col gap-1'>
                 {
                   digitals?.map(item => (
-               <Link key={item?.id} className='category_link' to={`/digitals/${item}`}>{item}</Link>
+               <Link key={item?.id} className='category_link' href={`/digitals/${item}`}>{item}</Link>
                   ))
                 }
         </div>
@@ -78,7 +80,7 @@ const CategoryMenu = () => {
 <div className='flex flex-col gap-1'>
                 {
                   clothes?.map(item => (
-               <Link key={item?.id} className='category_link' to={`/cloth/${item}`}>{item}</Link>
+               <Link key={item?.id} className='category_link' href={`/cloth/${item}`}>{item}</Link>
                   ))
                 }
         </div>

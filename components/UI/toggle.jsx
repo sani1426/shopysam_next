@@ -1,4 +1,5 @@
-import { useAppContext } from "../../../context/appContext"
+"use client"
+import { useAppContext } from "@/context/appContext";
 import { FaRegMoon } from "react-icons/fa";
 import { HiOutlineSun } from "react-icons/hi2";
 

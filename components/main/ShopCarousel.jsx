@@ -1,4 +1,4 @@
-import { Carousel_items } from '../../../constance/index.jsx'
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { EffectCreative , Navigation, Pagination , Autoplay } from 'swiper/modules';
+import { Carousel_items } from '@/constance';
 
 
 const ShopCarousel = () => {

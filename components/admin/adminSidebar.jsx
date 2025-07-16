@@ -1,3 +1,5 @@
+"use client"
+import { useAppContext } from '@/context/appContext'
 import {
   Drawer,
   DrawerContent,
@@ -6,10 +8,8 @@ import {
   DrawerFooter,
 
 } from '@heroui/react'
-import { adminSidebarMenuItems } from '../../../constance/index'
-import { Link } from 'react-router-dom'
-import { useAppContext } from '../../../context/appContext'
-import { useState } from 'react'
+import Link from 'next/link'
+
 
 const AdminSidebar = () => {
   const { userDetail, setUserDetail } = useAppContext()
@@ -30,7 +30,7 @@ const AdminSidebar = () => {
           <>
             <DrawerHeader className='flex flex-col gap-1 border-b-2 py-8'>
               <Link
-                to='/'
+                href='/'
                 className='font-bold text-3xl bg-gradient-to-r from-blue-600  via-red-600 to-orange-600 bg-clip-text text-transparent '
               >
                 Shopysam
@@ -43,7 +43,7 @@ const AdminSidebar = () => {
                   <Link
                     className='flex items-center gap-2 w-full py-2 hover:bg-gray-200 pl-1 rounded-lg transition-all'
                     key={item?.id}
-                    to={item?.path}
+                    href={item?.path}
                   >
                     <span className='text-4xl'>{item?.icon}</span>
                     <span className='text-xl'>{item?.label}</span>

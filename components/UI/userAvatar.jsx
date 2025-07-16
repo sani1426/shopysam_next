@@ -1,3 +1,6 @@
+"use client"
+import SummaryApi from '@/common'
+import { useAppContext } from '@/context/appContext'
 import {
   Dropdown,
   DropdownTrigger,
@@ -6,20 +9,19 @@ import {
   Avatar,
 
 } from '@heroui/react'
-import useAxios from '../../../hooks/useAxios'
-import SummaryApi from '../../../common'
+import axios from 'axios'
 import { toast } from 'sonner'
-import { useAppContext } from '../../../context/appContext'
+
 
 export default function UserAvatar() {
 const {userDetail , setUserDetail} = useAppContext()
   const handleLogout = async () => {
-    const { responseData } = await useAxios(SummaryApi.logoutUser.url)
-    if (responseData.success) {
-      toast.success(responseData.message)
+    const { data } = await axios.get(SummaryApi.logoutUser.url)
+    if (data.success) {
+      toast.success(data.message)
       setUserDetail("")
     } else {
-      toast.error(responseData.message)
+      toast.error(data.message)
     }
   }
   return (

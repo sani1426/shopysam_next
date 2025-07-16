@@ -1,15 +1,13 @@
-
-import { Link } from 'react-router-dom'
-
-import UserAvatar from '../UI/userAvatar'
+"use client"
+import { useAppContext } from '@/context/appContext'
 import { Input } from '@heroui/react'
-
 import { CiSearch } from 'react-icons/ci'
-import Toggle from '../UI/toggle'
 import { PiUser } from 'react-icons/pi'
 import SidebarMenu from '../UI/SidebarMenu'
+import Link from 'next/link'
+import Toggle from '../UI/toggle'
 import CartSidebar from '../cart/CartSidebar'
-import { useAppContext } from '../../../context/appContext'
+import UserAvatar from '../UI/userAvatar'
 
 
 const Navbar = () => {
@@ -22,7 +20,7 @@ const Navbar = () => {
           <SidebarMenu />
 
           <Link
-            to='/'
+            href='/'
             className='font-bold text-4xl bg-gradient-to-r from-blue-600  via-red-600 to-orange-600 bg-clip-text text-transparent'
           >
             Shopysam
@@ -53,7 +51,7 @@ const Navbar = () => {
           {userDetail ? (
             <UserAvatar  />
           ) : (
-            <Link to='/login' className='text-3xl'>
+            <Link href='/login' className='text-3xl'>
               <PiUser />
             </Link>
           )}

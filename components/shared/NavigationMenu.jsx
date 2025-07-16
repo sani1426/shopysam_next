@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
-import { Nav_Link } from '../../../constance'
-import CategoryMenu from '../UI/CategoriesSubMenu'
+
 import { IoRocketOutline } from "react-icons/io5";
+import CategoryMenu from "../UI/CategoriesSubMenu";
+import { Nav_Link } from "@/constance";
+import Link from "next/link";
 
 const NavigationMenu = () => {
   return (
@@ -11,7 +12,7 @@ const NavigationMenu = () => {
       <ul className=' items-center gap-10 hidden lg:flex dark:text-gray-300'>
         {Nav_Link.map((item) => (
           <li key={item?.id}>
-            <Link className='hover:text-red-500 transition text-nowrap' to={item?.href}>{item?.label.toUpperCase()}</Link>
+            <Link className='hover:text-red-500 transition text-nowrap' href={item?.href}>{item?.label.toUpperCase()}</Link>
           </li>
         ))}
       </ul>

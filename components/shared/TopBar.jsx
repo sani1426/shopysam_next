@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from "next/link"
+
 
 const TopBar = () => {
   return (
@@ -10,8 +10,8 @@ const TopBar = () => {
         </h1>
       </div>
       <div className='flex items-center gap-5 '>
-        <Link to='/help-center'>Help Center</Link>
-        <Link to='/profile/order-tracking'>Order Tracking</Link>
+        <Link href='/help-center'>Help Center</Link>
+        <Link href='/profile/order-tracking'>Order Tracking</Link>
       </div>
     </div>
   )

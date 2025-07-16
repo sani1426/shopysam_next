@@ -8,8 +8,9 @@ import {
   Button,
   Badge
 } from '@heroui/react'
+import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+
 
 const CartSidebar = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
@@ -59,7 +60,7 @@ const CartSidebar = () => {
               </DrawerBody>
               <DrawerFooter className='flex items-center'>
                 <Button onPress={onClose} color='success' variant='light'>
-                  <Link to='/cart'>Payment</Link>
+                  <Link href='/cart'>Payment</Link>
                 </Button>
                 <Button color='danger' variant='light' onPress={onClose}>
                   Close

@@ -1,6 +1,6 @@
+"use client"
 import { createContext, useContext, useEffect, useState } from 'react'
-import useAxios from '../hooks/useAxios'
-import SummaryApi from '../common'
+
 
 const AppContext = createContext()
 

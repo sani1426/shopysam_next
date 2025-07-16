@@ -38,7 +38,10 @@ const page = () => {
           if (formData.password === formData.confirm_password) {
             setSend(true)
          const {data} = await axios.post(SummaryApi?.registerUser?.url , {
-                formData
+              name : formData?.name,
+              email : formData?.email,
+              password : formData?.password,
+              gender : formData?.gender,
          },{withCredentials:true})
             setSend(false)
             if (data?.success) {

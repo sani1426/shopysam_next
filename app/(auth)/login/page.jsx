@@ -33,7 +33,8 @@ const page = () => {
           e.preventDefault()
           setSend(true)
           const { data} = await axios.post(SummaryApi?.loginUser?.url ,{
-                formData
+                email: formData?.email ,
+                password: formData?.password
           },{withCredentials: true})
           setSend(false)
           if (data.success) {

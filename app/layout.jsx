@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <AppContextProvider>
             <main>{children}</main>
-            <Toaster position="top-center" richColors />
+            <Toaster position="top-center" richColors  closeButton/>
           </AppContextProvider>
         </Providers>
       </body>

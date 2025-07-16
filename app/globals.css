@@ -2,3 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 @plugin '../hero.js';
+
+
+
+:root {
+        --background: #FFFFFF; 
+        --background-2: #ECEFF4;
+        --sidebar-clr: #f1f1f1;
+        --primary-clr: #FF8000;
+        --primary-clr-2:#DB4351 ;
+        --text-clr: #10141f;
+        --text-clr2: #121727;
+        --toogle-clr: #ddd;
+        --title: #ffae42;
+        --muted-text-clr: #95a5a6;
+        --primary-3: #ff4500;
+        --border-2: #343434;
+        --font: montserrat;
+        --tran-01: all 0.2s ease;
+        --tran-02: all 0.3s ease;
+        --tran-03: all 0.4s ease;
+        --tran-04: all 0.5s ease;
+      }
+      
+      .dark {
+        --background:#0F172A ;
+        --background-2: #0f0d31f6;
+        --sidebar-clr: #171212;
+        --primary-clr-light: #3a3b3c;
+        --text-clr: #fff;
+        --text-clr2: #cccccc;
+        --border-2: #fdfdfd;
+      } 
+      
+      .bg_back-1{
+        background-color: var(--background);
+      }
+      .bg_back-2{
+        background-color: var(--background-2);
+      }
+      .text_clr-1{
+        color: var(--text-clr);
+      }
+      .text_clr-2{
+        color: var(--text-clr2);
+      }
+      .nav-clr{
+        background-color: var(--sidebar-clr) !important;
+        color: var(--text-clr) !important;
+      }
+      
+      
+      .swiper-button-prev::after{
+      font-size: 30px !important;
+      color: gray !important;
+      }
+      .swiper-button-next::after{
+      font-size: 30px !important;
+      color: gray !important;
+      }
+      
+      .category_link{
+        @apply text-[14px]  py-2 w-full pl-3 border-b-1 dark:border-gray-500 rounded-sm
+      }
+      
+      .carousel-container{
+        display: grid;
+        grid-template-columns: 70% 30%;
+        gap: 1rem;
+      }

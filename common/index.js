@@ -21,6 +21,18 @@ const SummaryApi = {
     url: `${Base_Url}/api/auth/upload-avatar`,
     method: 'put',
   },
+  forgotPassword: {
+    url: `${Base_Url}/api/auth/forgot-password`,
+    method: 'put',
+  },
+  verifyOtp: {
+    url: `${Base_Url}/api/auth/verify-otp`,
+    method: 'put',
+  },
+  resetPassword: {
+    url: `${Base_Url}/api/auth/reset-password`,
+    method: 'put',
+  },
   logoutUser: {
     url: `${Base_Url}/api/auth/logout`,
     method: 'get',

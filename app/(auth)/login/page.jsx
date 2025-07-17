@@ -79,7 +79,8 @@ const page = () => {
                     }
                   />
                 </div>
-      
+      <div className="flex flex-col w-full">
+
                 <div className='flex w-full flex-wrap md:flex-nowrap  gap-1 justify-center'>
                   <Input
                     value={formData.password}
@@ -99,6 +100,8 @@ const page = () => {
                     }
                   />
                 </div>
+                <Link className="text-sm text-red-600 justify-self-end" href='/forgot-password'>forgot password ?</Link>
+      </div>
                 <button
         
                   className={`w-[80%] bg-blue-600 py-2 rounded-xl hover:bg-blue-800 transition-all duration-300 ${send ? 'opacity-60' : ''}`}

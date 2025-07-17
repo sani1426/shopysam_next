@@ -11,7 +11,7 @@ import { useEffect, useState } from "react"
 
 
 const page = () => {
-  const {searchParams}=useSearchParams()
+  const searchParams=useSearchParams()
         const [send, setSend] = useState(false)
         const router = useRouter()
         const [formData, setFormData] = useState({

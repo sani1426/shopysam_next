@@ -10,7 +10,8 @@ import Link from "next/link"
 import axios from 'axios'
 
 export default function page() {
-  const {email}=useSearchParams()
+  const searchParams = useSearchParams();
+  const em = searchParams.get('email');
         const [send, setSend] = useState(false)
         const router = useRouter()
         const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ export default function page() {
             }
           })
         }
-        useEffect(()=>{console.log(searchParams)},[])
+  useEffect(()=>console.log(em) ,[])
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSend(true)

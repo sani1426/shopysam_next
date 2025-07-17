@@ -40,9 +40,9 @@ export default function page() {
     setSend(false)
     if (data.success) {
       toast.success(data?.message)
-//       setTimeout(() => {
-//         router.push('/veify-otp')
-//       }, 1000)
+      setTimeout(() => {
+        router.push('/reset-password')
+      }, 1000)
     }
     if (data.error) {
       toast.error(responseData.message)
@@ -82,7 +82,7 @@ export default function page() {
             />
           </div>
           <div className='w-full flex flex-col gap-2 max-w-[240px]'>
-            <InputOtp length={6} value={otp} onValueChange={setOtp} />
+            <InputOtp variant='bordered' size='lg' length={6} value={otp} onValueChange={setOtp} />
             <p className='text-default-500 text-small'>
               enter otp code was sent to your email
             </p>

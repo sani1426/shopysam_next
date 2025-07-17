@@ -51,7 +51,7 @@ const page = () => {
               }, 1000)
             }
             if (data.error) {
-              toast.error(responseData.message)
+              toast.error(data.message)
             }
           } else {
             toast.error('please check password and confirm password')

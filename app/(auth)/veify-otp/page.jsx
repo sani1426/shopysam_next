@@ -47,7 +47,7 @@ export default function page() {
       }, 1000)
     }
     if (data.error) {
-      toast.error(responseData.message)
+      toast.error(data.message)
     }
   }
 

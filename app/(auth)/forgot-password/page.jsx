@@ -37,7 +37,7 @@ const page = () => {
           if (data.success) {
             toast.success(data?.message)
             setTimeout(() => {
-              router.push('/verify-otp')
+              router.push('/veify-otp')
             }, 1000)
           }
           if (data.error) {

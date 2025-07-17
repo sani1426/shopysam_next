@@ -79,7 +79,7 @@ const page = () => {
                     }
                   />
                 </div>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full relative mb-3">
 
                 <div className='flex w-full flex-wrap md:flex-nowrap  gap-1 justify-center'>
                   <Input
@@ -100,7 +100,7 @@ const page = () => {
                     }
                   />
                 </div>
-                <Link className="text-sm text-red-600 justify-self-end" href='/forgot-password'>forgot password ?</Link>
+                <Link className="text-sm text-red-600 absolute bottom-[-20px] right-[50px] m2" href='/forgot-password'>forgot password ?</Link>
       </div>
                 <button
         

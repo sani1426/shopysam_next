@@ -1,4 +1,6 @@
 "use client"
+import SummaryApi from '@/common'
+import axios from 'axios'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 
@@ -12,6 +14,14 @@ export const AppContextProvider = ({ children }) => {
   const [clothBrand , setClothBrand]=useState([])
   const [userDetail, setUserDetail] = useState()
 
+ 
+  const fetchUserDetails = async () => {
+    const { data } = await axios(SummaryApi.userDetails.url)
+    setUserDetail(data?.data)
+  }
+  useEffect(() => {
+    fetchUserDetails()
+  }, [])
 
   
 

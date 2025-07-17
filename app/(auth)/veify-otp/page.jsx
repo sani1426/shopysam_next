@@ -1,8 +1,8 @@
 'use client'
 import SummaryApi from '@/common'
 import { InputOtp } from '@heroui/react'
-import { useEffect, useState } from 'react'
-import { useRouter, useSearchParams } from "next/navigation"
+import {useState } from 'react'
+import { useRouter } from "next/navigation"
 import { SiGmail } from 'react-icons/si'
 import { toast } from 'sonner'
 import { Input } from '@heroui/react'
@@ -10,8 +10,8 @@ import Link from "next/link"
 import axios from 'axios'
 
 export default function page() {
-  const searchParams = useSearchParams();
-  const em = searchParams.get('email');
+  // const searchParams = useSearchParams();
+  // const em = searchParams.get('email');
         const [send, setSend] = useState(false)
         const router = useRouter()
         const [formData, setFormData] = useState({
@@ -27,7 +27,7 @@ export default function page() {
             }
           })
         }
-  useEffect(()=>console.log(em) ,[])
+  // useEffect(()=>console.log(em) ,[])
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSend(true)

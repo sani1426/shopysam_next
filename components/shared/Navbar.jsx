@@ -14,7 +14,7 @@ import SummaryApi from '@/common'
 
 
 const Navbar = () => {
-  const {userDetail,setUserDetail,setDigitals, setClothes} = useAppContext()
+  const {userDetail,setDigitals, setClothes} = useAppContext()
   const fetchDigitalCategories = async () => {
     const { data } = await axios.get(SummaryApi.getDigitalsCategory.url)
     const responseData = await axios.get(SummaryApi.getClothCategory.url)
@@ -25,13 +25,6 @@ const Navbar = () => {
   useEffect(() => {
 
     fetchDigitalCategories()
-  }, [])
-  const fetchUserDetails = async () => {
-    const { data } = await axios(SummaryApi.userDetails.url)
-    setUserDetail(data?.data)
-  }
-  useEffect(() => {
-    fetchUserDetails()
   }, [])
 
   return (

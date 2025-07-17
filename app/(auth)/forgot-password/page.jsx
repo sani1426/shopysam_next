@@ -1,6 +1,6 @@
 "use client"
 import SummaryApi from "@/common"
-import { useRouter,redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { SiGmail } from 'react-icons/si'
 import { toast } from 'sonner'
 import { Input } from '@heroui/react'
@@ -38,7 +38,7 @@ const page = () => {
           if (data.success) {
             toast.success(data?.message)
             setTimeout(() => {
-              redirect(`/veify-otp?email=${formData?.email}`)
+              router.push(`/veify-otp?email=${formData?.email}`)
             }, 1000)
           }
           if (data.error) {

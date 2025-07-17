@@ -44,7 +44,7 @@ const page = () => {
             }, 1000)
           }
           if (data.error) {
-            toast.error(responseData.message)
+            toast.error(data.message)
           }
         }
       
@@ -104,7 +104,7 @@ const page = () => {
       </div>
                 <button
         
-                  className={`w-[80%] bg-blue-600 py-2 rounded-xl hover:bg-blue-800 transition-all duration-300 ${send ? 'opacity-60' : ''}`}
+                  className={`w-[80%] bg-blue-600 py-2 rounded-xl hover:bg-blue-800 cursor-pointer color-white transition-all duration-300 ${send ? 'opacity-60' : ''}`}
                 >
                   {send ? 'Login in ...' : 'Login'}
                 </button>

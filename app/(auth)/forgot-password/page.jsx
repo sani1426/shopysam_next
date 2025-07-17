@@ -37,7 +37,7 @@ const page = () => {
           if (data.success) {
             toast.success(data?.message)
             setTimeout(() => {
-              router.push('/veify-otp')
+              router.push(`/veify-otp?email=${formData?.email}`)
             }, 1000)
           }
           if (data.error) {

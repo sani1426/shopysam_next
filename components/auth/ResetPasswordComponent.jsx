@@ -44,8 +44,7 @@ const ResetPassword = ({Email}) => {
         setTimeout(() => {
           router.push('/login')
         }, 1000)
-      }
-      if (data.error) {
+      }else{
         toast.error(data.message)
         setSend(false)
       }

@@ -49,9 +49,9 @@ const page = () => {
               setTimeout(() => {
                 router.push('/login')
               }, 1000)
-            }
-            if (data.error) {
+            }else{
               toast.error(data.message)
+              setSend(false)
             }
           } else {
             toast.error('please check password and confirm password')

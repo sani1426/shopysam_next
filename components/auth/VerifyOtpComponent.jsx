@@ -27,10 +27,9 @@ export default function VerifyOtp({ Email }) {
     if (data.success) {
       toast.success(data?.message)
       setTimeout(() => {
-        router.push(`forgot-password/reset-password?email=${Email}`)
+        router.push(`/reset-password?email=${Email}`)
       }, 1000)
-    }
-    if (data.error) {
+    }else{
       toast.error(data.message)
       setSend(false)
     }

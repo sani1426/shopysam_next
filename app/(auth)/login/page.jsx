@@ -42,8 +42,7 @@ const page = () => {
             setTimeout(() => {
               router.push('/')
             }, 1000)
-          }
-          if (data.error) {
+          }else{
             toast.error(data.message)
             setSend(false)
           }

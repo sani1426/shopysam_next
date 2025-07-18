@@ -40,9 +40,8 @@ const page = () => {
             setTimeout(() => {
               router.push(`forgot-password/veify-otp?email=${formData?.email}`)
             }, 1000)
-          }
-          if (data.error) {
-            toast.error(data?.message)
+          }else{
+            toast.error(data.message)
             setSend(false)
           }
         }

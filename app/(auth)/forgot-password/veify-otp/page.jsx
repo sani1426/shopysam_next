@@ -3,16 +3,17 @@
 import { Suspense } from 'react'
 import VerifyOtp from '@/components/auth/VerifyOtpSuspense'
 
-function SuspenseFallback() {
-  return <>placeholder</>
-}
+// function SuspenseFallback() {
+//   return <>placeholder</>
+// }
 
-export default function page() {
+export default async function page({searchParams}) {
  
+  const {email} = await searchParams()
 
   return (
     <Suspense fallback={<SuspenseFallback />}>
-      <VerifyOtp />
+      <VerifyOtp gmail={email} />
        </Suspense>
   )
 }

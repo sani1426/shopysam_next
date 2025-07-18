@@ -9,7 +9,7 @@ import Link from 'next/link'
 import axios from 'axios'
 
 
-export default function VerifyOtp({gmail}) {
+export default function VerifyOtp() {
   const searchParams = useSearchParams()
   const Email = searchParams.get('email')
   const [send, setSend] = useState(false)
@@ -37,7 +37,7 @@ export default function VerifyOtp({gmail}) {
       toast.error(data.message)
     }
   }
-  useEffect(()=>{ console.log('gmail' , gmail)} ,[])
+//   useEffect(()=>{ console.log('gmail' , gmail)} ,[])
   return (
     <div className='w-full h-[100vh] flex flex-col justify-center items-center'>
       <div

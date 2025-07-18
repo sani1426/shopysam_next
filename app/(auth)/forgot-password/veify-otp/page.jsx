@@ -7,9 +7,9 @@ function SuspenseFallback() {
   return <>placeholder</>
 }
 
-export default async function page({searchParams}) {
+export default  function page({searchParams}) {
  
-  const {email} = await searchParams()
+  const {email} =  searchParams()
 
   return (
     <Suspense fallback={<SuspenseFallback />}>

@@ -1,15 +1,15 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
+// import { useSearchParams } from 'next/navigation'
 import SummaryApi from '@/common'
 import { InputOtp } from '@heroui/react'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import axios from 'axios'
 
-export default function VerifyOtp({ gmail }) {
-  const searchParams = useSearchParams()
-  const Email = searchParams.get('email')
+export default function VerifyOtp({ Email }) {
+  // const searchParams = useSearchParams()
+  // const Email = searchParams.get('email')
   const [send, setSend] = useState(false)
   const router = useRouter()
   const [otp, setOtp] = useState('')
@@ -35,9 +35,6 @@ export default function VerifyOtp({ gmail }) {
       toast.error(data.message)
     }
   }
-  useEffect(() => {
-    console.log('gmail', gmail)
-  }, [])
   return (
     <form
       onSubmit={handleSubmit}

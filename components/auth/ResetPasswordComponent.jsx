@@ -1,6 +1,6 @@
 'use client'
 import SummaryApi from '@/common'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { IoKey } from 'react-icons/io5'
 import { toast } from 'sonner'
 import { Input } from '@heroui/react'
@@ -8,8 +8,8 @@ import axios from 'axios'
 import { useState } from 'react'
 
 const ResetPassword = () => {
-  const searchParams = useSearchParams()
-  const Email = searchParams.get('email')
+//   const searchParams = useSearchParams()
+//   const Email = searchParams.get('email')
   const [send, setSend] = useState(false)
   const router = useRouter()
   const [formData, setFormData] = useState({

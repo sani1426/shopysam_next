@@ -1,15 +1,13 @@
 'use client'
-
 import { useSearchParams } from 'next/navigation'
 import SummaryApi from '@/common'
 import { InputOtp } from '@heroui/react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-
 import { toast } from 'sonner'
-
 import Link from 'next/link'
 import axios from 'axios'
+
 
 export default function VerifyOtp({gmail}) {
   const searchParams = useSearchParams()
@@ -39,7 +37,7 @@ export default function VerifyOtp({gmail}) {
       toast.error(data.message)
     }
   }
-  useEffect(()=> console.log('gmail' , gmail) ,[])
+  useEffect(()=>{ console.log('gmail' , gmail)} ,[])
   return (
     <div className='w-full h-[100vh] flex flex-col justify-center items-center'>
       <div

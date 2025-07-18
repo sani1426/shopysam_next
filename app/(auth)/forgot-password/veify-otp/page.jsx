@@ -8,6 +8,11 @@ import { toast } from 'sonner'
 import { Input } from '@heroui/react'
 import Link from "next/link"
 import axios from 'axios'
+import { Suspense } from 'react'
+
+function SuspenseFallback() {
+  return <>placeholder</>
+}
 
 export default function page() {
   const searchParams = useSearchParams();
@@ -52,6 +57,7 @@ export default function page() {
   }
 
   return (
+    <Suspense fallback={<SuspenseFallback />}>
     <div className='w-full h-[100vh] flex flex-col justify-center items-center'>
       <div
         style={{ width: '35rem', maxWidth: '95%' }}
@@ -99,5 +105,6 @@ export default function page() {
         </form>
       </div>
     </div>
+       </Suspense>
   )
 }

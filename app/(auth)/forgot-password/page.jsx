@@ -11,7 +11,7 @@ import { useState } from "react"
 
 
 const page = () => {
-
+        
         const [send, setSend] = useState(false)
         const router = useRouter()
         const [formData, setFormData] = useState({
@@ -38,7 +38,7 @@ const page = () => {
           if (data.success) {
             toast.success(data?.message)
             setTimeout(() => {
-              router.push(`/veify-otp?email=${formData?.email}`)
+              router.push(`forgot-password/veify-otp?email=${formData?.email}`)
             }, 1000)
           }
           if (data.error) {

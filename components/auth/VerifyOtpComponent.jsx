@@ -8,8 +8,7 @@ import { toast } from 'sonner'
 import axios from 'axios'
 
 export default function VerifyOtp({ Email }) {
-  // const searchParams = useSearchParams()
-  // const Email = searchParams.get('email')
+
   const [send, setSend] = useState(false)
   const router = useRouter()
   const [otp, setOtp] = useState('')
@@ -28,7 +27,7 @@ export default function VerifyOtp({ Email }) {
     if (data.success) {
       toast.success(data?.message)
       setTimeout(() => {
-        router.push(`forgot-password/reset-password?email=${Email}`)
+        router.push(`/reset-password?email=${Email}`)
       }, 1000)
     }
     if (data.error) {

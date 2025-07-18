@@ -7,9 +7,8 @@ import { Input } from '@heroui/react'
 import axios from 'axios'
 import { useState } from 'react'
 
-const ResetPassword = () => {
-//   const searchParams = useSearchParams()
-//   const Email = searchParams.get('email')
+const ResetPassword = ({Email}) => {
+
   const [send, setSend] = useState(false)
   const router = useRouter()
   const [formData, setFormData] = useState({

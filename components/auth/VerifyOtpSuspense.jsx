@@ -66,7 +66,7 @@ export default function VerifyOtp() {
             onSubmit={handleSubmit}
             className='flex flex-col gap-5 justify-center w-full items-center'
           >
-            <div className='flex w-full flex-wrap md:flex-nowrap  gap-1 justify-center'>
+            {/* <div className='flex w-full flex-wrap md:flex-nowrap  gap-1 justify-center'>
               <Input
                 value={formData.email}
                 onChange={handleOnChange}
@@ -84,7 +84,7 @@ export default function VerifyOtp() {
                   <SiGmail className='text-xl text-default-400 pointer-events-none flex-shrink-0' />
                 }
               />
-            </div>
+            </div> */}
             <div className='w-full flex flex-col gap-2 max-w-[240px]'>
               <InputOtp variant='bordered' size='lg' length={6} value={otp} onValueChange={setOtp} />
               <p className='text-default-500 text-small'>

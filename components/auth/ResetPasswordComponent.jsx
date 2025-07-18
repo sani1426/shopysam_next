@@ -47,6 +47,7 @@ const ResetPassword = ({Email}) => {
       }
       if (data.error) {
         toast.error(data.message)
+        setSend(false)
       }
     }
   }

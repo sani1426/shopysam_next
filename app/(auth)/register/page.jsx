@@ -55,6 +55,7 @@ const page = () => {
             }
           } else {
             toast.error('please check password and confirm password')
+            setSend(false)
           }
         }
       

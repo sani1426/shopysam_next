@@ -43,6 +43,7 @@ const page = () => {
           }
           if (data.error) {
             toast.error(data?.message)
+            setSend(false)
           }
         }
       
@@ -78,7 +79,7 @@ const page = () => {
                   />
                 </div>
                 <button
-                  className={`w-[80%] bg-blue-600 py-2 rounded-xl hover:bg-blue-800 transition-all duration-300 ${send ? 'opacity-60' : ''}`}
+                  className={`w-[80%] bg-blue-600 py-2 rounded-xl hover:bg-blue-800 transition-all duration-300 cursor-pointer text-white ${send ? 'opacity-60' : ''}`}
                 >
                   {send ? 'Sending ...' : 'Send'}
                 </button>

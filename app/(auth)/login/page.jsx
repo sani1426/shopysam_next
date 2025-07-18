@@ -45,6 +45,7 @@ const page = () => {
           }
           if (data.error) {
             toast.error(data.message)
+            setSend(false)
           }
         }
       

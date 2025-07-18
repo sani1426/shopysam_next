@@ -17,6 +17,7 @@ function SuspenseFallback() {
 }
 
 export default function page(props) {
+  const email = props.searchParams?.email
   return (
     <div className='w-full h-[100vh] flex flex-col justify-center items-center'>
       <div
@@ -27,7 +28,7 @@ export default function page(props) {
           Verify Otp
         </h1>
         <Suspense fallback={<SuspenseFallback />}>
-          <VerifyOtp gmail={props} />
+          <VerifyOtp gmail={email} />
         </Suspense>
       </div>
     </div>

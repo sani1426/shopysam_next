@@ -14,7 +14,7 @@ export const AppContextProvider = ({ children }) => {
   const token = getCookieByName('token')
  
   const fetchUserDetails = async () => {
-    const { data } = await axios(SummaryApi.userDetails.url)
+    const { data } = await axios.get(SummaryApi.userDetails.url)
     setUserDetail(data?.data)
   }
   useEffect(() => {

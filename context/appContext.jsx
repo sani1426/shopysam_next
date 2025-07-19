@@ -13,6 +13,19 @@ export const AppContextProvider = ({ children }) => {
   const [userDetail, setUserDetail] = useState()
   const token = getCookieByName('token')
  
+  // useEffect(()=>{
+  //   function getCookieByName(name) {
+  //     const cookies = document.cookie.split('; ');
+  //     for (let cookie of cookies) {
+  //         const [key, value] = cookie.split('=');
+  //         if (key === name) {
+  //             setToken(decodeURIComponent(value))
+  //         }
+  //     }
+  //     return null; // Return null if the cookie is not found
+  // }
+  // getCookieByName('token')
+  // },[])
   const fetchUserDetails = async () => {
     const { data } = await axios.get(SummaryApi.userDetails.url)
     setUserDetail(data?.data)

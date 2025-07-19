@@ -1,3 +1,4 @@
+"use client"
 function getCookieByName(name) {
         const cookies = document.cookie.split('; ');
         for (let cookie of cookies) {

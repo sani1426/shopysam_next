@@ -22,7 +22,10 @@ const Navbar = () => {
     setClothes(responseData?.data?.data)
   }
   const fetchUserDetails = async () => {
-    const { data } = await axios.get(SummaryApi.userDetails.url)
+    const response = await fetch(SummaryApi.userDetails.url ,{
+      credentials :true
+    })
+    const data = response.json()
     setUserDetail(data?.data)
   }
 

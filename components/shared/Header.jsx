@@ -13,7 +13,7 @@ const Header = (user , set) => {
     const response = await fetch(SummaryApi.userDetails.url ,{
       credentials :'include'
     })
-    const data = response.json()
+    const data = await response.json()
     setUserDetail(data?.data)
   }
   useEffect(() => {

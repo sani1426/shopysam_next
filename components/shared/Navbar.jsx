@@ -24,6 +24,7 @@ const Navbar = () => {
  
   useEffect(() => {
     fetchDigitalCategories()
+    console.log(userDetail)
   }, [])
 
   return (

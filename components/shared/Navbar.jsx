@@ -23,7 +23,7 @@ const Navbar = () => {
   }
   const fetchUserDetails = async () => {
     const response = await fetch(SummaryApi.userDetails.url ,{
-      credentials :true
+      credentials :'include'
     })
     const data = response.json()
     setUserDetail(data?.data)

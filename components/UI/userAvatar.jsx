@@ -7,7 +7,7 @@ import {
   DropdownMenu,
   DropdownItem,
   Avatar,
-
+User
 } from '@heroui/react'
 import axios from 'axios'
 import { toast } from 'sonner'
@@ -24,11 +24,18 @@ const {userDetail , setUserDetail} = useAppContext()
       toast.error(data.message)
     }
   }
+
   return (
     <Dropdown placement='bottom-start'>
       <DropdownTrigger >
-      
-        <Avatar className="cursor-pointer" src={userDetail?.avatar ? userDetail?.avatar : "https://placehold.net/avatar-5.svg"} />
+      <User
+      avatarProps={{
+        src:userDetail.avatar
+      }}
+      description={userDetail?.email}
+      name={userDetail?.name}
+      />
+        {/* <Avatar className="cursor-pointer" src={userDetail?.avatar ? userDetail?.avatar : "https://placehold.net/avatar-5.svg"} /> */}
       </DropdownTrigger>
       <DropdownMenu aria-label='User Actions' variant='flat'>
         <DropdownItem key='profile' className='h-14 gap-2'>

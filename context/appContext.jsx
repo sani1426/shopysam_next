@@ -1,8 +1,7 @@
 "use client"
-import SummaryApi from '@/common'
-import axios from 'axios'
+
 import { createContext, useContext, useEffect, useState } from 'react'
-import getCookieByName from '@/utils/getCookie.js'
+
 
 const AppContext = createContext()
 
@@ -11,30 +10,7 @@ export const AppContextProvider = ({ children }) => {
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
   const [userDetail, setUserDetail] = useState()
-  const token = getCookieByName('token')
- 
-  // useEffect(()=>{
-  //   function getCookieByName(name) {
-  //     const cookies = document.cookie.split('; ');
-  //     for (let cookie of cookies) {
-  //         const [key, value] = cookie.split('=');
-  //         if (key === name) {
-  //             setToken(decodeURIComponent(value))
-  //         }
-  //     }
-  //     return null; // Return null if the cookie is not found
-  // }
-  // getCookieByName('token')
-  // },[])
-  const fetchUserDetails = async () => {
-    const { data } = await axios.get(SummaryApi.userDetails.url)
-    setUserDetail(data?.data)
-  }
-  useEffect(() => {
-    fetchUserDetails()
-  }, [token])
 
-  
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')

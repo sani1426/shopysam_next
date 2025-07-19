@@ -2,7 +2,7 @@
 import SummaryApi from '@/common'
 import axios from 'axios'
 import { createContext, useContext, useEffect, useState } from 'react'
-
+import getCookieByName from '@/utils/getCookie.js'
 
 const AppContext = createContext()
 
@@ -11,7 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
   const [userDetail, setUserDetail] = useState()
-
+  const token = getCookieByName('token')
  
   const fetchUserDetails = async () => {
     const { data } = await axios(SummaryApi.userDetails.url)
@@ -19,7 +19,7 @@ export const AppContextProvider = ({ children }) => {
   }
   useEffect(() => {
     fetchUserDetails()
-  }, [])
+  }, [token])
 
   
 

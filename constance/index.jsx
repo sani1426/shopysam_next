@@ -46,19 +46,19 @@ export const adminSidebarMenuItems = [
 
 export const Carousel_items = [
         {
-                id:1 , src:"/images/banners/banner-1.webp"
+                id:1 , src:"/banners/banner-1.webp"
         },
         {
-                id:2 , src:"/images/banners/banner-2.webp"
+                id:2 , src:"/banners/banner-2.webp"
         },
         {
-                id:3 , src:"/images/banners/banner-3.webp"
+                id:3 , src:"/banners/banner-3.webp"
         },
         {
-                id:4 , src:"/images/banners/banner_1.jpg"
+                id:4 , src:"/banners/banner_1.jpg"
         },
         {
-                id:5 , src:"/images/banners/banner_2.jpg"
+                id:5 , src:"/banners/banner_2.jpg"
         },
 
 ]

@@ -26,8 +26,8 @@ const {userDetail , setUserDetail} = useAppContext()
   }
   return (
     <Dropdown placement='bottom-start'>
-      <DropdownTrigger className='flex items-center gap-2'>
-        <p>{userDetail?.name}</p>
+      <DropdownTrigger >
+      
         <Avatar className="cursor-pointer" src={userDetail?.avatar ? userDetail?.avatar : "https://placehold.net/avatar-5.svg"} />
       </DropdownTrigger>
       <DropdownMenu aria-label='User Actions' variant='flat'>

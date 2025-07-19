@@ -38,7 +38,7 @@ export const AppContextProvider = ({ children }) => {
   }, [theme])
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail ,digitalBrand,setDigitalBrand , clothBrand , setClothBrand }}>
+    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail  }}>
       {children}
     </AppContext.Provider>
   )

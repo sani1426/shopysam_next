@@ -10,8 +10,6 @@ export const AppContextProvider = ({ children }) => {
   const [theme, setTheme] = useState('light')
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
-  const [digitalBrand , setDigitalBrand]=useState([])
-  const [clothBrand , setClothBrand]=useState([])
   const [userDetail, setUserDetail] = useState()
 
  

@@ -28,13 +28,7 @@ const AdminSidebar = () => {
         <DrawerContent>
           <>
             <DrawerHeader className=' '>
-            <User
-      avatarProps={{
-        src:userDetail?.avatar
-      }}
-      description={userDetail?.email}
-      name={userDetail?.name}
-      />
+    
             </DrawerHeader>
 
             <DrawerBody className='mt-12'>

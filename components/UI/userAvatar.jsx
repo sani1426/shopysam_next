@@ -10,6 +10,7 @@ import {
 User
 } from '@heroui/react'
 import axios from 'axios'
+import Link from 'next/link'
 import { toast } from 'sonner'
 
 
@@ -42,7 +43,7 @@ const {userDetail , setUserDetail} = useAppContext()
           <p className='font-bold'>Signed in as</p>
           <p className='font-bold'>{userDetail?.name}</p>
         </DropdownItem>
-        <DropdownItem key='settings'>Settings</DropdownItem>
+        <DropdownItem key='profile'><Link href='/profile'>Profile</Link></DropdownItem>
         <DropdownItem key='orders'>Orders</DropdownItem>
         <DropdownItem key='analytics'>Analytics</DropdownItem>
         <DropdownItem key='system'>System</DropdownItem>

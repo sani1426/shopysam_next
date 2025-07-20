@@ -1,10 +1,21 @@
+import AdminSidebar from "@/components/admin/adminSidebar"
 
 
 const layout = ({ children }) => {
         return (
-          <main>
-              {children}
-          </main>
+          <section>
+            <div className="container mx-auto p-3">
+              <div>
+                <div>
+                <AdminSidebar />
+                </div>
+                <div>
+                {children}
+                </div>
+              </div>
+            </div>
+              
+          </section>
         )
       }
       

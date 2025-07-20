@@ -35,22 +35,20 @@ export default function UserAvatar() {
                 : 'https://placehold.net/avatar-5.svg'
             }
             alt=''
-            className='w-12 h-12 rounded-full'
+            className='w-8 h-8 rounded-full'
           />
           <div className='flex flex-col gap-2'>
             <div className='flex items-center justify-between'>
             <h1 className='text-xl'>{userDetail?.name}</h1>
-            {
-              userDetail?.role === 'Admin' ? (
-                <Chip size="sm" color='primary'>{userDetail?.role}</Chip>
-              ):(
-                <Chip size="sm" color='danger'>{userDetail?.role}</Chip>
-              )
-            }
+            
+    
+                <span  className={`text-xs text-white rounded-xl p-1 ${userDetail?.role === "Admin" ? "bg-rose-400" : "bg-blue-400"}`}>{userDetail?.role}</span>
+              
+            
            
             </div>
             
-            <p className='text-xs text-gray-200'>{userDetail?.email}</p>
+            <p className='text-xs text-gray-100'>{userDetail?.email}</p>
           </div>
         </div>
 

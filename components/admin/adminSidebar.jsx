@@ -7,7 +7,7 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerFooter,
-  User
+  User,
 } from '@heroui/react'
 import Link from 'next/link'
 
@@ -28,7 +28,17 @@ const AdminSidebar = () => {
         <DrawerContent>
           <>
             <DrawerHeader className=' '>
-    
+              <div className='flex items-center gap-2'>
+                <img
+                  src={userDetail?.avatar}
+                  alt=''
+                  className='w-18 h-18 rounded-full'
+                />
+                <div className='flex flex-col gap-2'>
+                  <h1>{userDetail?.name}</h1>
+                  <p>{userDetail?.email}</p>
+                </div>
+              </div>
             </DrawerHeader>
 
             <DrawerBody className='mt-12'>
@@ -45,9 +55,7 @@ const AdminSidebar = () => {
                 )
               })}
             </DrawerBody>
-            <DrawerFooter className='flex items-center overflow-hidden '>
-            
-            </DrawerFooter>
+            <DrawerFooter className='flex items-center overflow-hidden '></DrawerFooter>
           </>
         </DrawerContent>
       </Drawer>

@@ -24,7 +24,7 @@ const AdminSidebar = () => {
         defaultOpen='true'
         backdrop='transparent'
         size='xs'
-        className='hidden md:block'
+        className=' '
 
       >
         <DrawerContent>

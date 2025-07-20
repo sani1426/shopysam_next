@@ -3,13 +3,13 @@ import AdminSidebar from '@/components/admin/adminSidebar'
 
 const layout = ({ children }) => {
   return (
-    <section>
+    <>
       <AdminHeader />
 
       <AdminSidebar />
 
       {children}
-    </section>
+    </>
   )
 }
 

@@ -44,6 +44,11 @@ const {userDetail , setUserDetail} = useAppContext()
           <p className='font-bold'>{userDetail?.name}</p>
         </DropdownItem>
         <DropdownItem key='profile'><Link href='/profile'>Profile</Link></DropdownItem>
+        {
+          userDetail?.role === 'Admin' && (
+            <DropdownItem key='dashboard'><Link href='/admin/dashboard'>Dashboard</Link></DropdownItem>
+          )
+        }
         <DropdownItem key='orders'>Orders</DropdownItem>
         <DropdownItem key='analytics'>Analytics</DropdownItem>
         <DropdownItem key='system'>System</DropdownItem>

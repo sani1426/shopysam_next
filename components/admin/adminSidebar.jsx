@@ -35,8 +35,8 @@ const AdminSidebar = () => {
                   className='w-18 h-18 rounded-full'
                 />
                 <div className='flex flex-col gap-2'>
-                  <h1>{userDetail?.name}</h1>
-                  <p>{userDetail?.email}</p>
+                  <h1 className='text-xl'>{userDetail?.name}</h1>
+                  <p className='text-sx text-gray-200'>{userDetail?.email}</p>
                 </div>
               </div>
             </DrawerHeader>

@@ -43,13 +43,7 @@ export default function UserAvatar() {
          
            
             
-            {
-              userDetail?.role === 'Admin' ? (
-                <Chip size="md" color='primary'>{userDetail?.role}</Chip>
-              ):(
-                <Chip size="md" color='danger'>{userDetail?.role}</Chip>
-              )
-            }
+            <span className={`text-sm rounded-xl text-white px-4 py-[2px] ${userDetail?.role ==="Admin"? "bg-blue-400" : "bg-rose-400"}`}>{userDetail?.role}</span>
           
           </div>
         </div>

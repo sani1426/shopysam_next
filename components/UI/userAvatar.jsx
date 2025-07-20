@@ -27,7 +27,7 @@ export default function UserAvatar() {
   return (
     <Dropdown placement='bottom-start'>
       <DropdownTrigger>
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-2 cursor-pointer'>
           <img
             src={
               userDetail?.avatar
@@ -39,11 +39,11 @@ export default function UserAvatar() {
           />
           <div className='flex flex-col gap-2'>
 
-            <h1 className='text-xl'>{userDetail?.name}</h1>
+            <h1 className='text-lg'>{userDetail?.name}</h1>
          
            
             
-            <span className={`text-sm rounded-xl text-white px-4 py-[2px] ${userDetail?.role ==="Admin"? "bg-blue-400" : "bg-rose-400"}`}>{userDetail?.role}</span>
+            <span className={`text-xs rounded-xl text-white px-4 py-[1px] ${userDetail?.role ==="Admin"? "bg-blue-400" : "bg-rose-400"}`}>{userDetail?.role}</span>
           
           </div>
         </div>

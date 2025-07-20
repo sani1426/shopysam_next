@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { adminSidebarMenuItems } from '@/constance'
 import { useAppContext } from '@/context/appContext'
 import {
@@ -7,10 +7,8 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerFooter,
-
 } from '@heroui/react'
 import Link from 'next/link'
-
 
 const AdminSidebar = () => {
   const { userDetail, setUserDetail } = useAppContext()
@@ -18,14 +16,13 @@ const AdminSidebar = () => {
   return (
     <>
       <Drawer
-      isDismissable='false'
+        isDismissable='false'
         hideCloseButton='true'
         placement='left'
         defaultOpen='true'
         backdrop='transparent'
         size='xs'
         className=' '
-
       >
         <DrawerContent>
           <>
@@ -53,23 +50,23 @@ const AdminSidebar = () => {
               })}
             </DrawerBody>
             <DrawerFooter className='flex items-center overflow-hidden '>
-              <div className='w-full  flex items-center gap-2 absolute bottom-5 pl-10 overflow-hidden border-t-2 pt-4'>
-                <img
-                className='w-16 h-16'
-                  src={
-                    userDetail?.gender === 'Men'
-                      ? 'https://avatar.iran.liara.run/public/boy'
-                      : 'https://avatar.iran.liara.run/public/girl'
-                  }
-                  alt=''
-                />
-                <div>
-
-                <h1 className='text-xl'>{userDetail?.name}</h1>
-                <h2 className='text-sm'>{userDetail?.email}</h2>
+              {userDetail && (
+                <div className='w-full  flex items-center gap-2 absolute bottom-5 pl-10 overflow-hidden border-t-2 pt-4'>
+                  <img
+                    className='w-16 h-16'
+                    src={
+                      userDetail?.avatar
+                        ? userDetail?.avatar
+                        : 'https://placehold.net/avatar-5.svg'
+                    }
+                    alt=''
+                  />
+                  <div>
+                    <h1 className='text-xl'>{userDetail?.name}</h1>
+                    <h2 className='text-sm'>{userDetail?.email}</h2>
+                  </div>
                 </div>
-             
-              </div>
+              )}
             </DrawerFooter>
           </>
         </DrawerContent>

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import SummaryApi from '@/common'
 import { useAppContext } from '@/context/appContext'
 import {
@@ -6,21 +6,19 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  Avatar,
-User
+Chip
 } from '@heroui/react'
 import axios from 'axios'
 import Link from 'next/link'
 import { toast } from 'sonner'
 
-
 export default function UserAvatar() {
-const {userDetail , setUserDetail} = useAppContext()
+  const { userDetail, setUserDetail } = useAppContext()
   const handleLogout = async () => {
     const { data } = await axios.get(SummaryApi.logoutUser.url)
     if (data.success) {
       toast.success(data.message)
-      setUserDetail("")
+      setUserDetail('')
     } else {
       toast.error(data.message)
     }
@@ -28,27 +26,48 @@ const {userDetail , setUserDetail} = useAppContext()
 
   return (
     <Dropdown placement='bottom-start'>
-      <DropdownTrigger >
-      <User
-      avatarProps={{
-        src:userDetail.avatar
-      }}
-      description={userDetail?.email}
-      name={userDetail?.name}
-      />
-        {/* <Avatar className="cursor-pointer" src={userDetail?.avatar ? userDetail?.avatar : "https://placehold.net/avatar-5.svg"} /> */}
+      <DropdownTrigger>
+        <div className='flex items-center gap-2'>
+          <img
+            src={
+              userDetail?.avatar
+                ? userDetail?.avatar
+                : 'https://placehold.net/avatar-5.svg'
+            }
+            alt=''
+            className='w-12 h-12 rounded-full'
+          />
+          <div className='flex flex-col gap-2'>
+            <div className='flex items-center justify-between'>
+            <h1 className='text-xl'>{userDetail?.name}</h1>
+            {
+              userDetail?.role === 'Admin' ? (
+                <Chip size="sm" color='primary'>{userDetai?.role}</Chip>
+              ):(
+                <Chip size="sm" color='danger'>{userDetai?.role}</Chip>
+              )
+            }
+           
+            </div>
+            
+            <p className='text-xs text-gray-200'>{userDetail?.email}</p>
+          </div>
+        </div>
+
       </DropdownTrigger>
       <DropdownMenu aria-label='User Actions' variant='flat'>
         <DropdownItem key='profile' className='h-14 gap-2'>
           <p className='font-bold'>Signed in as</p>
           <p className='font-bold'>{userDetail?.name}</p>
         </DropdownItem>
-        <DropdownItem key='profile'><Link href='/profile'>Profile</Link></DropdownItem>
-        {
-          userDetail?.role === 'Admin' && (
-            <DropdownItem key='dashboard'><Link href='/admin/dashboard'>Dashboard</Link></DropdownItem>
-          )
-        }
+        <DropdownItem key='profile'>
+          <Link href='/profile'>Profile</Link>
+        </DropdownItem>
+        {userDetail?.role === 'Admin' && (
+          <DropdownItem key='dashboard'>
+            <Link href='/admin/dashboard'>Dashboard</Link>
+          </DropdownItem>
+        )}
         <DropdownItem key='orders'>Orders</DropdownItem>
         <DropdownItem key='analytics'>Analytics</DropdownItem>
         <DropdownItem key='system'>System</DropdownItem>

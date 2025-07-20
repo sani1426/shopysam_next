@@ -30,7 +30,7 @@ const AdminSidebar = () => {
             <DrawerHeader className=' '>
               <div className='flex items-center gap-2'>
                 <img
-                  src={userDetail?.avatar}
+                  src={userDetail?.avatar ? userDetail?.avatar : "https://placehold.net/avatar-5.svg"}
                   alt=''
                   className='w-18 h-18 rounded-full'
                 />

@@ -7,6 +7,7 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerFooter,
+  User
 } from '@heroui/react'
 import Link from 'next/link'
 
@@ -26,13 +27,14 @@ const AdminSidebar = () => {
       >
         <DrawerContent>
           <>
-            <DrawerHeader className='flex flex-col gap-1 border-b-2 py-8'>
-              <Link
-                href='/'
-                className='font-bold text-3xl bg-gradient-to-r from-blue-600  via-red-600 to-orange-600 bg-clip-text text-transparent '
-              >
-                Shopysam
-              </Link>
+            <DrawerHeader className=' '>
+            <User
+      avatarProps={{
+        src:userDetail.avatar
+      }}
+      description={userDetail?.email}
+      name={userDetail?.name}
+      />
             </DrawerHeader>
 
             <DrawerBody className='mt-12'>
@@ -43,30 +45,14 @@ const AdminSidebar = () => {
                     key={item?.id}
                     href={item?.path}
                   >
-                    <span className='text-4xl'>{item?.icon}</span>
-                    <span className='text-xl'>{item?.label}</span>
+                    <span className='text-2xl'>{item?.icon}</span>
+                    <span className='text-lg'>{item?.label}</span>
                   </Link>
                 )
               })}
             </DrawerBody>
             <DrawerFooter className='flex items-center overflow-hidden '>
-              {userDetail && (
-                <div className='w-full  flex items-center gap-2 absolute bottom-5 pl-10 overflow-hidden border-t-2 pt-4'>
-                  <img
-                    className='w-16 h-16'
-                    src={
-                      userDetail?.avatar
-                        ? userDetail?.avatar
-                        : 'https://placehold.net/avatar-5.svg'
-                    }
-                    alt=''
-                  />
-                  <div>
-                    <h1 className='text-xl'>{userDetail?.name}</h1>
-                    <h2 className='text-sm'>{userDetail?.email}</h2>
-                  </div>
-                </div>
-              )}
+            
             </DrawerFooter>
           </>
         </DrawerContent>

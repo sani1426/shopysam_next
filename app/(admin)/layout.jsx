@@ -5,7 +5,7 @@ import AdminHeader from "@/components/admin/adminHeader"
 const layout = ({ children }) => {
   return (
     <main>
-      <AdminHeader />
+      {/* <AdminHeader /> */}
       {/* <AdminSidebar /> */}
         {children}
     </main>

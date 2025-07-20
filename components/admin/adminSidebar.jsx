@@ -30,7 +30,7 @@ const AdminSidebar = () => {
             <DrawerHeader className=' '>
             <User
       avatarProps={{
-        src:userDetail.avatar
+        src:userDetail?.avatar
       }}
       description={userDetail?.email}
       name={userDetail?.name}

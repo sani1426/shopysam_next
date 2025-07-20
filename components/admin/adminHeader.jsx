@@ -1,6 +1,7 @@
+"use client"
+
 import {Navbar ,NavbarContent,NavbarItem} from '@heroui/react'
 import Link from 'next/link'
-
 import { RiMenu5Fill } from 'react-icons/ri'
 
 const AdminHeader = () => {

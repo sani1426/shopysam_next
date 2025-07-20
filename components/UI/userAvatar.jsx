@@ -42,9 +42,9 @@ export default function UserAvatar() {
             <h1 className='text-xl'>{userDetail?.name}</h1>
             {
               userDetail?.role === 'Admin' ? (
-                <Chip size="sm" color='primary'>{userDetai?.role}</Chip>
+                <Chip size="sm" color='primary'>{userDetail?.role}</Chip>
               ):(
-                <Chip size="sm" color='danger'>{userDetai?.role}</Chip>
+                <Chip size="sm" color='danger'>{userDetail?.role}</Chip>
               )
             }
            

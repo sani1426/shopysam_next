@@ -1,12 +1,12 @@
 import AdminHeader from "@/components/admin/adminHeader"
-// import AdminSidebar from "@/components/admin/adminSidebar"
+import AdminSidebar from "@/components/admin/adminSidebar"
 
 
 const layout = ({ children }) => {
   return (
     <main>
       {/* <AdminHeader /> */}
-      {/* <AdminSidebar /> */}
+      <AdminSidebar />
         {children}
     </main>
   )

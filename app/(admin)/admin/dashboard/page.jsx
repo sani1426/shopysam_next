@@ -10,10 +10,10 @@ const page = () => {
   <div>
      <div className='w-20 h-20 bg-red-500 flex items-center justify-center rounded-full overflow-hidden drop-shadow-sm'>
             {
-                userDetail.avatar ? (
+                userDetail?.avatar ? (
                     <img 
-                      alt={userDetail.name}
-                      src={userDetail.avatar}
+                      alt={userDetail?.name}
+                      src={userDetail?.avatar}
                       className='w-full h-full'
                     />
                 ) : (

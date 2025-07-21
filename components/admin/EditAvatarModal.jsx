@@ -11,6 +11,7 @@ import {
 } from '@heroui/react'
 import axios from 'axios'
 import { useState } from 'react'
+import { FaRegUserCircle } from 'react-icons/fa'
 
 const EditAvatarModal = ({user}) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()

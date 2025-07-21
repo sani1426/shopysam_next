@@ -31,7 +31,7 @@ const EditAvatarModal = ({user}) => {
       console.log(file)
       let formData = new FormData()
       formData.append('avatar',file)
-
+      console.log(formData)
 
       try {
         setLoading(true)

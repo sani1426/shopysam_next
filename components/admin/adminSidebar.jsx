@@ -12,7 +12,7 @@ const AdminSidebar = () => {
     <div className='fixed left-0 w-[300px] h-full shadow-xl py-4 pl-3'>
        <div className='font-semibold'>My Account</div>
         <div className='text-sm flex items-center gap-2'>
-          <span className='max-w-52 text-ellipsis line-clamp-1'>{userDetail.name} <span className='text-medium text-red-600'>{userDetail.role === "Admin" ? "(Admin)" : "(user)" }</span></span>
+          <span className='max-w-52 text-ellipsis line-clamp-1'>{userDetail?.name} <span className='text-medium text-red-600'>{userDetail?.role === "Admin" ? "(Admin)" : "(user)" }</span></span>
           <Link  href={"/dashboard/profile"} className='hover:text-primary-200'>
             <HiOutlineExternalLink size={15}/>
           </Link>
@@ -27,7 +27,7 @@ const AdminSidebar = () => {
         <Divider className='my-6' />
         <div className='text-sm grid gap-1'>
         {
-          userDetail.role === 'User' && (
+          userDetail?.role !== 'User' && (
             <>
             <Link  href="/dashboard/category" className='px-2 hover:bg-orange-200 py-1'>Category</Link>
 

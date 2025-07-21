@@ -1,7 +1,7 @@
 import SummaryApi from '@/common';
 import React, { useState } from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
-import { IoClose } from "react-icons/io5";
+import { Modal,ModalBody , ModalContent } from '@heroui/react';
 
 const UserProfileAvatarEdit = ({close}) => {
     const [loading,setLoading] = useState(false)
@@ -28,11 +28,9 @@ const UserProfileAvatarEdit = ({close}) => {
             )
         }
   return (
-    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-900 bg-opacity-60 p-4 flex items-center justify-center'>
-        <div className='bg-white max-w-sm w-full rounded p-4 flex flex-col items-center justify-center'>
-            <button onClick={close} className='text-neutral-800 w-fit block ml-auto'>
-                <IoClose size={20}/>
-            </button>
+  
+        <>
+      
             <div className='w-20 h-20 bg-red-500 flex items-center justify-center rounded-full overflow-hidden drop-shadow-sm'>
                 {
                     user.avatar ? (
@@ -57,8 +55,8 @@ const UserProfileAvatarEdit = ({close}) => {
                 </label>
             </form>
             
-        </div>
-    </section>
+        </>
+
   )
 }
 

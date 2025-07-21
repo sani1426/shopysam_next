@@ -4,10 +4,10 @@ import AdminSidebar from "@/components/admin/adminSidebar"
 
 const layout = ({ children }) => {
   return (
-    <main className="grid grid-cols-2">
+    <main className="">
    
       <AdminSidebar />
-      <div>
+      <div className="lg:ml-[300px]">
       {children}
       </div>
 

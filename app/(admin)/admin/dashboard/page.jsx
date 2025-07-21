@@ -1,5 +1,5 @@
 "use client"
-import UserProfileAvatarEdit from '@/components/admin/userProfileAvatarEdit'
+import EditAvatarModal from '@/components/admin/EditAvatarModal'
 import { useAppContext } from '@/context/appContext'
 import React from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
@@ -21,7 +21,7 @@ const page = () => {
                 )
             }
         </div>
-        <UserProfileAvatarEdit  user={userDetail}/>
+        <EditAvatarModal  user={userDetail}/>
   </div>
   )
 }

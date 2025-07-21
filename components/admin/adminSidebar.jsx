@@ -29,13 +29,13 @@ const AdminSidebar = () => {
         {
           userDetail?.role === 'User' && (
             <>
-            <Link  href={"/dashboard/category"} className='px-2 hover:bg-orange-200 py-1'>Category</Link>
+            <Link  href="/dashboard/category" className='px-2 hover:bg-orange-200 py-1'>Category</Link>
 
-            <Link href={"/dashboard/subcategory"} className='px-2 hover:bg-orange-200 py-1'>Sub Category</Link>
+            <Link href="/dashboard/subcategory" className='px-2 hover:bg-orange-200 py-1'>Sub Category</Link>
         
-            <Link  href={"/dashboard/upload-product"} className='px-2 hover:bg-orange-200 py-1'>Upload Product</Link>
+            <Link  href="/dashboard/upload-product" className='px-2 hover:bg-orange-200 py-1'>Upload Product</Link>
 
-            <Link  href={"/dashboard/product"} className='px-2 hover:bg-orange-200 py-1'>Product</Link>
+            <Link  href="/dashboard/product" className='px-2 hover:bg-orange-200 py-1'>Product</Link>
             </>
 
           )

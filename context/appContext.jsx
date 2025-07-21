@@ -1,5 +1,6 @@
 "use client"
 
+import SummaryApi from '@/common'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 
@@ -10,7 +11,17 @@ export const AppContextProvider = ({ children }) => {
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
   const [userDetail, setUserDetail] = useState()
-
+  const fetchUserDetails = async () => {
+    const response = await fetch(SummaryApi.userDetails.url ,{
+      credentials :'include'
+    })
+    const data = await response.json()
+    setUserDetail(data?.data)
+  }
+  useEffect(() => {
+    fetchUserDetails()
+ 
+  }, [])
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')

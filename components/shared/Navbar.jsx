@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useAppContext } from '@/context/appContext'
 import { Input } from '@heroui/react'
 import { CiSearch } from 'react-icons/ci'
@@ -12,16 +12,15 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import SummaryApi from '@/common'
 
-
 const Navbar = () => {
-  const {userDetail,setDigitals, setClothes} = useAppContext()
+  const { userDetail, setDigitals, setClothes } = useAppContext()
   const fetchDigitalCategories = async () => {
     const { data } = await axios.get(SummaryApi.getDigitalsCategory.url)
     const responseData = await axios.get(SummaryApi.getClothCategory.url)
     setDigitals(data?.data)
     setClothes(responseData?.data?.data)
   }
- 
+
   useEffect(() => {
     fetchDigitalCategories()
     console.log(userDetail)
@@ -29,7 +28,6 @@ const Navbar = () => {
 
   return (
     <nav className='w-full flex flex-col fixed nav-clr shadow lg:top-8  py-6 px-3  lg:px-12  z-50 dark:shadow-gray-600'>
-      
       <div className='flex items-center justify-between w-full gap-6'>
         <div className='flex items-center gap-6'>
           <SidebarMenu />
@@ -64,7 +62,7 @@ const Navbar = () => {
           <Toggle />
           <CartSidebar />
           {userDetail ? (
-            <UserAvatar  />
+            <UserAvatar />
           ) : (
             <Link href='/login' className='text-3xl'>
               <PiUser />
@@ -72,10 +70,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-
     </nav>
-  
-
   )
 }
 

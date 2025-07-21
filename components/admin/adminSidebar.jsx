@@ -1,65 +1,24 @@
 'use client'
 import { adminSidebarMenuItems } from '@/constance'
 import { useAppContext } from '@/context/appContext'
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  User,
-} from '@heroui/react'
+import { Divider } from '@heroui/react'
 import Link from 'next/link'
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const AdminSidebar = () => {
   const { userDetail, setUserDetail } = useAppContext()
 
   return (
-    <>
-      <Drawer
-        isDismissable='false'
-        hideCloseButton='true'
-        placement='left'
-        defaultOpen='true'
-        backdrop='transparent'
-        size='xs'
-        className=' '
-      >
-        <DrawerContent>
-          <>
-            <DrawerHeader className=' '>
-              <div className='flex items-center gap-2'>
-                <img
-                  src={userDetail?.avatar ? userDetail?.avatar : "https://placehold.net/avatar-5.svg"}
-                  alt=''
-                  className='w-18 h-18 rounded-full'
-                />
-                <div className='flex flex-col gap-2'>
-                  <h1 className='text-xl'>{userDetail?.name}</h1>
-                  <p className='text-sx text-gray-200'>{userDetail?.email}</p>
-                </div>
-              </div>
-            </DrawerHeader>
-
-            <DrawerBody className='mt-12'>
-              {adminSidebarMenuItems.map((item) => {
-                return (
-                  <Link
-                    className='flex items-center gap-2 w-full py-2 hover:bg-gray-200 pl-1 rounded-lg transition-all'
-                    key={item?.id}
-                    href={item?.path}
-                  >
-                    <span className='text-2xl'>{item?.icon}</span>
-                    <span className='text-lg'>{item?.label}</span>
-                  </Link>
-                )
-              })}
-            </DrawerBody>
-            <DrawerFooter className='flex items-center overflow-hidden '></DrawerFooter>
-          </>
-        </DrawerContent>
-      </Drawer>
-    </>
+    <div className='fixed left-0 w-[250px] h-full shadow-xl '>
+       <div className='font-semibold'>My Account</div>
+        <div className='text-sm flex items-center gap-2'>
+          <span className='max-w-52 text-ellipsis line-clamp-1'>{user.name || user.mobile} <span className='text-medium text-red-600'>{user.role === "ADMIN" ? "(Admin)" : "" }</span></span>
+          <Link  href={"/dashboard/profile"} className='hover:text-primary-200'>
+            <HiOutlineExternalLink size={15}/>
+          </Link>
+        </div>
+        <Divider className='my-4' />
+    </div>
   )
 }
 

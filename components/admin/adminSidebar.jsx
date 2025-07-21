@@ -22,8 +22,26 @@ const AdminSidebar = () => {
         <ul className='flex flex-col gap-2 w-full'>
           <li><Link href="">My Orders</Link></li>
           <li><Link href="">Save Address</Link></li>
-          <li><Link href="">Logout</Link></li>
+          <li><button >Logout</button></li>
         </ul>
+        <Divider className='my-6' />
+        <div className='text-sm grid gap-1'>
+        {
+          userDetail?.role === 'User' && (
+            <>
+            <Link  href={"/dashboard/category"} className='px-2 hover:bg-orange-200 py-1'>Category</Link>
+
+            <Link href={"/dashboard/subcategory"} className='px-2 hover:bg-orange-200 py-1'>Sub Category</Link>
+        
+            <Link  href={"/dashboard/upload-product"} className='px-2 hover:bg-orange-200 py-1'>Upload Product</Link>
+
+            <Link  href={"/dashboard/product"} className='px-2 hover:bg-orange-200 py-1'>Product</Link>
+            </>
+
+          )
+        }
+      
+          </div>
     </div>
   )
 }

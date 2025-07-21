@@ -12,6 +12,7 @@ import {
 import axios from 'axios'
 import { useState } from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
+import { toast } from 'sonner'
 
 const EditAvatarModal = ({user}) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
@@ -32,14 +33,21 @@ const EditAvatarModal = ({user}) => {
       formData.append('avatar',file)
 
 
-          setLoading(true)
-          const response = await axios.put(SummaryApi.uploadAvatar ,{
-              formData
+      try {
+        setLoading(true)
+        const response = await axios.put(SummaryApi.uploadAvatar,{
+            data : formData
+        },{withCredentials:true})
+
+    } catch (error) {
+        toast.error(error)
+    } finally{
+        setLoading(false)
+    }
           }
-          )}
   return (
     <>
-      <Button onPress={onOpen}>Change Avatar</Button>
+      <Button variant='bordered' color='warning' onPress={onOpen}>Change Avatar</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (

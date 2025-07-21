@@ -9,7 +9,7 @@ const page = () => {
   useEffect(()=>{console.log(userDetail)},[])
   return (
   <div className='p-8'>
-     <div className='w-20 h-20  flex items-center justify-center rounded-full overflow-hidden drop-shadow-sm'>
+     <div className='w-20 h-20  flex items-center justify-center rounded-full overflow-hidden drop-shadow-sm my-4'>
             {
                 userDetail?.avatar ? (
                     <img 
@@ -22,7 +22,10 @@ const page = () => {
                 )
             }
         </div>
+        <div className=''>
+
         <EditAvatarModal  user={userDetail}/>
+        </div>
   </div>
   )
 }

@@ -61,7 +61,7 @@ const EditAvatarModal = ({user}) => {
                 </div>
                 <form onSubmit={handleSubmit}>
                   <label htmlFor='uploadProfile'>
-                    <div className='border border-primary-200 cursor-pointer hover:bg-primary-200 px-4 py-1 rounded text-sm my-3'>
+                    <div className='border border-orange-500 cursor-pointer hover:bg-orange-500 px-4 py-2 rounded-lg text-sm my-3'>
                       {loading ? 'Loading...' : 'Upload'}
                     </div>
                     <input

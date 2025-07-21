@@ -28,15 +28,15 @@ const EditAvatarModal = ({user}) => {
       if(!file){
           return
       }
-
-      const formData = new FormData()
+      console.log(file)
+      let formData = new FormData()
       formData.append('avatar',file)
 
 
       try {
         setLoading(true)
-        const response = await axios.put(SummaryApi.uploadAvatar,{
-            data : formData
+        const {data} = await axios.put(SummaryApi.uploadAvatar,{
+        formData
         },{withCredentials:true})
 
     } catch (error) {

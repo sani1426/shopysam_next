@@ -20,9 +20,9 @@ const AdminSidebar = () => {
         <Divider className='my-4' />
 
         <ul className='flex flex-col gap-2 w-full'>
-          <li><Link>My Orders</Link></li>
-          <li><Link>Save Address</Link></li>
-          <li><Link>Logout</Link></li>
+          <li><Link href="">My Orders</Link></li>
+          <li><Link href="">Save Address</Link></li>
+          <li><Link href="">Logout</Link></li>
         </ul>
     </div>
   )

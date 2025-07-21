@@ -1,13 +1,16 @@
-// import AdminHeader from "@/components/admin/adminHeader"
+
 import AdminSidebar from "@/components/admin/adminSidebar"
 
 
 const layout = ({ children }) => {
   return (
-    <main>
-      {/* <AdminHeader /> */}
+    <main className="grid grid-cols-2">
+   
       <AdminSidebar />
-        {children}
+      <div>
+      {children}
+      </div>
+
     </main>
   )
 }

@@ -41,14 +41,16 @@ const EditAvatarModal = ({ user }) => {
       const { data } = await axios.post(
         SummaryApi.uploadAvatar.url,
         {
-          body: JSON.stringify({ avatar: base64EncodedImage }),
+          body: JSON.stringify({ data: base64EncodedImage }),
         },
         { withCredentials: true }
       )
       if (data?.success) {
         toast.success(data?.message)
+        console.log(data)
       } else {
         toast.error(data.message)
+        console.log(data)
       }
     } catch (error) {
       console.log(error)

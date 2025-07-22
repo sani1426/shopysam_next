@@ -29,11 +29,12 @@ const EditAvatarModal = ({user}) => {
   const handleOnChange = (e) => {
     const file = e.target.files[0]
     PreviewFile(file)
+
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!selectedFile) return ;
+    if (!previewImage) return ;
     uploadImage(PreviewFile)
   }
   const uploadImage = (base64EncodedImage) => {

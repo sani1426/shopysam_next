@@ -11,6 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
   const [userDetail, setUserDetail] = useState()
+  const [dashboardOpen, setDashboardOpen] = useState(true)
   const fetchUserDetails = async () => {
     const response = await fetch(SummaryApi.userDetails.url ,{
       credentials :'include'
@@ -38,7 +39,7 @@ export const AppContextProvider = ({ children }) => {
   }, [theme])
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail  }}>
+    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail ,dashboardOpen, setDashboardOpen }}>
       {children}
     </AppContext.Provider>
   )

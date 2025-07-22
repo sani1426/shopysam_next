@@ -3,9 +3,10 @@
 import Link from 'next/link'
 import './admin.css'
 import { useEffect } from 'react'
+import { useAppContext } from '@/context/appContext'
 
 const AdminSide = () => {
-
+const {dashboardOpen, setDashboardOpen}=useAppContext()
   useEffect(()=>{
 	let list = document.querySelectorAll(".navigation li");
 
@@ -19,7 +20,7 @@ const AdminSide = () => {
 	list.forEach((item) => item.addEventListener("mouseover", activeLink));
   },[])
   return (
-	<div class="navigation">
+	<div class={`navigation ${dashboardOpen && "active"}`}>
 	<ul>
 	    <li>
 		<a href="#">

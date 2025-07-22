@@ -1,31 +1,19 @@
 "use client"
-import EditAvatarModal from '@/components/admin/EditAvatarModal'
+import AdminCards from '@/components/admin/adminCards'
+import AdminNav from '@/components/admin/adminNav'
+import AdminOrderDetails from '@/components/admin/adminOrderDetails'
 import { useAppContext } from '@/context/appContext'
-import React, { useEffect } from 'react'
-import { FaRegUserCircle } from 'react-icons/fa'
+import '@/components/admin/admin.css'
+
 
 const page = () => {
-  const { userDetail, setUserDetail } = useAppContext()
+  const { dashboardOpen, setDashboardOpen } = useAppContext()
   useEffect(()=>{console.log(userDetail)},[])
   return (
-  <div className='p-8'>
-     <div className='w-20 h-20  flex items-center justify-center rounded-full overflow-hidden drop-shadow-sm my-4'>
-            {
-                userDetail?.avatar ? (
-                    <img 
-                      alt={userDetail?.name}
-                      src={userDetail?.avatar}
-                      className='w-full h-full'
-                    />
-                ) : (
-                    <FaRegUserCircle size={65}/>
-                )
-            }
-        </div>
-        <div className=''>
-
-        <EditAvatarModal  user={userDetail}/>
-        </div>
+    <div class={`main ${dashboardOpen && "active"}`}>
+    <AdminNav />
+    <AdminCards />
+    <AdminOrderDetails />
   </div>
   )
 }

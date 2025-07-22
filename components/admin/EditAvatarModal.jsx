@@ -16,35 +16,29 @@ import { toast } from 'sonner'
 
 const EditAvatarModal = ({user}) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const [loading,setLoading] = useState(false)
-
-  const handleSubmit = (e)=>{
-      e.preventDefault()
+  const [imageFile , setImageFile]=useState('')
+  const [selectedFile , setSelectedFile]=useState('')
+  const [previewImage , setPreviewImage]= useState()
+  const PreviewFile = (file) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onloadend = ()=> {
+      setPreviewImage(reader.result)
+    }
+  }
+  const handleOnChange = (e) => {
+    const file = e.target.files[0]
+    PreviewFile(file)
   }
 
-  const handleUploadAvatarImage = async(e)=>{
-      const file = e.target.files[0]
-
-      if(!file){
-          return
-      }
-      console.log(file)
-      let formData = new FormData()
-      formData.append('avatar',file)
-      console.log(formData)
-
-      try {
-        setLoading(true)
-        const {data} = await axios.put(SummaryApi.uploadAvatar,{
-        formData
-        },{withCredentials:true})
-
-    } catch (error) {
-        toast.error(error)
-    } finally{
-        setLoading(false)
-    }
-          }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!selectedFile) return ;
+    uploadImage(PreviewFile)
+  }
+  const uploadImage = (base64EncodedImage) => {
+    console.log(base64EncodedImage)
+  }
   return (
     <>
       <Button variant='bordered' color='warning' onPress={onOpen}>Change Avatar</Button>
@@ -70,25 +64,33 @@ const EditAvatarModal = ({user}) => {
                 <form onSubmit={handleSubmit}>
                   <label htmlFor='uploadProfile'>
                     <div className='border border-orange-500 cursor-pointer hover:bg-orange-500 px-4 py-2 rounded-lg text-sm my-3'>
-                      {loading ? 'Loading...' : 'Upload'}
+                    upload Avatar
                     </div>
                     <input
-                      onChange={handleUploadAvatarImage}
+                    name='image'
+                    value={imageFile}
+                      onChange={handleOnChange}
                       type='file'
                       id='uploadProfile'
                       className='hidden'
                     />
                   </label>
+                  <button>Submit</button>
                 </form>
+                {
+                  previewImage && (
+                    <img src={previewImage} alt="" className='w-36 h-36 rounded-full'  />
+                  )
+                }
               </ModalBody>
-              <ModalFooter>
+              {/* <ModalFooter>
                 <Button color='danger' variant='light' onPress={onClose}>
                   Close
                 </Button>
                 <Button color='primary' onPress={onClose}>
                   Action
                 </Button>
-              </ModalFooter>
+              </ModalFooter> */}
             </>
           )}
         </ModalContent>

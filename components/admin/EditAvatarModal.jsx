@@ -16,8 +16,7 @@ import { toast } from 'sonner'
 
 const EditAvatarModal = ({ user }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const [imageFile, setImageFile] = useState('')
-  const [selectedFile, setSelectedFile] = useState('')
+  const [file, setFile] = useState('')
   const [previewImage, setPreviewImage] = useState()
   const PreviewFile = (file) => {
     const reader = new FileReader()
@@ -28,6 +27,7 @@ const EditAvatarModal = ({ user }) => {
   }
   const handleOnChange = (e) => {
     const file = e.target.files[0]
+    setFile(file)
     PreviewFile(file)
   }
 
@@ -36,12 +36,12 @@ const EditAvatarModal = ({ user }) => {
     if (!previewImage) return
     uploadImage(previewImage)
   }
-  const uploadImage = async (base64EncodedImage) => {
+  const uploadImage = async (image) => {
     try {
       const { data } = await axios.post(
         SummaryApi.uploadAvatar.url,
         {
-          body: JSON.stringify({ data: base64EncodedImage }),
+          image : image
         },
         { withCredentials: true }
       )

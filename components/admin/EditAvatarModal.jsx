@@ -36,8 +36,24 @@ const EditAvatarModal = ({ user }) => {
     if (!previewImage) return
     uploadImage(previewImage)
   }
-  const uploadImage = (base64EncodedImage) => {
-    console.log(base64EncodedImage)
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      const { data } = await axios.post(
+        SummaryApi.uploadAvatar.url,
+        {
+          body: JSON.stringify({ avatar: base64EncodedImage }),
+        },
+        { withCredentials: true }
+      )
+      if (data?.success) {
+        toast.success(data?.message)
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error(error)
+    }
   }
   return (
     <>

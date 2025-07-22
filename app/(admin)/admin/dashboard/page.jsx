@@ -7,8 +7,8 @@ import '@/components/admin/admin.css'
 
 
 const page = () => {
-  const { dashboardOpen, setDashboardOpen } = useAppContext()
-  useEffect(()=>{console.log(userDetail)},[])
+  const { dashboardOpen } = useAppContext()
+
   return (
     <div class={`main ${dashboardOpen && "active"}`}>
     <AdminNav />

@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { useAppContext } from '@/context/appContext'
 
 const AdminSide = () => {
-const {dashboardOpen, setDashboardOpen}=useAppContext()
+const {dashboardOpen}=useAppContext()
   useEffect(()=>{
 	let list = document.querySelectorAll(".navigation li");
 

@@ -14,35 +14,36 @@ import { useState } from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
 import { toast } from 'sonner'
 
-const EditAvatarModal = ({user}) => {
+const EditAvatarModal = ({ user }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const [imageFile , setImageFile]=useState('')
-  const [selectedFile , setSelectedFile]=useState('')
-  const [previewImage , setPreviewImage]= useState()
+  const [imageFile, setImageFile] = useState('')
+  const [selectedFile, setSelectedFile] = useState('')
+  const [previewImage, setPreviewImage] = useState()
   const PreviewFile = (file) => {
     const reader = new FileReader()
     reader.readAsDataURL(file)
-    reader.onloadend = ()=> {
+    reader.onloadend = () => {
       setPreviewImage(reader.result)
     }
   }
   const handleOnChange = (e) => {
     const file = e.target.files[0]
     PreviewFile(file)
-
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!previewImage) return ;
-    uploadImage(PreviewFile)
+    if (!previewImage) return
+    uploadImage(previewImage)
   }
   const uploadImage = (base64EncodedImage) => {
     console.log(base64EncodedImage)
   }
   return (
     <>
-      <Button variant='bordered' color='warning' onPress={onOpen}>Change Avatar</Button>
+      <Button variant='bordered' color='warning' onPress={onOpen}>
+        Change Avatar
+      </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
@@ -65,11 +66,11 @@ const EditAvatarModal = ({user}) => {
                 <form onSubmit={handleSubmit}>
                   <label htmlFor='uploadProfile'>
                     <div className='border border-orange-500 cursor-pointer hover:bg-orange-500 px-4 py-2 rounded-lg text-sm my-3'>
-                    upload Avatar
+                      upload Avatar
                     </div>
                     <input
-                    name='image'
-                    value={imageFile}
+                      name='image'
+                      value={imageFile}
                       onChange={handleOnChange}
                       type='file'
                       id='uploadProfile'
@@ -78,11 +79,13 @@ const EditAvatarModal = ({user}) => {
                   </label>
                   <button>Submit</button>
                 </form>
-                {
-                  previewImage && (
-                    <img src={previewImage} alt="" className='w-36 h-36 rounded-full'  />
-                  )
-                }
+                {previewImage && (
+                  <img
+                    src={previewImage}
+                    alt=''
+                    className='w-36 h-36 rounded-full'
+                  />
+                )}
               </ModalBody>
               {/* <ModalFooter>
                 <Button color='danger' variant='light' onPress={onClose}>

@@ -1,16 +1,17 @@
-
-import AdminSidebar from "@/components/admin/adminSidebar"
-
+import AdminCards from '@/components/admin/adminCards'
+import AdminNav from '@/components/admin/adminNav'
+import AdminOrderDetails from '@/components/admin/adminOrderDetails'
+import AdminSide from '@/components/admin/adminSide'
 
 const layout = ({ children }) => {
   return (
-    <main className="">
-   
-      <AdminSidebar />
-      <div className="lg:ml-[300px]">
-      {children}
+    <main className='relative w-full'>
+      <AdminSide />
+      <div class='main'>
+        <AdminNav />
+        <AdminCards />
+        <AdminOrderDetails />
       </div>
-
     </main>
   )
 }

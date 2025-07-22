@@ -1,8 +1,65 @@
+"use client"
+
 import AdminNav from '@/components/admin/adminNav'
 import AdminSide from '@/components/admin/adminSide'
-import React from 'react'
+import React, { useEffect } from 'react'
 import '@/components/admin/admin.css'
 const page = () => {
+  useEffect(()=>{
+    const allMenu = document.querySelectorAll(' .head .menu');
+
+allMenu.forEach(item=> {
+	const icon = item.querySelector('.icon');
+	const menuLink = item.querySelector('.menu-link');
+
+	icon.addEventListener('click', function () {
+		menuLink.classList.toggle('show');
+	})
+})
+const allProgress = document.querySelectorAll('main .card .progress');
+
+allProgress.forEach(item=> {
+	item.style.setProperty('--value', item.dataset.value)
+})
+
+
+
+
+
+
+// APEXCHART
+var options = {
+  series: [{
+  name: 'series1',
+  data: [31, 40, 28, 51, 42, 109, 100]
+}, {
+  name: 'series2',
+  data: [11, 32, 45, 32, 34, 52, 41]
+}],
+  chart: {
+  height: 350,
+  type: 'area'
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  curve: 'smooth'
+},
+xaxis: {
+  type: 'datetime',
+  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+},
+tooltip: {
+  x: {
+    format: 'dd/MM/yy HH:mm'
+  },
+},
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
+  },[])
   return (
     <>
     <AdminSide />

@@ -88,7 +88,7 @@ const EditAvatarModal = ({ user }) => {
                     </div>
                     <input
                       name='image'
-                      value={imageFile}
+                      value={file}
                       onChange={handleOnChange}
                       type='file'
                       id='uploadProfile'

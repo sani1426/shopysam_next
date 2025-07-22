@@ -17,10 +17,6 @@ const SummaryApi = {
     url: `${Base_Url}/api/auth/details`,
     method: 'get',
   },
-  uploadAvatar: {
-    url: `${Base_Url}/api/auth/upload-avatar`,
-    method: 'put',
-  },
   forgotPassword: {
     url: `${Base_Url}/api/auth/forgot-password`,
     method: 'put',

@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect } from 'react'
 import { RiMenu5Fill } from 'react-icons/ri'
 import { CiSearch } from 'react-icons/ci'

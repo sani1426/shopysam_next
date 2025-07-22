@@ -12,13 +12,13 @@ const AdminNav = () => {
   return (
 	<div class="topbar">
 	<div class="toggle">
-	    <ion-icon name="menu-outline"></ion-icon>
+	    <RiMenu5Fill />
 	</div>
 
 	<div class="search">
 	    <label>
 		<input type="text" placeholder="Search here" />
-		<ion-icon name="search-outline"></ion-icon>
+		<CiSearch />
 	    </label>
 	</div>
 

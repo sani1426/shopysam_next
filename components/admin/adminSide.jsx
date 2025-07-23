@@ -5,7 +5,7 @@ import './admin.css'
 import { useEffect } from 'react'
 import { useAppContext } from '@/context/appContext'
 import { IoLogoApple } from "react-icons/io5";
-import { FaClipboardCheck } from "react-icons/fa";
+import { IoCheckboxOutline } from "react-icons/io5";
 import { IoPeopleOutline } from "react-icons/io5";
 import { AiFillProduct } from "react-icons/ai";
 import { IoHelpOutline } from "react-icons/io5";
@@ -60,7 +60,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/orders">
 		    <span className="icon">
-			<FaClipboardCheck   className='text-[1.75rem]'/>
+			<IoCheckboxOutline   className='text-[1.75rem]'/>
 		    </span>
 		    <span className="title">Orders</span>
 		</Link>

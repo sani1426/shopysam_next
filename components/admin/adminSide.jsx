@@ -5,11 +5,12 @@ import './admin.css'
 import { useEffect } from 'react'
 import { useAppContext } from '@/context/appContext'
 import { IoLogoApple } from "react-icons/io5";
-import { FaClipboardCheck, FaUser } from "react-icons/fa";
+import { FaClipboardCheck } from "react-icons/fa";
+import { IoPeopleOutline } from "react-icons/io5";
 import { AiFillProduct } from "react-icons/ai";
-import { BiSolidHelpCircle } from "react-icons/bi";
-import { IoSettings } from "react-icons/io5";
-import { RiLogoutBoxRFill } from "react-icons/ri";
+import { IoHelpOutline } from "react-icons/io5";
+import { IoSettingsOutline } from "react-icons/io5";
+import { IoLogInOutline } from "react-icons/io5";
 
 const AdminSide = () => {
 const {dashboardOpen}=useAppContext()
@@ -41,7 +42,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/users">
 		    <span className="icon">
-			<FaUser className='text-[1.75rem]' />
+			<IoPeopleOutline className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Customers</span>
 		</Link>
@@ -68,7 +69,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="#">
 		    <span className="icon">
-			<BiSolidHelpCircle  className='text-[1.75rem]' />
+			<IoHelpOutline  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Help</span>
 		</Link>
@@ -77,7 +78,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="#">
 		    <span className="icon">
-			<IoSettings  className='text-[1.75rem]' />
+			<IoSettingsOutline  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Settings</span>
 		</Link>
@@ -86,7 +87,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<button className='side-link' >
 		    <span className="icon">
-			<RiLogoutBoxRFill  className='text-[1.75rem]' />
+			<IoLogInOutline  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Sign Out</span>
 		</button>

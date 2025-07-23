@@ -47,9 +47,7 @@
       .navigation ul li .side-link {
 	position: relative;
 	width: 100%;
-	display: flex;
-	align-items: center !important;
-	justify-content: center !important;
+	display: block;
 	text-decoration: none;
 	color: var(--white);
       }

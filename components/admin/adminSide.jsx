@@ -5,7 +5,7 @@ import './admin.css'
 import { useEffect } from 'react'
 import { useAppContext } from '@/context/appContext'
 import { IoLogoApple } from "react-icons/io";
-import { FaUser } from "react-icons/fa";
+import { FaClipboardCheck, FaUser } from "react-icons/fa";
 import { AiFillProduct } from "react-icons/ai";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { IoSettings } from "react-icons/io5";

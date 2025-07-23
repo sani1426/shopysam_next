@@ -1,5 +1,7 @@
 'use client'
 import './admin.css'
+import { IoEyeSharp } from "react-icons/io5";
+import { IoCardOutline } from "react-icons/io5";
 
 const AdminCards = () => {
 
@@ -13,7 +15,7 @@ const AdminCards = () => {
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
+                        <IoEyeSharp />
                     </div>
                 </div>
 
@@ -24,7 +26,7 @@ const AdminCards = () => {
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
+                        <IoCardOutline />
                     </div>
                 </div>
 

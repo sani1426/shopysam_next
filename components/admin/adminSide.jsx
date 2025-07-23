@@ -29,16 +29,16 @@ const {dashboardOpen}=useAppContext()
 	<div className={`navigation ${dashboardOpen && "active"}`}>
 	<ul>
 	    <li>
-		<Link href="/">
+		<Link className='side-link' href="/">
 		    <span className="icon">
-			<IoLogoApple />
+			<IoLogoApple className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">ShopySam</span>
 		</Link>
 	    </li>
 
 	    <li>
-		<Link href="/admin/users">
+		<Link className='side-link'  href="/admin/users">
 		    <span className="icon">
 			<FaUser className='text-[1.75rem]' />
 		    </span>
@@ -47,7 +47,7 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
-		<Link href="/admin/products">
+		<Link className='side-link'  href="/admin/products">
 		    <span className="icon">
 			<AiFillProduct  className='text-[1.75rem]' />
 		    </span>
@@ -56,7 +56,7 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
-		<Link href="/admin/orders">
+		<Link className='side-link'  href="/admin/orders">
 		    <span className="icon">
 			<FaClipboardCheck   className='text-[1.75rem]'/>
 		    </span>
@@ -65,7 +65,7 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
-		<Link href="#">
+		<Link className='side-link'  href="#">
 		    <span className="icon">
 			<BiSolidHelpCircle  className='text-[1.75rem]' />
 		    </span>
@@ -74,7 +74,7 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
-		<Link href="#">
+		<Link className='side-link'  href="#">
 		    <span className="icon">
 			<IoSettings  className='text-[1.75rem]' />
 		    </span>
@@ -83,7 +83,7 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
-		<button className=''>
+		<button className='side-link' >
 		    <span className="icon">
 			<RiLogoutBoxRFill  className='text-[1.75rem]' />
 		    </span>

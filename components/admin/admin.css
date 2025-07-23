@@ -44,7 +44,7 @@
 	pointer-events: none;
       }
       
-      .navigation ul li a {
+      .navigation ul li .side-link {
 	position: relative;
 	display: block;
 	width: 100%;
@@ -52,12 +52,12 @@
 	text-decoration: none;
 	color: var(--white);
       }
-      .navigation ul li:hover a,
-      .navigation ul li.hovered a {
+      .navigation ul li:hover .side-link,
+      .navigation ul li.hovered .side-link {
 	color: var(--blue);
       }
       
-      .navigation ul li a .icon {
+      .navigation ul li .side-link .icon {
 	position: relative;
 	display: block;
 	min-width: 60px;
@@ -67,7 +67,7 @@
       }
    
       
-      .navigation ul li a .title {
+      .navigation ul li .side-link .title {
 	position: relative;
 	display: block;
 	padding: 0 10px;
@@ -78,8 +78,8 @@
       }
       
       /* --------- curve outside ---------- */
-      .navigation ul li:hover a::before,
-      .navigation ul li.hovered a::before {
+      .navigation ul li:hover .side-link::before,
+      .navigation ul li.hovered .side-link::before {
 	content: "";
 	position: absolute;
 	right: 0;
@@ -91,8 +91,8 @@
 	box-shadow: 35px 35px 0 10px var(--white);
 	pointer-events: none;
       }
-      .navigation ul li:hover a::after,
-      .navigation ul li.hovered a::after {
+      .navigation ul li:hover .side-link::after,
+      .navigation ul li.hovered .side-link::after {
 	content: "";
 	position: absolute;
 	right: 0;

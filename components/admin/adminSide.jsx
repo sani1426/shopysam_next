@@ -35,7 +35,7 @@ const {dashboardOpen}=useAppContext()
 			<IoLogoApple className='text-[1.75rem]' />
 		    </span>
 	
-		    <span className="relative block px-[10px] h-[60px] text-start whitespace-nowrap text-3xl">ShopySam</span>
+		    <span className="title relative block px-[10px] h-[60px] text-start whitespace-nowrap text-3xl">ShopySam</span>
 		</Link>
 	    </li>
 

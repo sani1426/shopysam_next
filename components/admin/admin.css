@@ -41,7 +41,7 @@
       
       .navigation ul li:nth-child(1) {
 	margin-bottom: 40px;
-	pointer-events: none;
+	margin-top: 10px;
       }
       
       .navigation ul li .side-link {

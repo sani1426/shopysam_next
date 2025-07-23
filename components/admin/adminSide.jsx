@@ -4,7 +4,7 @@ import Link from 'next/link'
 import './admin.css'
 import { useEffect } from 'react'
 import { useAppContext } from '@/context/appContext'
-import { IoLogoApple } from "react-icons/io";
+import { IoLogoApple } from "react-icons/io5";
 import { FaClipboardCheck, FaUser } from "react-icons/fa";
 import { AiFillProduct } from "react-icons/ai";
 import { BiSolidHelpCircle } from "react-icons/bi";
@@ -33,7 +33,8 @@ const {dashboardOpen}=useAppContext()
 		    <span className="icon">
 			<IoLogoApple className='text-[1.75rem]' />
 		    </span>
-		    <span className="title">ShopySam</span>
+	
+		    <span className="relative block px-[10px] h-[60px] text-start whitespace-nowrap text-3xl">ShopySam</span>
 		</Link>
 	    </li>
 

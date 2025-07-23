@@ -2,6 +2,8 @@
 import './admin.css'
 import { IoEyeSharp } from "react-icons/io5";
 import { IoCardOutline } from "react-icons/io5";
+import { IoPeople } from "react-icons/io5";
+import { IoCashOutline } from "react-icons/io5";
 
 const AdminCards = () => {
 
@@ -33,11 +35,11 @@ const AdminCards = () => {
                 <div class="card">
                     <div>
                         <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
+                        <div class="cardName">Customers</div>
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                        <IoPeople />
                     </div>
                 </div>
 
@@ -48,7 +50,7 @@ const AdminCards = () => {
                     </div>
 
                     <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
+                        <IoCashOutline />
                     </div>
                 </div>
             </div>

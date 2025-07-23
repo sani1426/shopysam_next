@@ -1,29 +1,27 @@
 'use client'
-import React, { useEffect } from 'react'
-import { RiMenu5Fill } from 'react-icons/ri'
+
+import { FiMenu } from "react-icons/fi";
 import { CiSearch } from 'react-icons/ci'
-import Link from 'next/link'
 import './admin.css'
 import { useAppContext } from '@/context/appContext'
 
 const AdminNav = () => {
-  const { dashboardOpen, setDashboardOpen } = useAppContext()
+  const { dashboardOpen, setDashboardOpen,userDetail } = useAppContext()
 
   return (
-    <div class='topbar'>
-      <div onClick={() => setDashboardOpen(!dashboardOpen)} class='toggle'>
-        <RiMenu5Fill />
+    <div className='topbar'>
+      <div onClick={() => setDashboardOpen(!dashboardOpen)} className='toggle'>
+        <FiMenu />
       </div>
-
-      <div class='search'>
+      <div className='search'>
         <label>
           <input type='text' placeholder='Search here' />
-          <CiSearch />
+          <CiSearch className='absolute top-0 left-[10px] text-[1.2rem]' />
         </label>
       </div>
 
-      <div class='user'>
-        <img src='assets/imgs/customer01.jpg' alt='' />
+      <div className='user'>
+        <img src={userDetail?.avatar} alt={userDetail?.name}/>
       </div>
     </div>
   )

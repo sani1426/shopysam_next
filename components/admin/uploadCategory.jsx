@@ -35,14 +35,14 @@ const UploadCategory = () => {
                 New Category
               </ModalHeader>
               <ModalBody>
-                <form className='my-3 grid gap-2' onSubmit={handleSubmit}>
+                <form className='my-3 grid gap-2 w-full' onSubmit={handleSubmit}>
                 <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
                   <Input
                     type='text'
                     size='lg'
                     labelPlacement='outside'
                     isRequired
-                    variant='fade'
+                    variant='flat'
                     color='primary'
                     label='Name'
                 //     value={formData.name}

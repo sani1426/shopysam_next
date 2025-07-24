@@ -24,7 +24,7 @@ const UploadCategory = () => {
   }
   return (
     <>
-      <button className='text-sm border border-orange-400 hover:bg-orange-400 px-3 py-1 rounded'>
+      <button onClick={onOpen} className='text-sm border border-[#2a2185] hover:bg-[#2a2185] px-4 py-2 rounded-lg cursor-pointer'>
         Add Category
       </button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>

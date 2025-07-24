@@ -16,7 +16,7 @@ const page = () => {
   return (
         <div class={`main ${dashboardOpen && "active"}`}>
         <AdminNav />
-        <section>
+        <section className='pt-4 border-t-2 border-s-slate-700'>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
             <h2 className='font-semibold'>Category</h2>
            <UploadCategory />

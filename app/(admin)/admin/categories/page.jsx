@@ -11,6 +11,12 @@ const page = () => {
   return (
         <div class={`main ${dashboardOpen && "active"}`}>
         <AdminNav />
+        <section>
+        <div className='p-2   bg-white shadow-md flex items-center justify-between'>
+            <h2 className='font-semibold'>Category</h2>
+            <button  className='text-sm border border-orange-400 hover:bg-orange-400 px-3 py-1 rounded'>Add Category</button>
+        </div>
+        </section>
         
       </div>
   )

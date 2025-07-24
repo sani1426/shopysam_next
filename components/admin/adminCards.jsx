@@ -5,7 +5,7 @@ import { IoCardOutline } from "react-icons/io5";
 import { IoPeople } from "react-icons/io5";
 import { IoCashOutline } from "react-icons/io5";
 
-const AdminCards = () => {
+const AdminCards = ({countUsers}) => {
 
 
   return (
@@ -34,7 +34,7 @@ const AdminCards = () => {
 
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
+                        <div class="numbers">{countUsers}</div>
                         <div class="cardName">Customers</div>
                     </div>
 

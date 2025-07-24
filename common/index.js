@@ -33,6 +33,11 @@ const SummaryApi = {
     url: `${Base_Url}/api/auth/logout`,
     method: 'get',
   },
+  // // admin api // //
+  admin_AllUsers: {
+    url: `${Base_Url}/api/admin/all-users`,
+    method: 'get',
+  },
 
   //  // shop api // //
   getDigitalsCategory:{

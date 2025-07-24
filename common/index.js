@@ -1,4 +1,4 @@
-const Base_Url = 'https://shopysam-back.onrender.com'
+export const Base_Url = 'https://shopysam-back.onrender.com'
 
 const SummaryApi = {
   registerUser: {

@@ -17,7 +17,21 @@ import { toast } from 'sonner'
 
 const UploadCategory = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const [data,setData] = useState({
+        name : "",
+        image : ""
+    })
+    const [loading,setLoading] = useState(false)
+    const handleOnChange = (e)=>{
+        const { name, value} = e.target
 
+        setData((preve)=>{
+            return{
+                ...preve,
+                [name] : value
+            }
+        })
+    }
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -44,22 +58,22 @@ const UploadCategory = () => {
                     variant='flat'
                     color='primary'
                     label='Name'
-                //     value={formData.name}
-                //     onChange={handleOnChange}
+                    value={data.name}
+                    onChange={handleOnChange}
                     name='name'
                     className='w-full'
                     placeholder='Enter Category name'
                   />
                 </div>
 
-                  {/* <div className='grid gap-1'>
+                  <div className='grid gap-1'>
                     <p>Image</p>
                     <div className='flex gap-4 flex-col lg:flex-row items-center'>
                       <div className='border bg-blue-50 h-36 w-full lg:w-36 flex items-center justify-center rounded'>
-                        {data.image ? (
+                        {data?.image ? (
                           <img
                             alt='category'
-                            src={data.image}
+                            src={data?.image}
                             className='w-full h-full object-scale-down'
                           />
                         ) : (
@@ -70,7 +84,7 @@ const UploadCategory = () => {
                         <div
                           className={`
                             ${
-                              !data.name
+                              !data?.name
                                 ? 'bg-gray-300'
                                 : 'border-primary-200 hover:bg-primary-100'
                             }  
@@ -81,15 +95,15 @@ const UploadCategory = () => {
                         </div>
 
                         <input
-                          disabled={!data.name}
-                          onChange={handleUploadCategoryImage}
+                          disabled={!data?.name}
+                        //   onChange={handleUploadCategoryImage}
                           type='file'
                           id='uploadCategoryImage'
                           className='hidden'
                         />
                       </label>
                     </div>
-                  </div> */}
+                  </div>
 
                   <button
                     className={`

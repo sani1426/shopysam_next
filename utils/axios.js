@@ -1,8 +1,9 @@
+import { BASE_URL } from "@/common/api";
 import axios from "axios";
-import SummaryApi , { baseURL } from "@/common/index";
+
 
 const Axios = axios.create({
-    baseURL : baseURL,
+    baseURL : BASE_URL,
     withCredentials : true
 })
 

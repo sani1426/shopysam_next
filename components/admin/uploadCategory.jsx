@@ -1,5 +1,6 @@
 'use client'
-import SummaryApi from '@/common'
+
+import uploadImage from '@/utils/UploadImage'
 import {
   Modal,
   ModalContent,
@@ -10,7 +11,6 @@ import {
   Button,
   useDisclosure,
 } from '@heroui/react'
-import axios from 'axios'
 import { useState } from 'react'
 
 import { toast } from 'sonner'
@@ -41,6 +41,15 @@ const UploadCategory = () => {
 
         if(!file) return ;
         
+        const upload_Image = await uploadImage(file)
+        const {data : ImageResponse} = upload_Image
+
+        setData(()=>{
+          return{
+            ...preve,
+            image :ImageResponse?.data?.url
+          }
+        })
   }
   return (
     <>

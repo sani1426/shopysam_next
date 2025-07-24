@@ -24,7 +24,7 @@ const UploadCategory = () => {
   }
   return (
     <>
-      <button onClick={onOpen} className='text-sm border border-[#2a2185] hover:bg-[#2a2185] px-4 py-2 rounded-lg cursor-pointer'>
+      <button onClick={onOpen} className=' border border-[#2a2185] hover:bg-[#2a2185] px-4 py-2 rounded-lg cursor-pointer'>
         Add Category
       </button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -42,13 +42,13 @@ const UploadCategory = () => {
                     size='lg'
                     labelPlacement='outside'
                     isRequired
-                    variant='bordered'
+                    variant='faded'
                     color='primary'
                     label='Name'
                 //     value={formData.name}
                 //     onChange={handleOnChange}
                     name='name'
-                    className='max-w-[80%]'
+                    className='max-w-[90%]'
                     placeholder='Enter Category name'
                   />
                 </div>

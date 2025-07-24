@@ -1,0 +1,124 @@
+'use client'
+import SummaryApi from '@/common'
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  Input,
+  Select,
+  SelectItem,
+  Button,
+  useDisclosure,
+} from '@heroui/react'
+import axios from 'axios'
+import { useState } from 'react'
+
+import { toast } from 'sonner'
+
+const UploadCategory = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+  return (
+    <>
+      <button className='text-sm border border-orange-400 hover:bg-orange-400 px-3 py-1 rounded'>
+        Add Category
+      </button>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className='flex flex-col gap-1'>
+                New Category
+              </ModalHeader>
+              <ModalBody>
+                <form className='my-3 grid gap-2' onSubmit={handleSubmit}>
+                <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+                  <Input
+                    type='text'
+                    size='lg'
+                    labelPlacement='outside'
+                    isRequired
+                    variant='bordered'
+                    color='primary'
+                    label='Name'
+                //     value={formData.name}
+                //     onChange={handleOnChange}
+                    name='name'
+                    className='max-w-[80%]'
+                    placeholder='Enter Category name'
+                  />
+                </div>
+                  <div className='grid gap-1'>
+                    <label id='categoryName'>Name</label>
+                    <input
+                      type='text'
+                      id='categoryName'
+                      placeholder='Enter category name'
+                //       value={data.name}
+                      name='name'
+                //       onChange={handleOnChange}
+                      className='bg-blue-50 p-2 border border-blue-100 focus-within:border-primary-200 outline-none rounded'
+                    />
+                  </div>
+                  {/* <div className='grid gap-1'>
+                    <p>Image</p>
+                    <div className='flex gap-4 flex-col lg:flex-row items-center'>
+                      <div className='border bg-blue-50 h-36 w-full lg:w-36 flex items-center justify-center rounded'>
+                        {data.image ? (
+                          <img
+                            alt='category'
+                            src={data.image}
+                            className='w-full h-full object-scale-down'
+                          />
+                        ) : (
+                          <p className='text-sm text-neutral-500'>No Image</p>
+                        )}
+                      </div>
+                      <label htmlFor='uploadCategoryImage'>
+                        <div
+                          className={`
+                            ${
+                              !data.name
+                                ? 'bg-gray-300'
+                                : 'border-primary-200 hover:bg-primary-100'
+                            }  
+                                px-4 py-2 rounded cursor-pointer border font-medium
+                            `}
+                        >
+                          Upload Image
+                        </div>
+
+                        <input
+                          disabled={!data.name}
+                          onChange={handleUploadCategoryImage}
+                          type='file'
+                          id='uploadCategoryImage'
+                          className='hidden'
+                        />
+                      </label>
+                    </div>
+                  </div> */}
+
+                  <button
+                    className={`
+                    py-2    
+                    font-semibold 
+                    `}
+                  >
+                    Add Category
+                  </button>
+                </form>
+              </ModalBody>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
+
+export default UploadCategory

@@ -7,6 +7,7 @@ import axios from 'axios'
 import SummaryApi from '@/common'
 import NoData from '@/components/shared/NoData'
 import Loading from '@/components/shared/loading'
+import UploadCategory from '@/components/admin/uploadCategory'
 
 const page = () => {
         const { dashboardOpen } = useAppContext()
@@ -18,7 +19,8 @@ const page = () => {
         <section>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
             <h2 className='font-semibold'>Category</h2>
-            <button  className='text-sm border border-orange-400 hover:bg-orange-400 px-3 py-1 rounded'>Add Category</button>
+           <UploadCategory />
+
         </div>
         {
             !categoryData[0] && !loading && (

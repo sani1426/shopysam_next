@@ -81,27 +81,16 @@ const UploadCategory = () => {
                         )}
                       </div>
                       <label htmlFor='uploadCategoryImage'>
-                        <div
-                          className={`
-                            ${
-                              !data?.name
-                                ? 'bg-gray-300'
-                                : 'border-primary-200 hover:bg-primary-100'
-                            }  
+                            <div  className={`
+                            ${!data?.name ? "bg-gray-300" : "border-blue-600 hover:bg-blue-500" }  
                                 px-4 py-2 rounded cursor-pointer border font-medium
-                            `}
-                        >
-                          Upload Image
-                        </div>
+                            `}>Upload Image</div>
 
-                        <input
-                          disabled={!data?.name}
-                        //   onChange={handleUploadCategoryImage}
-                          type='file'
-                          id='uploadCategoryImage'
-                          className='hidden'
-                        />
-                      </label>
+                            <input disabled={!data?.name} 
+                            required
+                        //     onChange={handleUploadCategoryImage}
+                            type='file' id='uploadCategoryImage' className='hidden'/>
+                        </label>
                     </div>
                   </div>
 

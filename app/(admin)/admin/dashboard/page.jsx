@@ -14,7 +14,10 @@ const page = () => {
   const [allUsers , setAllUsers]= useState()
   const [countUsers , setCountUsers]= useState()
 const getAllUsers = async () => {
-  const { data } = await axios.get(SummaryApi.admin_AllUsers.url)
+  const response = await fetch(SummaryApi.admin_AllUsers.url ,{
+    credentials :'include'
+  })
+  const data = await response.json()
   if (data?.success) {
     setAllUsers(data?.data)
     setCountUsers(data?.counter)

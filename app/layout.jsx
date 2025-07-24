@@ -5,16 +5,16 @@ import { Providers } from '@/context/HeroUIProvider'
 import { Toaster } from 'sonner'
 
 const montserrat = Montserrat_Alternates({
-  variable: '--font-montserrat',
+  // variable: '--font-montserrat',
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 })
 
-const poppins = Poppins({
-  variable: '--font-poppins',
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
-})
+// const poppins = Poppins({
+//   variable: '--font-poppins',
+//   subsets: ['latin'],
+//   weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+// })
 
 export const metadata = {
   title: 'Shopysam',
@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${montserrat.variable} ${poppins.variable}`}>
+      <body className={montserrat.className}>
         <Providers>
           <AppContextProvider>
             <main>{children}</main>

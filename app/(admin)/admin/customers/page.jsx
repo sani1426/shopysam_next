@@ -2,16 +2,15 @@
 import AdminNav from '@/components/admin/adminNav'
 import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import SummaryApi from '@/common'
+
+import AllUsers from '@/components/admin/allUsers'
 
 const page = () => {
         const { dashboardOpen } = useAppContext()
   return (
         <div class={`main ${dashboardOpen && "active"}`}>
         <AdminNav />
-        
+        <AllUsers />
       </div>
   )
 }

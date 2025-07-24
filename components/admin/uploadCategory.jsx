@@ -44,7 +44,7 @@ const UploadCategory = () => {
         const upload_Image = await uploadImage(file)
         const {data : ImageResponse} = upload_Image
 
-        setData(()=>{
+        setData((preve)=>{
           return{
             ...preve,
             image :ImageResponse?.data?.url

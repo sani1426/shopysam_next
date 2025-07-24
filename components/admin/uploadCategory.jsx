@@ -35,6 +35,13 @@ const UploadCategory = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
   }
+
+  const handleUploadCategoryImage  = async (e)=>{
+        const file = e.target.files[0] ;
+
+        if(!file) return ;
+        
+  }
   return (
     <>
       <button onClick={onOpen} className=' border border-[#2a2185] text-[#2a2185] hover:bg-blue-900 hover:text-white px-4 py-2 rounded-lg cursor-pointer'>
@@ -82,13 +89,13 @@ const UploadCategory = () => {
                       </div>
                       <label htmlFor='uploadCategoryImage'>
                             <div  className={`
-                            ${!data?.name ? "bg-gray-300" : "border-blue-600 hover:bg-blue-500" }  
+                            ${!data?.name ? "bg-gray-200" : "bg-blue-600 hover:bg-blue-500" }  
                                 px-4 py-2 rounded cursor-pointer border font-medium
                             `}>Upload Image</div>
 
                             <input disabled={!data?.name} 
                             required
-                        //     onChange={handleUploadCategoryImage}
+                            onChange={handleUploadCategoryImage}
                             type='file' id='uploadCategoryImage' className='hidden'/>
                         </label>
                     </div>

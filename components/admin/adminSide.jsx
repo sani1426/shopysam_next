@@ -40,7 +40,7 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
-		<Link className='side-link'  href="/admin/users">
+		<Link className='side-link'  href="/admin/customers">
 		    <span className="icon">
 			<IoPeopleOutline className='text-[1.75rem]' />
 		    </span>
@@ -56,31 +56,39 @@ const {dashboardOpen}=useAppContext()
 		    <span className="title">Products</span>
 		</Link>
 	    </li>
+	    <li>
+		<Link className='side-link'  href="/admin/upload-product">
+		    <span className="icon">
+			<AiFillProduct  className='text-[1.75rem]' />
+		    </span>
+		    <span className="title">Upload Product</span>
+		</Link>
+	    </li>
+
+	    <li>
+		<Link className='side-link'  href="/admin/categories">
+		    <span className="icon">
+			<IoCheckboxOutline   className='text-[1.75rem]'/>
+		    </span>
+		    <span className="title">Categories</span>
+		</Link>
+	    </li>
+
+	    <li>
+		<Link className='side-link'  href="/admin/sub-categories">
+		    <span className="icon">
+			<IoHelpOutline  className='text-[1.75rem]' />
+		    </span>
+		    <span className="title">Sub Categories</span>
+		</Link>
+	    </li>
 
 	    <li>
 		<Link className='side-link'  href="/admin/orders">
 		    <span className="icon">
-			<IoCheckboxOutline   className='text-[1.75rem]'/>
-		    </span>
-		    <span className="title">Orders</span>
-		</Link>
-	    </li>
-
-	    <li>
-		<Link className='side-link'  href="#">
-		    <span className="icon">
-			<IoHelpOutline  className='text-[1.75rem]' />
-		    </span>
-		    <span className="title">Help</span>
-		</Link>
-	    </li>
-
-	    <li>
-		<Link className='side-link'  href="#">
-		    <span className="icon">
 			<IoSettingsOutline  className='text-[1.75rem]' />
 		    </span>
-		    <span className="title">Settings</span>
+		    <span className="title">Orders</span>
 		</Link>
 	    </li>
 

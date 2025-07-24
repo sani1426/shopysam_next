@@ -42,13 +42,13 @@ const UploadCategory = () => {
                     size='lg'
                     labelPlacement='outside'
                     isRequired
-                    variant='faded'
+                    variant='fade'
                     color='primary'
                     label='Name'
                 //     value={formData.name}
                 //     onChange={handleOnChange}
                     name='name'
-                    className='max-w-[90%]'
+                    className='w-[90%]'
                     placeholder='Enter Category name'
                   />
                 </div>

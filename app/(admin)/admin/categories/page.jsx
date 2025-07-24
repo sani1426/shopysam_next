@@ -5,9 +5,13 @@ import '@/components/admin/admin.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import SummaryApi from '@/common'
+import NoData from '@/components/shared/NoData'
+import Loading from '@/components/shared/loading'
 
 const page = () => {
         const { dashboardOpen } = useAppContext()
+        const [loading,setLoading] = useState(false)
+        const [categoryData,setCategoryData] = useState([])
   return (
         <div class={`main ${dashboardOpen && "active"}`}>
         <AdminNav />
@@ -16,6 +20,51 @@ const page = () => {
             <h2 className='font-semibold'>Category</h2>
             <button  className='text-sm border border-orange-400 hover:bg-orange-400 px-3 py-1 rounded'>Add Category</button>
         </div>
+        {
+            !categoryData[0] && !loading && (
+                <NoData/>
+            )
+        }
+
+<div className='p-4 grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2'>
+            {
+                categoryData?.map((category,index)=>{
+                    return(
+                        <div className='w-32 h-56 rounded shadow-md' key={category?._id}>
+                            <img 
+                                alt={category?.name}
+                                src={category?.image}
+                                className='w-full object-scale-down'
+                            />
+                            <div className='items-center h-9 flex gap-2'>
+                                <button
+                                //  onClick={()=>{
+                                //     setOpenEdit(true)
+                                //     setEditData(category)
+                                // }}
+                                 className='flex-1 bg-green-100 hover:bg-green-200 text-green-600 font-medium py-1 rounded'>
+                                    Edit
+                                </button>
+                                <button
+                                //  onClick={()=>{
+                                //     setOpenConfirmBoxDelete(true)
+                                //     setDeleteCategory(category)
+                                // }}
+                                 className='flex-1 bg-red-100 hover:bg-red-200 text-red-600 font-medium py-1 rounded'>
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+        </div>
+
+        {
+            loading && (
+                <Loading/>
+            )
+        }
         </section>
         
       </div>

@@ -11,7 +11,7 @@ const AllUsers = ({allUsers}) => {
       </div>
 
       <table>
-        {allUsers.map((user) => (
+        {allUsers?.map((user) => (
           <tr>
             <td width='60px'>
               <div class='imgBx'>

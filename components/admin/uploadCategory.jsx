@@ -6,8 +6,7 @@ import {
   ModalHeader,
   ModalBody,
   Input,
-  Select,
-  SelectItem,
+
   Button,
   useDisclosure,
 } from '@heroui/react'
@@ -24,7 +23,7 @@ const UploadCategory = () => {
   }
   return (
     <>
-      <button onClick={onOpen} className=' border border-[#2a2185] hover:bg-[#2a2185] px-4 py-2 rounded-lg cursor-pointer'>
+      <button onClick={onOpen} className=' border border-[#2a2185] text-[#2a2185] hover:bg-blue-900 hover:text-white px-4 py-2 rounded-lg cursor-pointer'>
         Add Category
       </button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -48,22 +47,11 @@ const UploadCategory = () => {
                 //     value={formData.name}
                 //     onChange={handleOnChange}
                     name='name'
-                    className='w-[90%]'
+                    className='w-full'
                     placeholder='Enter Category name'
                   />
                 </div>
-                  <div className='grid gap-1'>
-                    <label id='categoryName'>Name</label>
-                    <input
-                      type='text'
-                      id='categoryName'
-                      placeholder='Enter category name'
-                //       value={data.name}
-                      name='name'
-                //       onChange={handleOnChange}
-                      className='bg-blue-50 p-2 border border-blue-100 focus-within:border-primary-200 outline-none rounded'
-                    />
-                  </div>
+
                   {/* <div className='grid gap-1'>
                     <p>Image</p>
                     <div className='flex gap-4 flex-col lg:flex-row items-center'>

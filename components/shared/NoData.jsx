@@ -6,7 +6,7 @@ const NoData = () => {
       <img
         src="/assets/nothing here yet.webp"
         alt='no data'
-        className='w-36' 
+        className='w-48' 
       />
       <p className='text-neutral-500'>No Data</p>
     </div>

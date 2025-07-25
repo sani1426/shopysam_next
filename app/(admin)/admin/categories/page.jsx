@@ -55,13 +55,13 @@ const page = () => {
             {
                 categoryData?.map((category,index)=>{
                     return(
-                        <div className='w-32 h-56 rounded shadow-md' key={category?._id}>
+                        <div className='category_card' key={category?._id}>
                             <img 
                                 alt={category?.name}
                                 src={category?.image}
                                 className='w-full object-scale-down'
                             />
-                            <div className='items-center h-9 flex gap-2'>
+                            <div className='items-center flex px-2 justify-between'>
                                 <button
                                 //  onClick={()=>{
                                 //     setOpenEdit(true)
@@ -79,7 +79,13 @@ const page = () => {
                                     Delete
                                 </button>
                             </div>
+                            <div className='w-full px-2 text-center'>
+                                <h3 className='text-lg font-semibold'>{category?.name}</h3>
+                            </div>
                         </div>
+                
+                
+
                     )
                 })
             }

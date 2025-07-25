@@ -40,6 +40,14 @@ const {dashboardOpen}=useAppContext()
 	    </li>
 
 	    <li>
+		<Link className='side-link'  href="/admin/dashboard">
+		    <span className="icon">
+			<IoPeopleOutline className='text-[1.75rem]' />
+		    </span>
+		    <span className="title">Dashboard</span>
+		</Link>
+	    </li>
+	    <li>
 		<Link className='side-link'  href="/admin/customers">
 		    <span className="icon">
 			<IoPeopleOutline className='text-[1.75rem]' />
@@ -90,15 +98,6 @@ const {dashboardOpen}=useAppContext()
 		    </span>
 		    <span className="title">Orders</span>
 		</Link>
-	    </li>
-
-	    <li>
-		<button className='side-link' >
-		    <span className="icon">
-			<IoLogInOutline  className='text-[1.75rem]' />
-		    </span>
-		    <span className="title">Sign Out</span>
-		</button>
 	    </li>
 	</ul>
     </div>

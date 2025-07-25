@@ -83,3 +83,22 @@
         width: calc(100% - 80px);
         left: 80px;
             }
+
+
+            .category_card{
+              background: #fff;
+              padding: 30px;
+              border-radius: 20px;
+              display: flex;
+              flex-direction: column;
+              cursor: pointer;
+              box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+              width: 10rem;
+              height: 15rem;
+              transition: all ease-in-out .3s;
+            }
+
+            .category_card:hover {
+              background: #2a2185;
+              color: #fff;
+                  }

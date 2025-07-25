@@ -9,18 +9,20 @@ import UploadCategory from '@/components/admin/category/uploadCategory'
 import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 import EditCategory from '@/components/admin/category/editCategory'
-
-
+import ConfirmBox from '@/components/UI/ConfirmBox'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [categoryData, setCategoryData] = useState([])
-  const [openEdit,setOpenEdit] = useState(false)
-  const [editData,setEditData] = useState({
-    name : "",
-    image : "",
-})
+  const [openEdit, setOpenEdit] = useState(false)
+  const [editData, setEditData] = useState({
+    name: '',
+    image: '',
+  })
+  const [deleteCategory, setDeleteCategory] = useState({
+    _id: '',
+  })
 
   const fetchCategory = async () => {
     try {
@@ -71,21 +73,20 @@ const page = () => {
                   className='w-full object-scale-down'
                 />
                 <div className='items-center flex gap-2 justify-between py-3'>
-                <button onClick={()=>{
-                                    setOpenEdit(true)
-                                    setEditData(category)
-                                }} className='flex-1 bg-green-100 hover:bg-green-200 text-green-600 font-medium py-1 rounded'>
-                                    Edit
-                                </button>
                   <button
-                    //  onClick={()=>{
-                    //     setOpenConfirmBoxDelete(true)
-                    //     setDeleteCategory(category)
-                    // }}
-                    className='flex-1 bg-red-100 hover:bg-red-200 text-red-600 font-medium py-1 rounded'
+                    onClick={() => {
+                      setOpenEdit(true)
+                      setEditData(category)
+                    }}
+                    className='flex-1 bg-green-100 hover:bg-green-200 text-green-600 font-medium py-1 rounded'
                   >
-                    Delete
+                    Edit
                   </button>
+
+                  <ConfirmBox
+                    deleteData={setDeleteCategory(category)}
+                    fetchCategories={fetchCategory}
+                  />
                 </div>
                 <div className='w-full  text-center pb-2 flex items-center justify-evenly'>
                   <h3 className='text-lg'>name:</h3>
@@ -98,12 +99,13 @@ const page = () => {
 
         {loading && <Loading />}
 
-        {
-            openEdit && (
-                <EditCategory data={editData} close={()=>setOpenEdit(false)} fetchData={fetchCategory}/>
-            )
-        }
-
+        {openEdit && (
+          <EditCategory
+            data={editData}
+            close={() => setOpenEdit(false)}
+            fetchData={fetchCategory}
+          />
+        )}
       </section>
     </div>
   )

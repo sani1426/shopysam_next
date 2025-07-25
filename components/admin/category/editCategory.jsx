@@ -25,6 +25,26 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
             }
         })
     }
+
+    const handleUploadCategoryImage = async(e)=>{
+        const file = e.target.files[0]
+
+        if(!file){
+            return
+        }
+        setLoading(true)
+        const response = await uploadImage(file)
+        const { data : ImageResponse } = response
+        setLoading(false)
+        
+        setData((preve)=>{
+            return{
+                ...preve,
+                image : ImageResponse?.data?.url
+            }
+        })
+    }
+    
     const handleSubmit = async(e)=>{
         e.preventDefault()
 
@@ -47,24 +67,6 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
         }finally{
             setLoading(false)
         }
-    }
-    const handleUploadCategoryImage = async(e)=>{
-        const file = e.target.files[0]
-
-        if(!file){
-            return
-        }
-        setLoading(true)
-        const response = await uploadImage(file)
-        const { data : ImageResponse } = response
-        setLoading(false)
-        
-        setData((preve)=>{
-            return{
-                ...preve,
-                image : ImageResponse?.data?.url
-            }
-        })
     }
   return (
     <section className='fixed top-0 bottom-0 left-0 right-0 p-4 bg-neutral-800 bg-opacity-60 flex items-center justify-center'>

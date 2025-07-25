@@ -9,6 +9,7 @@ import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 import CofirmBox from '@/components/UI/ConfirmBox'
+import UploadSubCategory from '@/components/admin/subCategory.jsx/UploadSubCategory'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
@@ -72,7 +73,7 @@ const page = () => {
           <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
            Sub Category
           </h2>
-          <UploadCategory fetchCategories={fetchCategory} />
+          <UploadSubCategory  />
         </div>
         {!categoryData[0] && !loading && <NoData />}
 

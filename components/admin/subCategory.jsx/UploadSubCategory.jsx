@@ -98,7 +98,7 @@ const UploadSubCategory = ({ fetchCategories }) => {
         onClick={onOpen}
         className=' border border-[#2a2185] text-[#2a2185] hover:bg-blue-900 hover:text-white px-4 py-2 rounded-lg cursor-pointer'
       >
-        Add Category
+        Add Sub Category
       </button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>

@@ -59,7 +59,7 @@ const page = () => {
           className={`p-4 grid  gap-2 ${
             dashboardOpen
               ? 'md:grid-cols-4 lg:grid-cols-5'
-              : 'grid-cols-2 md:grid-cols-4 lg:grid-cols-5'
+              : 'grid-cols-2 md:grid-cols-5 lg:grid-cols-6'
           }`}
         >
           {categoryData?.map((category, index) => {

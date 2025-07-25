@@ -49,7 +49,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
       setLoading(true)
       const response = await Axios({
         ...BackendApi.update_Category,
-        data: JSON.stringify(data)
+        data: data
       })
 
       const {data : responseData} = response
@@ -60,7 +60,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
         fetchData()
       }
     } catch (error) {
-      toast.error(error)
+      toast.error('error')
     }finally{
       setLoading(false)
     }

@@ -26,48 +26,46 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
         })
     }
 
-    const handleUploadCategoryImage = async(e)=>{
-        const file = e.target.files[0]
+    const handleUploadCategoryImage  = async (e)=>{
+        const file = e.target.files[0] ;
 
-        if(!file){
-            return
-        }
-        setLoading(true)
-        const response = await uploadImage(file)
-        const { data : ImageResponse } = response
-        setLoading(false)
+        if(!file) return ;
         
+        const upload_Image = await uploadImage(file)
+        const {data : ImageResponse} = upload_Image
+
         setData((preve)=>{
-            return{
-                ...preve,
-                image : ImageResponse?.data?.url
-            }
+          return{
+            ...preve,
+            image :ImageResponse?.data?.url
+          }
         })
+  }
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      setLoading(true)
+      const response = await Axios({
+        ...BackendApi.update_Category,
+        data: data
+      })
+
+      const {data : responseData} = response
+
+      if(responseData?.success){
+        toast.success(responseData?.message)
+        close()
+        fetchData()
+      }
+    } catch (error) {
+      toast.error(error)
+    }finally{
+      setLoading(false)
     }
-    
-    const handleSubmit = async(e)=>{
-        e.preventDefault()
 
-
-        try {
-            setLoading(true)
-            const response = await Axios({
-                ...BackendApi.update_Category,
-                data : data
-            })
-            const { data : responseData } = response
-
-            if(responseData.success){
-                toast.success(responseData.message)
-                close()
-                fetchData()
-            }
-        } catch (error) {
-            toast.error(error)
-        }finally{
-            setLoading(false)
-        }
-    }
+  }
   return (
     <section className='fixed top-0 bottom-0 left-0 right-0 p-4 bg-neutral-800 bg-opacity-60 flex items-center justify-center'>
     <div className='bg-white max-w-4xl w-full p-4 rounded'>

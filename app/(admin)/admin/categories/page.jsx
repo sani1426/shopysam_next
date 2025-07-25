@@ -13,7 +13,7 @@ import { toast } from 'sonner'
 import CofirmBox from '@/components/UI/ConfirmBox'
 
 const page = () => {
-  const { dashboardOpen } = useAppContext()
+  const { dashboardOpen, setAllCategory } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [categoryData, setCategoryData] = useState([])
   const [openEdit, setOpenEdit] = useState(false)
@@ -36,6 +36,7 @@ const page = () => {
 
       if (responseData?.success) {
         setCategoryData(responseData.data)
+        setAllCategory(responseData.data)
       }
     } catch (error) {
     } finally {

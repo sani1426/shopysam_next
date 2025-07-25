@@ -10,6 +10,7 @@ export const AppContextProvider = ({ children }) => {
   const [theme, setTheme] = useState('light')
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
+  const [allCategory , setAllCategory] = useState([])
   const [userDetail, setUserDetail] = useState()
   const [dashboardOpen, setDashboardOpen] = useState(true)
   const fetchUserDetails = async () => {
@@ -39,7 +40,7 @@ export const AppContextProvider = ({ children }) => {
   }, [theme])
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail ,dashboardOpen, setDashboardOpen }}>
+    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail ,dashboardOpen, setDashboardOpen ,allCategory , setAllCategory}}>
       {children}
     </AppContext.Provider>
   )

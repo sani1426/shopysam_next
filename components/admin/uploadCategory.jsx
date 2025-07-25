@@ -16,7 +16,7 @@ import { useState } from 'react'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 
-const UploadCategory = () => {
+const UploadCategory = ({fetchCategories}) => {
   const { isOpen, onOpen, onOpenChange , onClose } = useDisclosure()
   const [data,setData] = useState({
         name : "",
@@ -64,6 +64,7 @@ const UploadCategory = () => {
       if(responseData?.success){
         toast.success(responseData?.message)
         onClose()
+        fetchCategories()
       }
     } catch (error) {
       toast.error(error)

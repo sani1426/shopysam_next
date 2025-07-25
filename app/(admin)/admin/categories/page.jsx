@@ -42,7 +42,7 @@ const page = () => {
         <section className='pt-2 border-t-1 border-s-slate-100 '>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
             <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>Category</h2>
-           <UploadCategory />
+           <UploadCategory fetchCategories={fetchCategory} />
 
         </div>
         {

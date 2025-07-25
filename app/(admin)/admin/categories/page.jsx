@@ -9,13 +9,14 @@ import UploadCategory from '@/components/admin/category/uploadCategory'
 import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 import EditCategory from '@/components/admin/category/editCategory'
-const [openEdit,setOpenEdit] = useState(false)
+
 
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [categoryData, setCategoryData] = useState([])
+  const [openEdit,setOpenEdit] = useState(false)
   const [editData,setEditData] = useState({
     name : "",
     image : "",

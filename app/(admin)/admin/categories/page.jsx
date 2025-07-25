@@ -61,7 +61,7 @@ const page = () => {
                                 src={category?.image}
                                 className='w-full object-scale-down'
                             />
-                            <div className='items-center flex px-2 justify-between'>
+                            <div className='items-center flex px-2 justify-between py-3'>
                                 <button
                                 //  onClick={()=>{
                                 //     setOpenEdit(true)
@@ -79,8 +79,9 @@ const page = () => {
                                     Delete
                                 </button>
                             </div>
-                            <div className='w-full px-2 text-center'>
-                                <h3 className='text-lg font-semibold'>{category?.name}</h3>
+                            <div className='w-full px-2 text-center pb-4 flex items-center justify-between'>
+                                <h3 className='text-lg'>name:</h3>
+                                <h3 className='text-lg '>{category?.name}</h3>
                             </div>
                         </div>
                 

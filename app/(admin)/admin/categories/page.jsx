@@ -9,7 +9,8 @@ import UploadCategory from '@/components/admin/category/uploadCategory'
 import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 import EditCategory from '@/components/admin/category/editCategory'
-import ConfirmBox from '@/components/UI/ConfirmBox'
+import { toast } from 'sonner'
+import CofirmBox from '@/components/UI/ConfirmBox'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
@@ -20,6 +21,7 @@ const page = () => {
     name: '',
     image: '',
   })
+  const [openConfimBoxDelete, setOpenConfirmBoxDelete] = useState(false)
   const [deleteCategory, setDeleteCategory] = useState({
     _id: '',
   })
@@ -44,6 +46,25 @@ const page = () => {
   useEffect(() => {
     fetchCategory()
   }, [])
+
+  const handleDeleteCategory = async () => {
+    try {
+      const response = await Axios({
+        ...BackendApi.delete_Category,
+        data: deleteCategory,
+      })
+
+      const { data: responseData } = response
+
+      if (responseData.success) {
+        toast.success(responseData.message)
+        fetchCategory()
+        setOpenConfirmBoxDelete(false)
+      }
+    } catch (error) {
+      toast.error('error')
+    }
+  }
 
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>
@@ -83,10 +104,15 @@ const page = () => {
                     Edit
                   </button>
 
-                  <ConfirmBox
-                    deleteData={setDeleteCategory(category)}
-                    fetchCategories={fetchCategory}
-                  />
+                  <button
+                    onClick={() => {
+                      setOpenConfirmBoxDelete(true)
+                      setDeleteCategory(category)
+                    }}
+                    className='flex-1 bg-red-100 hover:bg-red-200 text-red-600 font-medium py-1 rounded'
+                  >
+                    Delete
+                  </button>
                 </div>
                 <div className='w-full  text-center pb-2 flex items-center justify-evenly'>
                   <h3 className='text-lg'>name:</h3>
@@ -104,6 +130,14 @@ const page = () => {
             data={editData}
             close={() => setOpenEdit(false)}
             fetchData={fetchCategory}
+          />
+        )}
+
+        {openConfimBoxDelete && (
+          <CofirmBox
+            close={() => setOpenConfirmBoxDelete(false)}
+            cancel={() => setOpenConfirmBoxDelete(false)}
+            confirm={handleDeleteCategory}
           />
         )}
       </section>

@@ -88,6 +88,7 @@
             .category_card{
               background: #fff;
               border-radius: 20px;
+              padding : 10px;
               display: flex;
               flex-direction: column;
               cursor: pointer;

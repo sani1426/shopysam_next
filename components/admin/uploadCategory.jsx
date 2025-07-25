@@ -1,6 +1,7 @@
 'use client'
 
 import uploadImage from '@/utils/UploadImage'
+import Axios from '@/utils/axios'
 import {
   Modal,
   ModalContent,
@@ -12,7 +13,7 @@ import {
   useDisclosure,
 } from '@heroui/react'
 import { useState } from 'react'
-
+import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 
 const UploadCategory = () => {
@@ -32,9 +33,6 @@ const UploadCategory = () => {
             }
         })
     }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
 
   const handleUploadCategoryImage  = async (e)=>{
         const file = e.target.files[0] ;
@@ -50,6 +48,28 @@ const UploadCategory = () => {
             image :ImageResponse?.data?.url
           }
         })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      setLoading(true)
+      const response = await Axios({
+        ...BackendApi.upload_Category,
+        data: data
+      })
+
+      const {data : responseData} = response
+
+      if(responseData?.success){
+        toast.success(responseData?.message)
+      }
+    } catch (error) {
+      toast.error(error)
+    }finally{
+      setLoading(false)
+    }
+
   }
   return (
     <>

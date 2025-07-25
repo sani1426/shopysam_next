@@ -133,8 +133,8 @@ const UploadCategory = ({fetchCategories}) => {
                   </div>
 
                   <button
-                    className={`
-                    ${data?.name && data?.image ? "bg-blue-700 hover:bg-blue-500" : "bg-gray-300 "}
+                    className={`cursor-pointer 
+                    ${data?.name && data?.image ? "bg-blue-700 text-white  hover:bg-blue-500" : "bg-gray-300 "}
                     py-2    
                     font-semibold 
                     `}

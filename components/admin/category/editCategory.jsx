@@ -9,9 +9,9 @@ import BackendApi from '@/common/api'
 
 const EditCategory = ({close, fetchData,data : CategoryData}) => {
     const [data,setData] = useState({
-        _id : CategoryData._id,
-        name : CategoryData.name,
-        image : CategoryData.image
+        _id : CategoryData?._id,
+        name : CategoryData?.name,
+        image : CategoryData?.image
     })
     const [loading,setLoading] = useState(false)
 
@@ -123,7 +123,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
             </div>
 
             <button
-                className={`
+                className={`cursor-pointer 
                 ${data.name && data.image ? "bg-primary-200 hover:bg-primary-100" : "bg-gray-300 "}
                 py-2    
                 font-semibold 

@@ -17,7 +17,7 @@ import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 
 const UploadCategory = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { isOpen, onOpen, onOpenChange , onClose } = useDisclosure()
   const [data,setData] = useState({
         name : "",
         image : ""
@@ -63,6 +63,7 @@ const UploadCategory = () => {
 
       if(responseData?.success){
         toast.success(responseData?.message)
+        onClose()
       }
     } catch (error) {
       toast.error(error)

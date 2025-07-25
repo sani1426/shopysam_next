@@ -6,11 +6,36 @@ import { useEffect, useState } from 'react'
 import NoData from '@/components/shared/NoData'
 import Loading from '@/components/shared/loading'
 import UploadCategory from '@/components/admin/uploadCategory'
+import Axios from '@/utils/axios'
+import BackendApi from '@/common/api'
 
 const page = () => {
         const { dashboardOpen } = useAppContext()
         const [loading,setLoading] = useState(false)
         const [categoryData,setCategoryData] = useState([])
+
+        const fetchCategory = async()=>{
+            try {
+                setLoading(true)
+                const response = await Axios({
+                    ...BackendApi.get_Categories
+                })
+                const { data : responseData } = response
+    
+                if(responseData?.success){
+                    setCategoryData(responseData.data)
+                }
+            } catch (error) {
+                
+            }finally{
+                setLoading(false)
+            }
+        }
+    
+        useEffect(()=>{
+            fetchCategory()
+        },[])
+    
   return (
         <div class={`main ${dashboardOpen && "active"}`}>
         <AdminNav />

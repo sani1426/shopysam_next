@@ -49,7 +49,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
       setLoading(true)
       const response = await Axios({
         ...BackendApi.update_Category,
-        data: data
+        data: JSON.stringify(data)
       })
 
       const {data : responseData} = response

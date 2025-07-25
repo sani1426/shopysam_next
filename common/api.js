@@ -44,6 +44,10 @@ const BackendApi = {
                 url: "/api/admin/upload-category",
                 method:"post"
         },
+        update_Category :{
+                url: "/api/admin/update-category",
+                method:"put"
+        },
         get_Categories :{
                 url: "/api/category/all",
                 method:"get"

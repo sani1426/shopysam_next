@@ -51,7 +51,7 @@ const page = () => {
             )
         }
 
-<div className='p-4 grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2'>
+<div className={`p-4 grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 ${dashboardOpen && "md:grid-cols-3 lg:grid-cols-4"}`}>
             {
                 categoryData?.map((category,index)=>{
                     return(

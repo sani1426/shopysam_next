@@ -82,7 +82,7 @@ const page = () => {
           </h2>
           <UploadSubCategory allCategory={allCategory} fetchSubCategory={fetchSubCategory} />
         </div>
-        {/* { !loading && <NoData />} */}
+        {/* {!subCategoryData &&  !loading && <NoData />} */}
 
         <div className='p-2'>
           <Table color='primary' isStriped className='w-full py-0 px-0 '>

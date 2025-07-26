@@ -12,6 +12,7 @@ import CofirmBox from '@/components/UI/ConfirmBox'
 import UploadSubCategory from '@/components/admin/subCategory.jsx/UploadSubCategory'
 import { MdDelete } from 'react-icons/md'
 import { HiPencil } from 'react-icons/hi'
+import { Table,TableHeader,TableColumn,TableBody,TableRow,TableCell} from '@heroui/react'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
@@ -19,12 +20,12 @@ const page = () => {
   const [loading, setLoading] = useState(false)
   const [subCategoryData, setSubCategoryData] = useState()
   // const [openEdit, setOpenEdit] = useState(false)
-  // const [editData, setEditData] = useState({
+  // const [ediTableCellata, setEdiTableCellata] = useState({
   //   name: '',
   //   image: '',
   // })
   // const [openConfimBoxDelete, setOpenConfirmBoxDelete] = useState(false)
-  // const [deleteCategory, setDeleteCategory] = useState({
+  // const [deleteCategory, seTableCelleleteCategory] = useState({
   //   _id: '',
   // })
 
@@ -84,24 +85,24 @@ const page = () => {
         {/* { !loading && <NoData />} */}
 
         <div className='p-2'>
-          <table className='w-full py-0 px-0 border-collapse'>
-            <thead className='bg-black text-white'>
-              <tr>
-                <th>Sr.No</th>
-                <th className='border whitespace-nowrap'>Name</th>
-                <th className='border whitespace-nowrap'>Image</th>
-                <th className='border whitespace-nowrap'>Category</th>
-                <th className='border whitespace-nowrap'>Action</th>
-              </tr>
-            </thead>
-            <tbody>
+          <Table isStriped className='w-full py-0 px-0 '>
+            <TableHeader className='bg-black text-white'>
+     
+                <TableColumn>Sr.No</TableColumn>
+                <TableColumn className=' whitespace-nowrap'>Name</TableColumn>
+                <TableColumn className=' whitespace-nowrap'>Image</TableColumn>
+                <TableColumn className=' whitespace-nowrap'>Category</TableColumn>
+                <TableColumn className=' whitespace-nowrap'>Action</TableColumn>
+           
+            </TableHeader>
+            <TableBody>
               {subCategoryData?.map((sub, index) => (
-                <tr key={index}>
-                  <td className='border px-2 py-1 '>{index + 1}</td>
-                  <td className='border px-2 py-1 whitespace-nowrap'>
+                <TableRow key={index}>
+                  <TableCell className=' px-2 py-1 text-center'>{index + 1}</TableCell>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
                     {sub?.name}
-                  </td>
-                  <td className='border px-2 py-1 whitespace-nowrap'>
+                  </TableCell>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
                     <div className='flex justify-center items-center'>
                       <img
                         src={sub?.image}
@@ -112,20 +113,20 @@ const page = () => {
                         // }}
                       />
                     </div>
-                  </td>
-                  <td className='border px-2 py-1 whitespace-nowrap'>
+                  </TableCell>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
                     {sub?.category?.map((_, index) => (
                       <p key={index} className='shadow-md px-1 inline-block'>
                         {_?.name}
                       </p>
                     ))}
-                  </td>
-                  <td className='border px-2 py-1 whitespace-nowrap'>
+                  </TableCell>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
                     <div className='flex items-center justify-center gap-3'>
                       <button
                         //  onClick={()=>{
                         //     setOpenEdit(true)
-                        //     setEditData(row.original)
+                        //     setEdiTableCellata(row.original)
                         // }}
                         className='p-2 bg-green-100 rounded-full hover:text-green-600'
                       >
@@ -134,25 +135,25 @@ const page = () => {
                       <button
                         // onClick={()=>{
                         //   setOpenDeleteConfirmBox(true)
-                        //   setDeleteSubCategory(row.original)
+                        //   seTableCelleleteSubCategory(row.original)
                         // }}
                         className='p-2 bg-red-100 rounded-full text-red-500 hover:text-red-600'
                       >
                         <MdDelete size={20} />
                       </button>
                     </div>
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
 
         {loading && <Loading />}
 
         {/* {openEdit && (
           <EditCategory
-            data={editData}
+            data={ediTableCellata}
             close={() => setOpenEdit(false)}
             fetchData={fetchCategory}
           />

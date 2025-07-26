@@ -14,7 +14,7 @@ import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 import { IoClose } from 'react-icons/io5'
 
-const UploadSubCategory = ({ allCategory }) => {
+const UploadSubCategory = ({ allCategory,fetchSubCategory }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
  
   const [subCategoryData, setSubCategoryData] = useState({
@@ -62,33 +62,28 @@ const UploadSubCategory = ({ allCategory }) => {
       }
     })
   }
-  useEffect(()=>{console.log(allCategory)},[])
 
   const handleSubmitSubCategory = async (e) => {
     e.preventDefault()
 
-    // try {
-    //     const response = await Axios({
-    //         ...SummaryApi.createSubCategory,
-    //         data : subCategoryData
-    //     })
+    try {
+        const response = await Axios({
+            ...BackendApi.upload_SubCategory,
+            data : subCategoryData
+        })
 
-    //     const { data : responseData } = response
+        const { data : responseData } = response
 
-    //     console.log("responseData",responseData)
-    //     if(responseData.success){
-    //         toast.success(responseData.message)
-    //         if(close){
-    //             close()
-    //         }
-    //         if(fetchData){
-    //             fetchData()
-    //         }
-    //     }
+        console.log("responseData",responseData)
+        if(responseData?.success){
+            toast.success(responseData?.message)
+            fetchSubCategory()
+            onClose()
+        }
 
-    // } catch (error) {
-    //     AxiosToastError(error)
-    // }
+    } catch (error) {
+        toast.error('error')
+    }
   }
 
   return (

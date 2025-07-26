@@ -28,26 +28,27 @@ const page = () => {
   //   _id: '',
   // })
 
-  // const fetchSubCategory = async () => {
-  //   try {
-  //     setLoading(true)
-  //     const response = await Axios({
-  //       ...BackendApi.get_Categories,
-  //     })
-  //     const { data: responseData } = response
+  const fetchSubCategory = async()=>{
+    try {
+        setLoading(true)
+        const response = await Axios({
+          ...BackendApi.get_SubCategories
+        })
+        const { data : responseData } = response
 
-  //     if (responseData?.success) {
-  //       setCategoryData(responseData.data)
-  //     }
-  //   } catch (error) {
-  //   } finally {
-  //     setLoading(false)
-  //   }
-  // }
+        if(responseData?.success){
+          setSubCategoryData(responseData?.data)
+        }
+    } catch (error) {
+       toast.error('error')
+    } finally{
+      setLoading(false)
+    }
+  }
 
-  // useEffect(() => {
-  //   fetchCategory()
-  // }, [])
+  useEffect(()=>{
+    fetchSubCategory()
+  },[])
 
   // const handleDeleteSubCategory = async () => {
   //   try {
@@ -77,7 +78,7 @@ const page = () => {
           <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
             Sub Category
           </h2>
-          <UploadSubCategory allCategory={allCategory} />
+          <UploadSubCategory allCategory={allCategory} fetchSubCategory={fetchSubCategory} />
         </div>
         {subCategoryData[0] && !loading && <NoData />}
 

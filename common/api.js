@@ -55,6 +55,14 @@ const BackendApi = {
     url: '/api/category/all',
     method: 'get',
   },
+  upload_SubCategory: {
+    url: '/api/admin/add-subcategory',
+    method: 'post',
+  },
+  get_SubCategories: {
+    url: '/api/subcategory/all',
+    method: 'get',
+  },
   upload_Image: {
     url: '/api/file/upload',
     method: 'post',

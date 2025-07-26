@@ -88,18 +88,18 @@ const page = () => {
           <Table color='primary' isStriped className='w-full py-0 px-0 '>
             <TableHeader className='bg-black text-white'>
      
-                <TableColumn className='text-center'>Sr.No</TableColumn>
-                <TableColumn className=' whitespace-nowrap text-center'>Name</TableColumn>
-                <TableColumn className=' whitespace-nowrap text-center'>Image</TableColumn>
-                <TableColumn className=' whitespace-nowrap text-center'>Category</TableColumn>
-                <TableColumn className=' whitespace-nowrap text-center'>Action</TableColumn>
+                <TableColumn className='text-center font-bold text-xl'>Sr.No</TableColumn>
+                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Name</TableColumn>
+                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Image</TableColumn>
+                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Category</TableColumn>
+                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Action</TableColumn>
            
             </TableHeader>
             <TableBody>
               {subCategoryData?.map((sub, index) => (
                 <TableRow key={index}>
                   <TableCell className=' px-2 py-1 font-semibold text-xl text-center'>{index + 1}</TableCell>
-                  <TableCell className=' px-2 py-1 whitespace-nowrap text-xl text-center'>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap text-[1.1rem] text-center'>
                     {sub?.name}
                   </TableCell>
                   <TableCell className=' px-2 py-1 whitespace-nowrap'>

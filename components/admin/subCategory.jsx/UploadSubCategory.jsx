@@ -12,17 +12,32 @@ import {
 import { useEffect, useState } from 'react'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner'
-import { useAppContext } from '@/context/appContext'
 import { IoClose } from 'react-icons/io5'
 
 const UploadSubCategory = ({ fetchCategories }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
-  const { allCategory } = useAppContext()
+  const { allCategory ,setAllCategory}=useState([])
   const [subCategoryData, setSubCategoryData] = useState({
     name: '',
     image: '',
     category: [],
   })
+  const fetchCategory = async () => {
+ 
+      const response = await Axios({
+        ...BackendApi.get_Categories,
+      })
+      const { data: responseData } = response
+
+      if (responseData?.success) {
+        setAllCategory(responseData.data)
+      }
+
+  }
+
+  useEffect(() => {
+    fetchCategory()
+  }, [])
   const [loading, setLoading] = useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -34,8 +49,6 @@ const UploadSubCategory = ({ fetchCategories }) => {
       }
     })
   }
-
-  useEffect(()=>{console.log(allCategory)},[])
   const handleUploadSubCategoryImage = async (e) => {
     const file = e.target.files[0]
 

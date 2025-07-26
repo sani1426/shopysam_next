@@ -81,7 +81,7 @@ const page = () => {
           </h2>
           <UploadSubCategory allCategory={allCategory} fetchSubCategory={fetchSubCategory} />
         </div>
-        {subCategoryData[0] && !loading && <NoData />}
+        {!subCategoryData[0] && !loading && <NoData />}
 
         <div className='p-2'>
           <table className='w-full py-0 px-0 border-collapse'>
@@ -116,7 +116,7 @@ const page = () => {
                   <td className='border px-2 py-1 whitespace-nowrap'>
                     {sub?.category?.map((_, index) => (
                       <p key={index} className='shadow-md px-1 inline-block'>
-                        {_}
+                        {_?.name}
                       </p>
                     ))}
                   </td>

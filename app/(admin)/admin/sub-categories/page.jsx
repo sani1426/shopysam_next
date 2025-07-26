@@ -89,20 +89,20 @@ const page = () => {
             <TableHeader className='bg-black text-white'>
      
                 <TableColumn className='text-center'>Sr.No</TableColumn>
-                <TableColumn className='border whitespace-nowrap text-center'>Name</TableColumn>
-                <TableColumn className='border whitespace-nowrap text-center'>Image</TableColumn>
-                <TableColumn className='border whitespace-nowrap text-center'>Category</TableColumn>
-                <TableColumn className='border whitespace-nowrap text-center'>Action</TableColumn>
+                <TableColumn className=' whitespace-nowrap text-center'>Name</TableColumn>
+                <TableColumn className=' whitespace-nowrap text-center'>Image</TableColumn>
+                <TableColumn className=' whitespace-nowrap text-center'>Category</TableColumn>
+                <TableColumn className=' whitespace-nowrap text-center'>Action</TableColumn>
            
             </TableHeader>
             <TableBody>
               {subCategoryData?.map((sub, index) => (
                 <TableRow key={index}>
-                  <TableCell className='border px-2 py-1 font-semibold text-xl text-center'>{index + 1}</TableCell>
-                  <TableCell className='border px-2 py-1 whitespace-nowrap text-center'>
+                  <TableCell className=' px-2 py-1 font-semibold text-xl text-center'>{index + 1}</TableCell>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap text-xl text-center'>
                     {sub?.name}
                   </TableCell>
-                  <TableCell className='border px-2 py-1 whitespace-nowrap'>
+                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
                     <div className='w-full flex justify-center items-center'>
                       <img
                         src={sub?.image}
@@ -114,7 +114,7 @@ const page = () => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell className='border text-center px-2 py-1 whitespace-nowrap'>
+                  <TableCell className=' text-center px-2 py-1 whitespace-nowrap'>
                     {sub?.category?.map((_, index) => (
                       <p key={index} className=' px-1 inline-block'>
                         {_?.name}

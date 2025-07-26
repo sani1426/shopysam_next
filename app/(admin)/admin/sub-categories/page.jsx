@@ -38,6 +38,7 @@ const page = () => {
 
         if(responseData?.success){
           setSubCategoryData(responseData?.data)
+          console.log(subCategoryData)
         }
     } catch (error) {
        toast.error('error')

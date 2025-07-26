@@ -88,22 +88,22 @@ const page = () => {
           <Table color='primary' isStriped className='w-full py-0 px-0 '>
             <TableHeader className='bg-black text-white'>
      
-                <TableColumn>Sr.No</TableColumn>
-                <TableColumn className=' whitespace-nowrap'>Name</TableColumn>
-                <TableColumn className=' whitespace-nowrap'>Image</TableColumn>
-                <TableColumn className=' whitespace-nowrap'>Category</TableColumn>
-                <TableColumn className=' whitespace-nowrap'>Action</TableColumn>
+                <TableColumn className='text-center'>Sr.No</TableColumn>
+                <TableColumn className='border whitespace-nowrap text-center'>Name</TableColumn>
+                <TableColumn className='border whitespace-nowrap text-center'>Image</TableColumn>
+                <TableColumn className='border whitespace-nowrap text-center'>Category</TableColumn>
+                <TableColumn className='border whitespace-nowrap text-center'>Action</TableColumn>
            
             </TableHeader>
             <TableBody>
               {subCategoryData?.map((sub, index) => (
                 <TableRow key={index}>
-                  <TableCell className=' px-2 py-1 text-center'>{index + 1}</TableCell>
-                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
+                  <TableCell className='border px-2 py-1 text-center'>{index + 1}</TableCell>
+                  <TableCell className='border px-2 py-1 whitespace-nowrap text-center'>
                     {sub?.name}
                   </TableCell>
-                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
-                    <div className='flex justify-center items-center'>
+                  <TableCell className='border px-2 py-1 whitespace-nowrap'>
+                    <div className='w-full flex justify-center items-center'>
                       <img
                         src={sub?.image}
                         alt={sub?.name}
@@ -114,9 +114,9 @@ const page = () => {
                       />
                     </div>
                   </TableCell>
-                  <TableCell className=' px-2 py-1 whitespace-nowrap'>
+                  <TableCell className='border text-center px-2 py-1 whitespace-nowrap'>
                     {sub?.category?.map((_, index) => (
-                      <p key={index} className='shadow-md px-1 inline-block'>
+                      <p key={index} className=' px-1 inline-block'>
                         {_?.name}
                       </p>
                     ))}

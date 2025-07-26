@@ -62,6 +62,7 @@ const UploadSubCategory = ({ allCategory }) => {
       }
     })
   }
+  useEffect(()=>{console.log(allCategory)},[])
 
   const handleSubmitSubCategory = async (e) => {
     e.preventDefault()

@@ -74,11 +74,7 @@ const page = () => {
       ...BackendApi.get_Categories,
     })
     const { data: responseData } = response
-
-    if (responseData?.success) {
       setAllCategory(responseData.data)
-    }
-
 }
 
 useEffect(() => {

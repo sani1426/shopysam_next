@@ -69,13 +69,18 @@ const page = () => {
   // }
 
   const fetchCategory = async () => {
- 
-    const response = await Axios({
-      ...BackendApi.get_Categories,
-    })
-    const { data: responseData } = response
-      setAllCategory(responseData.data)
-}
+    try {
+      const response = await Axios({
+        ...BackendApi.get_Categories,
+      })
+      const { data: responseData } = response
+
+      if (responseData?.success) {
+        setAllCategory(responseData.data)
+      }
+    } catch (error) {
+    }
+  }
 
 useEffect(() => {
   fetchCategory()

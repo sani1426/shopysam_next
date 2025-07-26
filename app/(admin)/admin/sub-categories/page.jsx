@@ -98,7 +98,7 @@ const page = () => {
             <TableBody>
               {subCategoryData?.map((sub, index) => (
                 <TableRow key={index}>
-                  <TableCell className='border px-2 py-1 text-center'>{index + 1}</TableCell>
+                  <TableCell className='border px-2 py-1 font-semibold text-xl text-center'>{index + 1}</TableCell>
                   <TableCell className='border px-2 py-1 whitespace-nowrap text-center'>
                     {sub?.name}
                   </TableCell>
@@ -107,7 +107,7 @@ const page = () => {
                       <img
                         src={sub?.image}
                         alt={sub?.name}
-                        className='w-8 h-8 cursor-pointer'
+                        className='w-12 h-12 cursor-pointer'
                         // onClick={()=>{
                         //   setImageURL(row.original.image)
                         // }}

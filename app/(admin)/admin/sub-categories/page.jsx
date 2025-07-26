@@ -15,6 +15,7 @@ import { HiPencil } from 'react-icons/hi'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
+  const { allCategory ,setAllCategory}=useState([])
   const [loading, setLoading] = useState(false)
   const [subCategoryData, setSubCategoryData] = useState([])
   // const [openEdit, setOpenEdit] = useState(false)
@@ -67,6 +68,22 @@ const page = () => {
   //   }
   // }
 
+  const fetchCategory = async () => {
+ 
+    const response = await Axios({
+      ...BackendApi.get_Categories,
+    })
+    const { data: responseData } = response
+
+    if (responseData?.success) {
+      setAllCategory(responseData.data)
+    }
+
+}
+
+useEffect(() => {
+  fetchCategory()
+}, [])
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>
       <AdminNav />
@@ -75,7 +92,7 @@ const page = () => {
           <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
             Sub Category
           </h2>
-          <UploadSubCategory />
+          <UploadSubCategory allCategory={allCategory} />
         </div>
         {subCategoryData[0] && !loading && <NoData />}
 

@@ -85,7 +85,7 @@ const page = () => {
         {/* { !loading && <NoData />} */}
 
         <div className='p-2'>
-          <Table isStriped className='w-full py-0 px-0 '>
+          <Table color='primary' isStriped className='w-full py-0 px-0 '>
             <TableHeader className='bg-black text-white'>
      
                 <TableColumn>Sr.No</TableColumn>

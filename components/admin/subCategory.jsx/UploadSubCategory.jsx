@@ -7,14 +7,13 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  Input,
-  Button,
   useDisclosure,
 } from '@heroui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 import { useAppContext } from '@/context/appContext'
+import { IoClose } from 'react-icons/io5'
 
 const UploadSubCategory = ({ fetchCategories }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
@@ -36,6 +35,7 @@ const UploadSubCategory = ({ fetchCategories }) => {
     })
   }
 
+  useEffect(()=>{console.log(allCategory)},[])
   const handleUploadSubCategoryImage = async (e) => {
     const file = e.target.files[0]
 
@@ -192,11 +192,11 @@ const UploadSubCategory = ({ fetchCategories }) => {
                         }}
                       >
                         <option value={''}>Select Category</option>
-                        {allCategory.map((category, index) => {
+                        {allCategory?.map((category, index) => {
                           return (
                             <option
                               value={category?._id}
-                              key={category._id + 'subcategory'}
+                              key={category?._id + 'subcategory'}
                             >
                               {category?.name}
                             </option>

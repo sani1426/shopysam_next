@@ -10,60 +10,62 @@ import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 import CofirmBox from '@/components/UI/ConfirmBox'
 import UploadSubCategory from '@/components/admin/subCategory.jsx/UploadSubCategory'
+import { MdDelete } from 'react-icons/md'
+import { HiPencil } from 'react-icons/hi'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
   const [loading, setLoading] = useState(false)
-  const [categoryData, setCategoryData] = useState([])
-  const [openEdit, setOpenEdit] = useState(false)
-  const [editData, setEditData] = useState({
-    name: '',
-    image: '',
-  })
-  const [openConfimBoxDelete, setOpenConfirmBoxDelete] = useState(false)
-  const [deleteCategory, setDeleteCategory] = useState({
-    _id: '',
-  })
+  const [subCategoryData, setSubCategoryData] = useState([])
+  // const [openEdit, setOpenEdit] = useState(false)
+  // const [editData, setEditData] = useState({
+  //   name: '',
+  //   image: '',
+  // })
+  // const [openConfimBoxDelete, setOpenConfirmBoxDelete] = useState(false)
+  // const [deleteCategory, setDeleteCategory] = useState({
+  //   _id: '',
+  // })
 
-  const fetchCategory = async () => {
-    try {
-      setLoading(true)
-      const response = await Axios({
-        ...BackendApi.get_Categories,
-      })
-      const { data: responseData } = response
+  // const fetchSubCategory = async () => {
+  //   try {
+  //     setLoading(true)
+  //     const response = await Axios({
+  //       ...BackendApi.get_Categories,
+  //     })
+  //     const { data: responseData } = response
 
-      if (responseData?.success) {
-        setCategoryData(responseData.data)
-      }
-    } catch (error) {
-    } finally {
-      setLoading(false)
-    }
-  }
+  //     if (responseData?.success) {
+  //       setCategoryData(responseData.data)
+  //     }
+  //   } catch (error) {
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchCategory()
-  }, [])
+  // useEffect(() => {
+  //   fetchCategory()
+  // }, [])
 
-  const handleDeleteCategory = async () => {
-    try {
-      const response = await Axios({
-        ...BackendApi.delete_Category,
-        data: deleteCategory,
-      })
+  // const handleDeleteSubCategory = async () => {
+  //   try {
+  //     const response = await Axios({
+  //       ...BackendApi.delete_Category,
+  //       data: deleteCategory,
+  //     })
 
-      const { data: responseData } = response
+  //     const { data: responseData } = response
 
-      if (responseData.success) {
-        toast.success(responseData.message)
-        fetchCategory()
-        setOpenConfirmBoxDelete(false)
-      }
-    } catch (error) {
-      toast.error('error')
-    }
-  }
+  //     if (responseData.success) {
+  //       toast.success(responseData.message)
+  //       fetchCategory()
+  //       setOpenConfirmBoxDelete(false)
+  //     }
+  //   } catch (error) {
+  //     toast.error('error')
+  //   }
+  // }
 
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>
@@ -71,74 +73,94 @@ const page = () => {
       <section className='pt-2 border-t-1 border-s-slate-100 '>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
           <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
-           Sub Category
+            Sub Category
           </h2>
-          <UploadSubCategory  />
+          <UploadSubCategory />
         </div>
-        {!categoryData[0] && !loading && <NoData />}
+        {subCategoryData[0] && !loading && <NoData />}
 
-        <div
-          className={`p-4 grid  gap-2 ${
-            dashboardOpen
-              ? 'md:grid-cols-4 lg:grid-cols-5'
-              : 'grid-cols-2 md:grid-cols-4 lg:grid-cols-5'
-          }`}
-        >
-          {categoryData?.map((category, index) => {
-            return (
-              <div className='category_card' key={category?._id}>
-                <img
-                  alt={category?.name}
-                  src={category?.image}
-                  className='w-full object-scale-down'
-                />
-                <div className='items-center flex gap-2 justify-between py-3'>
-                  <button
-                    onClick={() => {
-                      setOpenEdit(true)
-                      setEditData(category)
-                    }}
-                    className='flex-1 bg-green-100 hover:bg-green-200 text-green-600 font-medium py-1 rounded'
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setOpenConfirmBoxDelete(true)
-                      setDeleteCategory(category)
-                    }}
-                    className='flex-1 bg-red-100 hover:bg-red-200 text-red-600 font-medium py-1 rounded'
-                  >
-                    Delete
-                  </button>
-                </div>
-                <div className='w-full  text-center pb-2 flex items-center justify-evenly'>
-                  <h3 className='text-lg'>name:</h3>
-                  <h3 className='text-lg '>{category?.name}</h3>
-                </div>
-              </div>
-            )
-          })}
+        <div className='p-2'>
+          <table className='w-full py-0 px-0 border-collapse'>
+            <thead className='bg-black text-white'>
+              <tr>
+                <th>Sr.No</th>
+                <th className='border whitespace-nowrap'>Name</th>
+                <th className='border whitespace-nowrap'>Image</th>
+                <th className='border whitespace-nowrap'>Category</th>
+                <th className='border whitespace-nowrap'>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {subCategoryData?.map((sub, index) => (
+                <tr key={index}>
+                  <td className='border px-2 py-1 '>{index + 1}</td>
+                  <td className='border px-2 py-1 whitespace-nowrap'>
+                    {sub?.name}
+                  </td>
+                  <td className='border px-2 py-1 whitespace-nowrap'>
+                    <div className='flex justify-center items-center'>
+                      <img
+                        src={sub?.image}
+                        alt={sub?.name}
+                        className='w-8 h-8 cursor-pointer'
+                        // onClick={()=>{
+                        //   setImageURL(row.original.image)
+                        // }}
+                      />
+                    </div>
+                  </td>
+                  <td className='border px-2 py-1 whitespace-nowrap'>
+                    {sub?.category?.map((_, index) => (
+                      <p key={index} className='shadow-md px-1 inline-block'>
+                        {_}
+                      </p>
+                    ))}
+                  </td>
+                  <td className='border px-2 py-1 whitespace-nowrap'>
+                    <div className='flex items-center justify-center gap-3'>
+                      <button
+                        //  onClick={()=>{
+                        //     setOpenEdit(true)
+                        //     setEditData(row.original)
+                        // }}
+                        className='p-2 bg-green-100 rounded-full hover:text-green-600'
+                      >
+                        <HiPencil size={20} />
+                      </button>
+                      <button
+                        // onClick={()=>{
+                        //   setOpenDeleteConfirmBox(true)
+                        //   setDeleteSubCategory(row.original)
+                        // }}
+                        className='p-2 bg-red-100 rounded-full text-red-500 hover:text-red-600'
+                      >
+                        <MdDelete size={20} />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         {loading && <Loading />}
 
-        {openEdit && (
+        {/* {openEdit && (
           <EditCategory
             data={editData}
             close={() => setOpenEdit(false)}
             fetchData={fetchCategory}
           />
-        )}
+        )} */}
 
-        {openConfimBoxDelete && (
+        {/* {openConfimBoxDelete && (
           <CofirmBox
             close={() => setOpenConfirmBoxDelete(false)}
             cancel={() => setOpenConfirmBoxDelete(false)}
             confirm={handleDeleteCategory}
           />
-        )}
+        )} */}
       </section>
     </div>
   )

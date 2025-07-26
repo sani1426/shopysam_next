@@ -1,8 +1,9 @@
 "use client"
 
 import SummaryApi from '@/common'
+import Axios from '@/utils/axios'
 import { createContext, useContext, useEffect, useState } from 'react'
-
+import BackendApi from '@/common/api'
 
 const AppContext = createContext()
 
@@ -20,9 +21,24 @@ export const AppContextProvider = ({ children }) => {
     const data = await response.json()
     setUserDetail(data?.data)
   }
+  const fetchCategory = async () => {
+    try {
+      const response = await Axios({
+        ...BackendApi.get_Categories,
+      })
+      const { data: responseData } = response
+
+      if (responseData?.success) {
+        setAllCategory(responseData.data)
+      }
+    } catch (error) {
+      console.log(error)
+    } 
+  }
+
   useEffect(() => {
     fetchUserDetails()
- 
+    fetchCategory()
   }, [])
 
   const toggleTheme = () => {

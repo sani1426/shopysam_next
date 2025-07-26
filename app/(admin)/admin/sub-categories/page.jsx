@@ -81,7 +81,7 @@ const page = () => {
           </h2>
           <UploadSubCategory allCategory={allCategory} fetchSubCategory={fetchSubCategory} />
         </div>
-        {!subCategoryData[0] && !loading && <NoData />}
+        {/* { !loading && <NoData />} */}
 
         <div className='p-2'>
           <table className='w-full py-0 px-0 border-collapse'>

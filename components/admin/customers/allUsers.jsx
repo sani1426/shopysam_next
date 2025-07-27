@@ -146,7 +146,7 @@ const statusColorMap = {
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
 
-const AllUsers = ({ users }) => {
+const AllUsers = ({ users ,userCount}) => {
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
@@ -158,7 +158,7 @@ const AllUsers = ({ users }) => {
   });
   const [page, setPage] = React.useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
+  const pages = Math.ceil(userCount / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -176,9 +176,9 @@ const AllUsers = ({ users }) => {
         user.name.toLowerCase().includes(filterValue.toLowerCase()),
       );
     }
-    if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
+    if (statusFilter !== "all" && Array.from(statusFilter)?.length !== statusOptions?.length) {
       filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.status),
+        Array.from(statusFilter).includes(user?.status),
       );
     }
 
@@ -369,7 +369,7 @@ const AllUsers = ({ users }) => {
     visibleColumns,
     onSearchChange,
     onRowsPerPageChange,
-    users?.length,
+    userCount,
     hasSearchFilter,
   ]);
 

@@ -27,6 +27,7 @@ const page = () => {
   const { dashboardOpen } = useAppContext()
   const { allCategory } = useAppContext()
   const [loading, setLoading] = useState(false)
+  const [subCategoryData,setSubCategoryData]=useState()
   const [ImageURL, setImageURL] = useState('')
   const [openEdit, setOpenEdit] = useState(false)
   const [editData, setEditData] = useState({

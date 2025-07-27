@@ -4,13 +4,15 @@ import Link from 'next/link'
 import './admin.css'
 import { useEffect } from 'react'
 import { useAppContext } from '@/context/appContext'
+import { RiDashboard3Fill } from "react-icons/ri";
 import { IoLogoApple } from "react-icons/io5";
 import { IoCheckboxOutline } from "react-icons/io5";
 import { IoPeopleOutline } from "react-icons/io5";
-import { AiFillProduct } from "react-icons/ai";
-import { IoHelpOutline } from "react-icons/io5";
-import { IoSettingsOutline } from "react-icons/io5";
-import { IoLogInOutline } from "react-icons/io5";
+import { FaProductHunt } from "react-icons/fa6";
+import { BiSolidCategoryAlt } from "react-icons/bi";
+import { ImUpload2 } from "react-icons/im";
+import { MdCategory } from "react-icons/md";
+
 
 const AdminSide = () => {
 const {dashboardOpen}=useAppContext()
@@ -42,7 +44,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/dashboard">
 		    <span className="icon">
-			<IoPeopleOutline className='text-[1.75rem]' />
+			<RiDashboard3Fill className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Dashboard</span>
 		</Link>
@@ -59,7 +61,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/products">
 		    <span className="icon">
-			<AiFillProduct  className='text-[1.75rem]' />
+			<FaProductHunt  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Products</span>
 		</Link>
@@ -67,7 +69,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/upload-product">
 		    <span className="icon">
-			<AiFillProduct  className='text-[1.75rem]' />
+			<ImUpload2  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Upload Product</span>
 		</Link>
@@ -76,7 +78,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/categories">
 		    <span className="icon">
-			<IoCheckboxOutline   className='text-[1.75rem]'/>
+			<BiSolidCategoryAlt   className='text-[1.75rem]'/>
 		    </span>
 		    <span className="title">Categories</span>
 		</Link>
@@ -85,7 +87,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/sub-categories">
 		    <span className="icon">
-			<IoHelpOutline  className='text-[1.75rem]' />
+			<MdCategory  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Sub Categories</span>
 		</Link>
@@ -94,7 +96,7 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link'  href="/admin/orders">
 		    <span className="icon">
-			<IoSettingsOutline  className='text-[1.75rem]' />
+			<IoCheckboxOutline  className='text-[1.75rem]' />
 		    </span>
 		    <span className="title">Orders</span>
 		</Link>

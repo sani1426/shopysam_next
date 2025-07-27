@@ -393,7 +393,7 @@ const AllUsers = ({ users ,userCount}) => {
         <span className="text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
-            : `${selectedKeys.size} of ${items.length} selected`}
+            : `${selectedKeys.size} of ${items?.length} selected`}
         </span>
       </div>
     );
@@ -457,9 +457,9 @@ const AllUsers = ({ users ,userCount}) => {
         )}
       </TableHeader>
       <TableBody emptyContent={"No users found"} items={sortedItems}>
-        {(item) => (
-          <TableRow key={item.id}>
-            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+        {(item,index) => (
+          <TableRow key={index}>
+            {(columnKey,index) => <TableCell key={index}>{renderCell(item, columnKey)}</TableCell>}
           </TableRow>
         )}
       </TableBody>

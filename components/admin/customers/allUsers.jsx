@@ -209,6 +209,7 @@ const AllUsers = ({ users ,userCount}) => {
       case "name":
         return (
           <User
+          key={user?._id}
             avatarProps={{radius: "full", size: "sm", src: user?.avatar}}
             classNames={{
               description: "text-default-500",
@@ -221,14 +222,15 @@ const AllUsers = ({ users ,userCount}) => {
         );
       case "role":
         return (
-          <div className="flex flex-col">
+          <div  key={user?._id} className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
-            <p className="text-bold text-tiny capitalize text-default-500">{user.role}</p>
+            <p className="text-bold text-tiny capitalize text-default-500">{user?.role}</p>
           </div>
         );
       case "status":
         return (
           <Chip
+          key={user?._id}
             className="capitalize border-none gap-1 text-default-600"
             color={statusColorMap[user?.status]}
             size="sm"
@@ -239,7 +241,7 @@ const AllUsers = ({ users ,userCount}) => {
         );
       case "actions":
         return (
-          <div className="relative flex justify-end items-center gap-2">
+          <div  key={user?._id} className="relative flex justify-end items-center gap-2">
             <Dropdown className="bg-background border-1 border-default-200">
               <DropdownTrigger>
                 <Button isIconOnly radius="full" size="sm" variant="light">

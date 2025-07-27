@@ -1,17 +1,18 @@
-"use client"
+'use client'
 import AdminNav from '@/components/admin/adminNav'
 import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
+import AllUsers from '@/components/admin/customers/allUsers'
 
-import AllUsers from '@/components/admin/allUsers'
+
 
 const page = () => {
-        const { dashboardOpen } = useAppContext()
+  const { dashboardOpen } = useAppContext()
   return (
-        <div class={`main ${dashboardOpen && "active"}`}>
-        <AdminNav />
-        <AllUsers />
-      </div>
+    <div class={`main ${dashboardOpen && 'active'}`}>
+      <AdminNav />
+      <AllUsers />
+    </div>
   )
 }
 

@@ -12,65 +12,72 @@ import CofirmBox from '@/components/UI/ConfirmBox'
 import UploadSubCategory from '@/components/admin/subCategory.jsx/UploadSubCategory'
 import { MdDelete } from 'react-icons/md'
 import { HiPencil } from 'react-icons/hi'
-import { Table,TableHeader,TableColumn,TableBody,TableRow,TableCell} from '@heroui/react'
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+} from '@heroui/react'
+import ViewImage from '@/components/UI/ViewImage'
+import EditSubCategory from '@/components/admin/subCategory.jsx/EditSubCategory'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
-  const { allCategory}=useAppContext()
+  const { allCategory } = useAppContext()
   const [loading, setLoading] = useState(false)
-  const [subCategoryData, setSubCategoryData] = useState()
-  // const [openEdit, setOpenEdit] = useState(false)
-  // const [ediTableCellata, setEdiTableCellata] = useState({
-  //   name: '',
-  //   image: '',
-  // })
-  // const [openConfimBoxDelete, setOpenConfirmBoxDelete] = useState(false)
-  // const [deleteCategory, seTableCelleleteCategory] = useState({
-  //   _id: '',
-  // })
+  const [ImageURL, setImageURL] = useState('')
+  const [openEdit, setOpenEdit] = useState(false)
+  const [editData, setEditData] = useState({
+    _id: '',
+  })
+  const [deleteSubCategory, setDeleteSubCategory] = useState({
+    _id: '',
+  })
+  const [openDeleteConfirmBox, setOpenDeleteConfirmBox] = useState(false)
 
-  const fetchSubCategory = async()=>{
+  const fetchSubCategory = async () => {
     try {
-        setLoading(true)
-        const response = await Axios({
-          ...BackendApi.get_SubCategories
-        })
-        const { data : responseData } = response
+      setLoading(true)
+      const response = await Axios({
+        ...BackendApi.get_SubCategories,
+      })
+      const { data: responseData } = response
 
-        if(responseData?.success){
-          setSubCategoryData(responseData?.data)
-          console.log(subCategoryData)
-        }
+      if (responseData?.success) {
+        setSubCategoryData(responseData?.data)
+        console.log(subCategoryData)
+      }
     } catch (error) {
-       toast.error('error')
-    } finally{
+      toast.error('error')
+    } finally {
       setLoading(false)
     }
   }
-
-  useEffect(()=>{
+  useEffect(() => {
     fetchSubCategory()
-  },[])
+  }, [])
 
-  // const handleDeleteSubCategory = async () => {
-  //   try {
-  //     const response = await Axios({
-  //       ...BackendApi.delete_Category,
-  //       data: deleteCategory,
-  //     })
+  const handleDeleteSubCategory = async () => {
+    try {
+      const response = await Axios({
+        ...BackendApi.delete_SubCategory,
+        data: deleteSubCategory,
+      })
 
-  //     const { data: responseData } = response
+      const { data: responseData } = response
 
-  //     if (responseData.success) {
-  //       toast.success(responseData.message)
-  //       fetchCategory()
-  //       setOpenConfirmBoxDelete(false)
-  //     }
-  //   } catch (error) {
-  //     toast.error('error')
-  //   }
-  // }
-
+      if (responseData?.success) {
+        toast.success(responseData?.message)
+        fetchSubCategory()
+        setOpenDeleteConfirmBox(false)
+        setDeleteSubCategory({ _id: '' })
+      }
+    } catch (error) {
+      toast.error('error')
+    }
+  }
 
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>
@@ -80,25 +87,38 @@ const page = () => {
           <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
             Sub Category
           </h2>
-          <UploadSubCategory allCategory={allCategory} fetchSubCategory={fetchSubCategory} />
+          <UploadSubCategory
+            allCategory={allCategory}
+            fetchSubCategory={fetchSubCategory}
+          />
         </div>
         {/* {!subCategoryData &&  !loading && <NoData />} */}
 
         <div className='p-2'>
           <Table color='primary' isStriped className='w-full py-0 px-0 '>
             <TableHeader className='bg-black text-white'>
-     
-                <TableColumn className='text-center font-bold text-xl'>Sr.No</TableColumn>
-                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Name</TableColumn>
-                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Image</TableColumn>
-                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Category</TableColumn>
-                <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>Action</TableColumn>
-           
+              <TableColumn className='text-center font-bold text-xl'>
+                Sr.No
+              </TableColumn>
+              <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>
+                Name
+              </TableColumn>
+              <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>
+                Image
+              </TableColumn>
+              <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>
+                Category
+              </TableColumn>
+              <TableColumn className=' whitespace-nowrap font-bold text-xl text-center'>
+                Action
+              </TableColumn>
             </TableHeader>
             <TableBody>
               {subCategoryData?.map((sub, index) => (
                 <TableRow key={index}>
-                  <TableCell className=' px-2 py-1 font-semibold text-xl text-center'>{index + 1}</TableCell>
+                  <TableCell className=' px-2 py-1 font-semibold text-xl text-center'>
+                    {index + 1}
+                  </TableCell>
                   <TableCell className=' px-2 py-1 whitespace-nowrap text-[1.1rem] text-center'>
                     {sub?.name}
                   </TableCell>
@@ -108,9 +128,9 @@ const page = () => {
                         src={sub?.image}
                         alt={sub?.name}
                         className='w-12 h-12 cursor-pointer'
-                        // onClick={()=>{
-                        //   setImageURL(row.original.image)
-                        // }}
+                        onClick={() => {
+                          setImageURL(sub?.image)
+                        }}
                       />
                     </div>
                   </TableCell>
@@ -124,19 +144,18 @@ const page = () => {
                   <TableCell className=' px-2 py-1 whitespace-nowrap'>
                     <div className='flex items-center justify-center gap-3'>
                       <button
-                        //  onClick={()=>{
-                        //     setOpenEdit(true)
-                        //     setEdiTableCellata(row.original)
-                        // }}
+                        onClick={() => {
+                          setOpenEdit(true)
+                          setEditData(_)
+                        }}
                         className='p-2 bg-green-100 rounded-full hover:text-green-600'
                       >
                         <HiPencil size={20} />
                       </button>
                       <button
-                        // onClick={()=>{
-                        //   setOpenDeleteConfirmBox(true)
-                        //   seTableCelleleteSubCategory(row.original)
-                        // }}
+                        onClick={() => {
+                          setOpenDeleteConfirmBox(true)
+                        }}
                         className='p-2 bg-red-100 rounded-full text-red-500 hover:text-red-600'
                       >
                         <MdDelete size={20} />
@@ -151,21 +170,23 @@ const page = () => {
 
         {loading && <Loading />}
 
-        {/* {openEdit && (
-          <EditCategory
-            data={ediTableCellata}
-            close={() => setOpenEdit(false)}
-            fetchData={fetchCategory}
-          />
-        )} */}
+        {ImageURL && <ViewImage url={ImageURL} close={() => setImageURL('')} />}
 
-        {/* {openConfimBoxDelete && (
-          <CofirmBox
-            close={() => setOpenConfirmBoxDelete(false)}
-            cancel={() => setOpenConfirmBoxDelete(false)}
-            confirm={handleDeleteCategory}
+        {openEdit && (
+          <EditSubCategory
+            data={editData}
+            close={() => setOpenEdit(false)}
+            fetchData={fetchSubCategory}
           />
-        )} */}
+        )}
+
+        {openDeleteConfirmBox && (
+          <CofirmBox
+            cancel={() => setOpenDeleteConfirmBox(false)}
+            close={() => setOpenDeleteConfirmBox(false)}
+            confirm={handleDeleteSubCategory}
+          />
+        )}
       </section>
     </div>
   )

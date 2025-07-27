@@ -59,6 +59,14 @@ const BackendApi = {
     url: '/api/admin/add-subcategory',
     method: 'post',
   },
+  update_SubCategory: {
+    url: '/api/admin/update-subcategory',
+    method: 'post',
+  },
+  delete_SubCategory: {
+    url: '/api/admin/delete-subcategory',
+    method: 'delete',
+  },
   get_SubCategories: {
     url: '/api/subcategory/all',
     method: 'get',

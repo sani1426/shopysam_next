@@ -147,7 +147,7 @@ const page = () => {
                       <button
                         onClick={() => {
                           setOpenEdit(true)
-                          setEditData(_)
+                          setEditData(sub)
                         }}
                         className='p-2 bg-green-100 rounded-full hover:text-green-600'
                       >

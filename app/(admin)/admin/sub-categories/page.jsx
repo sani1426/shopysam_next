@@ -156,6 +156,7 @@ const page = () => {
                       <button
                         onClick={() => {
                           setOpenDeleteConfirmBox(true)
+                          setDeleteSubCategory(sub)
                         }}
                         className='p-2 bg-red-100 rounded-full text-red-500 hover:text-red-600'
                       >

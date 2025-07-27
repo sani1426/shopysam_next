@@ -5,7 +5,7 @@ const Logo = () => {
     <img
     src='/assets/logo.svg'
     alt='logo-image'
-className='w-[40px] h-[30px]'
+className='w-[70px] h-[50px]'
   />
   )
 }

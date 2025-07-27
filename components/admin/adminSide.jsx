@@ -12,6 +12,7 @@ import { FaProductHunt } from "react-icons/fa6";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { ImUpload2 } from "react-icons/im";
 import { MdCategory } from "react-icons/md";
+import Logo from '../UI/logo'
 
 
 const AdminSide = () => {
@@ -34,7 +35,8 @@ const {dashboardOpen}=useAppContext()
 	    <li>
 		<Link className='side-link' href="/">
 		    <span className="icon">
-			<IoLogoApple className='text-[1.75rem]' />
+			{/* <IoLogoApple className='text-[1.75rem]' /> */}
+			<Logo />
 		    </span>
 	
 		    <span className="title relative block px-[10px] h-[60px] text-start whitespace-nowrap text-3xl">ShopySam</span>

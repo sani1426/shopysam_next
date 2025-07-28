@@ -19,10 +19,10 @@ import {
   Pagination,
   Tooltip,
 } from '@heroui/react'
-import { GoDotFill } from "react-icons/go";
-import { RiEyeFill } from "react-icons/ri";
-import { CiEdit } from "react-icons/ci";
-import { MdDeleteOutline } from "react-icons/md";
+import { GoDotFill } from 'react-icons/go'
+import { RiEyeFill } from 'react-icons/ri'
+import { CiEdit } from 'react-icons/ci'
+import { MdDeleteOutline } from 'react-icons/md'
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
@@ -149,7 +149,7 @@ const statusColorMap = {
   InActive: 'warning',
 }
 
-const INITIAL_VISIBLE_COLUMNS = ['name', 'role','gender','status', 'actions']
+const INITIAL_VISIBLE_COLUMNS = ['name', 'role', 'gender', 'status', 'actions']
 
 const AllUsers = ({ users, userCount }) => {
   const [filterValue, setFilterValue] = React.useState('')
@@ -259,52 +259,38 @@ const AllUsers = ({ users, userCount }) => {
           <Chip
             key={user?._id}
             classNames={{
-              base:`${user?.gender === 'Men' ? "bg-linear-to-br from-[#ff0f7b] to-[#f89b29] border-small border-white/50 shadow-indigo-500/30"
-               : "bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30"} `,
-              content: "drop-shadow-xs shadow-black text-white",
+              base: `${
+                user?.gender === 'Men'
+                  ? 'bg-linear-to-br from-[#ff0f7b] to-[#f89b29] border-small border-white/50 shadow-indigo-500/30'
+                  : 'bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30'
+              } `,
+              content: 'drop-shadow-xs shadow-black text-white',
             }}
             size='sm'
-            variant="shadow"
+            variant='shadow'
           >
             {user?.gender}
           </Chip>
         )
       case 'actions':
         return (
-          // <div
-          //   key={user?._id}
-          //   className='relative flex justify-end items-center gap-2'
-          // >
-          //   <Dropdown className='bg-background border-1 border-default-200'>
-          //     <DropdownTrigger>
-          //       <Button isIconOnly radius='full' size='sm' variant='light'>
-          //         <VerticalDotsIcon className='text-default-400' />
-          //       </Button>
-          //     </DropdownTrigger>
-          //     <DropdownMenu>
-          //       <DropdownItem key='view'>View</DropdownItem>
-          //       <DropdownItem key='edit'>Edit</DropdownItem>
-          //       <DropdownItem key='delete'>Delete</DropdownItem>
-          //     </DropdownMenu>
-          //   </Dropdown>
-          // </div>
           <div key={user?._id} className='relative flex items-center gap-2'>
-          <Tooltip color='primary' content='Details'>
-            <span className='text-lg text-sky-600 cursor-pointer active:opacity-50'>
-              <RiEyeFill />
-            </span>
-          </Tooltip>
-          <Tooltip color='success' content='Edit user'>
-            <span className='text-lg text-success cursor-pointer active:opacity-50'>
-              <CiEdit />
-            </span>
-          </Tooltip>
-          <Tooltip color='danger' content='Delete user'>
-            <span className='text-lg text-danger cursor-pointer active:opacity-50'>
-              <MdDeleteOutline />
-            </span>
-          </Tooltip>
-        </div>
+            <Tooltip color='primary' content='Details'>
+              <span className='text-[22px] text-sky-600 cursor-pointer active:opacity-50'>
+                <RiEyeFill />
+              </span>
+            </Tooltip>
+            <Tooltip color='success' content='Edit user'>
+              <span className='text-[22px] text-success cursor-pointer active:opacity-50'>
+                <CiEdit />
+              </span>
+            </Tooltip>
+            <Tooltip color='danger' content='Delete user'>
+              <span className='text-[22px] text-danger cursor-pointer active:opacity-50'>
+                <MdDeleteOutline />
+              </span>
+            </Tooltip>
+          </div>
         )
       default:
         return cellValue
@@ -480,21 +466,15 @@ const AllUsers = ({ users, userCount }) => {
           All Customers
         </h2>
       </div>
-      <div className='w-full p-5'>
+      <div className='w-full p-8'>
         <Table
-        isStriped
+          isStriped
           isCompact
           removeWrapper
           aria-label='Example table with custom cells, pagination and sorting'
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
-          checkboxesProps={{
-            classNames: {
-              wrapper:
-                'after:bg-foreground after:text-background text-background',
-            },
-          }}
-          classNames={classNames}
+        className='shadow-xl'
           //       selectedKeys={selectedKeys}
           //       selectionMode="multiple"
           sortDescriptor={sortDescriptor}
@@ -507,21 +487,21 @@ const AllUsers = ({ users, userCount }) => {
             {headerColumns?.map((col, index) => (
               <TableColumn
                 key={col.uid}
-                align={col.uid === 'actions' ? 'center' : 'start'}
+                align={center}
                 allowsSorting={col.sortable}
               >
                 {col.name}
               </TableColumn>
             ))}
           </TableHeader>
-        
-              <TableBody emptyContent={"No users found"} items={sortedItems}>
-        {(item) => (
-          <TableRow key={item._id}>
-            {(colKey) => <TableCell>{renderCell(item, colKey)}</TableCell>}
-          </TableRow>
-        )}
-      </TableBody>
+
+          <TableBody emptyContent={'No users found'} items={sortedItems}>
+            {(item) => (
+              <TableRow key={item._id}>
+                {(colKey) => <TableCell>{renderCell(item, colKey)}</TableCell>}
+              </TableRow>
+            )}
+          </TableBody>
         </Table>
       </div>
     </section>

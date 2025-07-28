@@ -175,7 +175,7 @@ function AllCustomers({ users }) {
             </TableCell>
             <TableCell>
             <div key={user?._id} className='flex flex-col'>
-            <p className='text-bold text-sm capitalize'>{role}</p>
+            <p className='text-bold text-sm capitalize'>role</p>
             <p className='text-bold text-sm capitalize text-default-400'>
               {user?.role}
             </p>

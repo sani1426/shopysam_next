@@ -482,6 +482,7 @@ const AllUsers = ({ users, userCount }) => {
       </div>
       <div className='w-full p-5'>
         <Table
+        isStriped
           isCompact
           removeWrapper
           aria-label='Example table with custom cells, pagination and sorting'

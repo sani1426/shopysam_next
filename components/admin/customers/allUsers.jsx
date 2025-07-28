@@ -18,6 +18,7 @@ import {
   User,
   Pagination,
 } from '@heroui/react'
+import { FaDotCircle } from 'react-icons/fa'
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
@@ -243,7 +244,8 @@ const AllUsers = ({ users, userCount }) => {
             className='capitalize border-none gap-1 text-default-600'
             color={statusColorMap[user?.status]}
             size='sm'
-            variant='dot'
+            startContent={<FaDotCircle size={18} />}
+            variant='flat'
           >
             {cellValue}
           </Chip>
@@ -260,7 +262,7 @@ const AllUsers = ({ users, userCount }) => {
             size='sm'
             variant="shadow"
           >
-            {cellValue}
+            {user?.gender}
           </Chip>
         )
       case 'actions':

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React from 'react'
 import {
   Table,
@@ -145,46 +145,55 @@ const statusColorMap = {
   InActive: 'warning',
 }
 
-function AllCustomers({users}) {
-  const renderCell = React.useCallback((user, columnKey) => {
-    const cellValue = user[columnKey]
-
-    switch (columnKey) {
-      case 'name':
-        return (
-          <User
-          key={user?._id}
-            avatarProps={{ radius: 'lg', src: user?.avatar }}
-            description={user?.email}
-            name={cellValue}
+function AllCustomers({ users }) {
+ 
+  return (
+    <Table aria-label='Example table with custom cells'>
+      <TableHeader>
+        {columns.map((col, index) => (
+          <TableColumn
+            key={index}
+            align={col.uid === 'actions' ? 'center' : 'start'}
           >
-            {user?.email}
-          </User>
-        )
-      case 'role':
-        return (
-          <div key={user?._id} className='flex flex-col'>
-            <p className='text-bold text-sm capitalize'>{cellValue}</p>
+            {col?.name}
+          </TableColumn>
+        ))}
+      </TableHeader>
+      <TableBody items={users}>
+        {users?.map((user, index) => (
+          <TableRow key={index}>
+            <TableCell>
+              {' '}
+              <User
+                key={user?._id}
+                avatarProps={{ radius: 'lg', src: user?.avatar }}
+                description={user?.email}
+                name={user?.name}
+              >
+                {user?.email}
+              </User>
+            </TableCell>
+            <TableCell>
+            <div key={user?._id} className='flex flex-col'>
+            <p className='text-bold text-sm capitalize'>{role}</p>
             <p className='text-bold text-sm capitalize text-default-400'>
               {user?.role}
             </p>
           </div>
-        )
-      case 'status':
-        return (
-          <Chip
-          key={user?._id}
+            </TableCell>
+            <TableCell>
+            <Chip
+            key={user?._id}
             className='capitalize'
             color={statusColorMap[user?.status]}
             size='sm'
             variant='flat'
           >
-            {cellValue}
+            {user?.status}
           </Chip>
-        )
-      case 'actions':
-        return (
-          <div key={user?._id} className='relative flex items-center gap-2'>
+            </TableCell>
+            <TableCell>
+            <div key={user?._id} className='relative flex items-center gap-2'>
             <Tooltip content='Details'>
               <span className='text-lg text-default-400 cursor-pointer active:opacity-50'>
                 <EyeIcon />
@@ -201,31 +210,9 @@ function AllCustomers({users}) {
               </span>
             </Tooltip>
           </div>
-        )
-      default:
-        return cellValue
-    }
-  }, [])
-  return (
-    <Table aria-label='Example table with custom cells'>
-      <TableHeader columns={columns}>
-        {(column) => (
-          <TableColumn
-            key={column.uid}
-            align={column.uid === 'actions' ? 'center' : 'start'}
-          >
-            {column.name}
-          </TableColumn>
-        )}
-      </TableHeader>
-      <TableBody items={users}>
-        {(item) => (
-          <TableRow key={item.id}>
-            {(columnKey) => (
-              <TableCell>{renderCell(item, columnKey)}</TableCell>
-            )}
+            </TableCell>
           </TableRow>
-        )}
+        ))}
       </TableBody>
     </Table>
   )

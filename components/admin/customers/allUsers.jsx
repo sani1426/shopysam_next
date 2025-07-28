@@ -448,7 +448,7 @@ const AllUsers = ({ users ,userCount}) => {
     >
       <TableHeader columns={headerColumns}>
         {
-                visibleColumns?.map((col,index)=>(
+                headerColumns?.map((col,index)=>(
                         <TableColumn
                         key={index}
                         align={col.uid === "actions" ? "center" : "start"}

@@ -261,7 +261,7 @@ const AllUsers = ({ users, userCount }) => {
             classNames={{
               base: `${
                 user?.gender === 'Men'
-                  ? 'bg-linear-to-br from-[#ff0f7b] to-[#f89b29] border-small border-white/50 shadow-indigo-500/30'
+                  ? 'bg-linear-to-br from-[#ff0f7b] to-[#f89b29] border-small border-white/50 shadow-[#f89b29]'
                   : 'bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30'
               } `,
               content: 'drop-shadow-xs shadow-black text-white',
@@ -281,7 +281,7 @@ const AllUsers = ({ users, userCount }) => {
               </span>
             </Tooltip>
             <Tooltip color='success' content='Edit user'>
-              <span className='text-[22px] text-success cursor-pointer active:opacity-50'>
+              <span className='text-[25px] text-success cursor-pointer active:opacity-50'>
                 <CiEdit />
               </span>
             </Tooltip>
@@ -425,7 +425,7 @@ const AllUsers = ({ users, userCount }) => {
           classNames={{
             cursor: 'bg-foreground text-background',
           }}
-          color='default'
+          color='primary'
           isDisabled={hasSearchFilter}
           page={page}
           total={pages}
@@ -487,7 +487,7 @@ const AllUsers = ({ users, userCount }) => {
             {headerColumns?.map((col, index) => (
               <TableColumn
                 key={col.uid}
-                align={center}
+                align={"center"}
                 allowsSorting={col.sortable}
               >
                 {col.name}

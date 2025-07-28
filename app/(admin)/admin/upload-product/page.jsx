@@ -87,7 +87,7 @@ const page = () => {
                     <p className='font-medium text-[#486FEF]'>Image</p>
                     <div className='w-full max-w-[80%] mx-auto'>
                       <label htmlFor='productImage' className='bg-[#CBE2FC] h-24  rounded-xl flex justify-center items-center cursor-pointer'>
-                          <div className='text-center w-full flex justify-center items-center flex-col'>
+                          <div className='text-center w-full flex justify-center items-center flex-col text-[#486FEF]'>
                             {
                               imageLoading ?  <Loading/> : (
                                 <>

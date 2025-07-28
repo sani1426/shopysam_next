@@ -75,6 +75,23 @@ const page = () => {
             placeholder="Enter Product description"
             className='max-w-[80%]' />
                 </div>
+                <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+                  <Input
+                    type='file'
+                    size='lg'
+                    labelPlacement='outside'
+                    isRequired
+                    variant='bordered'
+                    color='primary'
+                    label='Image'
+                    value={data.name}
+                    onChange={handleChange}
+                    name='name'
+                    className='max-w-[80%]'
+                    placeholder='Enter Product Name'
+
+                  />
+                </div>
              </form>
               </div>
               </section>

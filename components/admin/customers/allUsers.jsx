@@ -20,7 +20,7 @@ import {
 } from '@heroui/react'
 
 export const columns = [
-  { name: 'ID', uid: 'id', sortable: true },
+  { name: 'ID', uid: '_id', sortable: true },
   { name: 'NAME', uid: 'name', sortable: true },
   { name: 'ROLE', uid: 'role', sortable: true },
   { name: 'Gender', uid: 'Gender', sortable: true },
@@ -139,9 +139,9 @@ export const ChevronDownIcon = ({ strokeWidth = 1.5, ...otherProps }) => {
 }
 
 const statusColorMap = {
-  active: 'success',
-  suspended: 'danger',
-  inActive: 'warning',
+  Active: 'success',
+  Suspended: 'danger',
+  InActive: 'warning',
 }
 
 const INITIAL_VISIBLE_COLUMNS = ['name', 'role', 'status', 'actions']
@@ -155,7 +155,7 @@ const AllUsers = ({ users, userCount }) => {
   const [statusFilter, setStatusFilter] = React.useState('all')
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
   const [sortDescriptor, setSortDescriptor] = React.useState({
-    column: 'id',
+    column: '_id',
     direction: 'ascending',
   })
   const [page, setPage] = React.useState(1)
@@ -244,6 +244,21 @@ const AllUsers = ({ users, userCount }) => {
             color={statusColorMap[user?.status]}
             size='sm'
             variant='dot'
+          >
+            {cellValue}
+          </Chip>
+        )
+      case 'gender':
+        return (
+          <Chip
+            key={user?._id}
+            classNames={{
+              base:`${user?.gender === 'Men' ? "bg-linear-to-br from-blue-600 to-indigo-500 border-small border-white/50 shadow-indigo-500/30"
+               : "bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30"} `,
+              content: "drop-shadow-xs shadow-black text-white",
+            }}
+            size='sm'
+            variant="shadow"
           >
             {cellValue}
           </Chip>
@@ -475,68 +490,7 @@ const AllUsers = ({ users, userCount }) => {
               </TableColumn>
             ))}
           </TableHeader>
-          {/* <TableBody emptyContent={'No users found'} items={sortedItems}>
-            {sortedItems?.map((item, index) => (
-              <TableRow key={index}>
-{(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>} */}
-                {/* <TableCell>
-                  <User
-                    avatarProps={{
-                      radius: 'full',
-                      size: 'sm',
-                      src: item?.avatar,
-                    }}
-                    classNames={{
-                      description: 'text-default-500',
-                    }}
-                    description={item?.email}
-                    name={item?.name}
-                  >
-                    {item?.email}
-                  </User>
-                </TableCell>
-                <TableCell>
-                  <div className='flex flex-col'>
-                    {/* <p className="text-bold text-small capitalize">{cellValue}</p> 
-                    <p className='text-bold text-tiny capitalize text-default-500'>
-                      {item?.role}
-                    </p>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <Chip
-                    className='capitalize border-none gap-1 text-default-600'
-                    color={statusColorMap[item?.status]}
-                    size='sm'
-                    variant='dot'
-                  >
-                    {item?.status}
-                  </Chip>
-                </TableCell>
-                <TableCell>
-                  <div className='relative flex justify-end items-center gap-2'>
-                    <Dropdown className='bg-background border-1 border-default-200'>
-                      <DropdownTrigger>
-                        <Button
-                          isIconOnly
-                          radius='full'
-                          size='sm'
-                          variant='light'
-                        >
-                          <VerticalDotsIcon className='text-default-400' />
-                        </Button>
-                      </DropdownTrigger>
-                      <DropdownMenu>
-                        <DropdownItem key='view'>View</DropdownItem>
-                        <DropdownItem key='edit'>Edit</DropdownItem>
-                        <DropdownItem key='delete'>Delete</DropdownItem>
-                      </DropdownMenu>
-                    </Dropdown>
-                  </div>
-                </TableCell> */}
-              {/* </TableRow>
-            ))}
-          </TableBody> */}
+        
               <TableBody emptyContent={"No users found"} items={sortedItems}>
         {(item) => (
           <TableRow key={item._id}>

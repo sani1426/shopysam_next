@@ -474,7 +474,7 @@ const AllUsers = ({ users, userCount }) => {
           aria-label='Example table with custom cells, pagination and sorting'
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
-        className='shadow-xl'
+          lassNames={classNames}
           //       selectedKeys={selectedKeys}
           //       selectionMode="multiple"
           sortDescriptor={sortDescriptor}
@@ -487,7 +487,7 @@ const AllUsers = ({ users, userCount }) => {
             {headerColumns?.map((col, index) => (
               <TableColumn
                 key={col.uid}
-                align={"center"}
+                align={col.uid === "actions" ? "center" : "start"}
                 allowsSorting={col.sortable}
               >
                 {col.name}

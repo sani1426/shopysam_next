@@ -153,6 +153,7 @@ function AllCustomers({users}) {
       case 'name':
         return (
           <User
+          key={user?._id}
             avatarProps={{ radius: 'lg', src: user?.avatar }}
             description={user?.email}
             name={cellValue}
@@ -162,7 +163,7 @@ function AllCustomers({users}) {
         )
       case 'role':
         return (
-          <div className='flex flex-col'>
+          <div key={user?._id} className='flex flex-col'>
             <p className='text-bold text-sm capitalize'>{cellValue}</p>
             <p className='text-bold text-sm capitalize text-default-400'>
               {user?.role}
@@ -172,6 +173,7 @@ function AllCustomers({users}) {
       case 'status':
         return (
           <Chip
+          key={user?._id}
             className='capitalize'
             color={statusColorMap[user?.status]}
             size='sm'
@@ -182,7 +184,7 @@ function AllCustomers({users}) {
         )
       case 'actions':
         return (
-          <div className='relative flex items-center gap-2'>
+          <div key={user?._id} className='relative flex items-center gap-2'>
             <Tooltip content='Details'>
               <span className='text-lg text-default-400 cursor-pointer active:opacity-50'>
                 <EyeIcon />

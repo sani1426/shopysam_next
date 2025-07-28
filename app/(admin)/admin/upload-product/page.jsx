@@ -58,7 +58,7 @@ const page = () => {
                     size='lg'
                     labelPlacement='outside'
                     isRequired
-                    variant='bordered'
+                    variant='flat'
                     color='primary'
                     label='Name'
                     value={data.name}
@@ -84,11 +84,10 @@ const page = () => {
             className='max-w-[80%]' />
                 </div>
                 <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
-                <div>
                     <p className='font-medium'>Image</p>
                     <div>
                       <label htmlFor='productImage' className='bg-blue-50 h-24 border rounded flex justify-center items-center cursor-pointer'>
-                          <div className='text-center flex justify-center items-center flex-col'>
+                          <div className='text-center w-full flex justify-center items-center flex-col'>
                             {
                               imageLoading ?  <Loading/> : (
                                 <>
@@ -126,7 +125,7 @@ const page = () => {
                               )
                           })
                         }
-                      </div>
+                   
                     </div>
 
                 </div>

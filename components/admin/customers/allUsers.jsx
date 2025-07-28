@@ -423,7 +423,7 @@ const AllUsers = ({ users, userCount }) => {
         <Pagination
           showControls
           classNames={{
-            cursor: 'bg-foreground text-background',
+            cursor: 'bg-primary text-background',
           }}
           color='primary'
           isDisabled={hasSearchFilter}
@@ -474,7 +474,8 @@ const AllUsers = ({ users, userCount }) => {
           aria-label='Example table with custom cells, pagination and sorting'
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
-          lassNames={classNames}
+          classNames={classNames}
+          className='p-2 rounded shadow-xl'
           //       selectedKeys={selectedKeys}
           //       selectionMode="multiple"
           sortDescriptor={sortDescriptor}

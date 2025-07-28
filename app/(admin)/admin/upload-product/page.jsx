@@ -86,7 +86,7 @@ const page = () => {
                 <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
                     <p className='font-medium'>Image</p>
                     <div className='w-full'>
-                      <label htmlFor='productImage' className='bg-blue-50 h-24 border rounded flex justify-center items-center cursor-pointer'>
+                      <label htmlFor='productImage' className='bg-primary h-24 border rounded flex justify-center items-center cursor-pointer'>
                           <div className='text-center w-full flex justify-center items-center flex-col'>
                             {
                               imageLoading ?  <Loading/> : (

@@ -24,7 +24,7 @@ export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
   { name: 'NAME', uid: 'name', sortable: true },
   { name: 'ROLE', uid: 'role', sortable: true },
-  { name: 'Gender', uid: 'Gender', sortable: true },
+  { name: 'Gender', uid: 'gender', sortable: true },
   { name: 'EMAIL', uid: 'email' },
   { name: 'STATUS', uid: 'status', sortable: true },
   { name: 'ACTIONS', uid: 'actions' },

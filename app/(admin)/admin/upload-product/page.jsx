@@ -83,10 +83,10 @@ const page = () => {
             placeholder="Enter Product description"
             className='max-w-[80%]' />
                 </div>
-                <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+                <div className='flex flex-col w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
                     <p className='font-medium'>Image</p>
-                    <div className='w-full'>
-                      <label htmlFor='productImage' className='bg-primary h-24 border rounded flex justify-center items-center cursor-pointer'>
+                    <div className='w-full max-w-[80%]'>
+                      <label htmlFor='productImage' className='bg-primary h-24  rounded-xl flex justify-center items-center cursor-pointer'>
                           <div className='text-center w-full flex justify-center items-center flex-col'>
                             {
                               imageLoading ?  <Loading/> : (

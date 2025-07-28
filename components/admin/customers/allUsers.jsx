@@ -19,10 +19,10 @@ import {
   Pagination,
   Tooltip,
 } from '@heroui/react'
-import { FaDotCircle } from 'react-icons/fa'
-import { ImEyedropper } from 'react-icons/im'
-import { LiaEdit } from 'react-icons/lia'
-import { FiDelete } from 'react-icons/fi'
+import { GoDotFill } from "react-icons/go";
+import { RiEyeFill } from "react-icons/ri";
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteOutline } from "react-icons/md";
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
@@ -149,7 +149,7 @@ const statusColorMap = {
   InActive: 'warning',
 }
 
-const INITIAL_VISIBLE_COLUMNS = ['id','name', 'role', 'status', 'actions']
+const INITIAL_VISIBLE_COLUMNS = ['name', 'role','gender','status', 'actions']
 
 const AllUsers = ({ users, userCount }) => {
   const [filterValue, setFilterValue] = React.useState('')
@@ -248,7 +248,7 @@ const AllUsers = ({ users, userCount }) => {
             className='capitalize border-none gap-1 text-default-600'
             color={statusColorMap[user?.status]}
             size='sm'
-            startContent={<FaDotCircle size={18} />}
+            startContent={<GoDotFill size={18} />}
             variant='flat'
           >
             {cellValue}
@@ -259,7 +259,7 @@ const AllUsers = ({ users, userCount }) => {
           <Chip
             key={user?._id}
             classNames={{
-              base:`${user?.gender === 'Men' ? "bg-linear-to-br from-blue-600 to-indigo-500 border-small border-white/50 shadow-indigo-500/30"
+              base:`${user?.gender === 'Men' ? "bg-linear-to-br from-[#ff0f7b] to-[#f89b29] border-small border-white/50 shadow-indigo-500/30"
                : "bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30"} `,
               content: "drop-shadow-xs shadow-black text-white",
             }}
@@ -289,19 +289,19 @@ const AllUsers = ({ users, userCount }) => {
           //   </Dropdown>
           // </div>
           <div key={user?._id} className='relative flex items-center gap-2'>
-          <Tooltip content='Details'>
-            <span className='text-lg text-default-400 cursor-pointer active:opacity-50'>
-              <ImEyedropper />
+          <Tooltip color='primary' content='Details'>
+            <span className='text-lg text-sky-600 cursor-pointer active:opacity-50'>
+              <RiEyeFill />
             </span>
           </Tooltip>
-          <Tooltip content='Edit user'>
-            <span className='text-lg text-default-400 cursor-pointer active:opacity-50'>
-              <LiaEdit />
+          <Tooltip color='success' content='Edit user'>
+            <span className='text-lg text-success cursor-pointer active:opacity-50'>
+              <CiEdit />
             </span>
           </Tooltip>
           <Tooltip color='danger' content='Delete user'>
             <span className='text-lg text-danger cursor-pointer active:opacity-50'>
-              <FiDelete />
+              <MdDeleteOutline />
             </span>
           </Tooltip>
         </div>

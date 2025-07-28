@@ -17,8 +17,12 @@ import {
   Chip,
   User,
   Pagination,
+  Tooltip,
 } from '@heroui/react'
 import { FaDotCircle } from 'react-icons/fa'
+import { ImEyedropper } from 'react-icons/im'
+import { LiaEdit } from 'react-icons/lia'
+import { FiDelete } from 'react-icons/fi'
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
@@ -145,7 +149,7 @@ const statusColorMap = {
   InActive: 'warning',
 }
 
-const INITIAL_VISIBLE_COLUMNS = ['id,name', 'role', 'status', 'actions']
+const INITIAL_VISIBLE_COLUMNS = ['id','name', 'role', 'status', 'actions']
 
 const AllUsers = ({ users, userCount }) => {
   const [filterValue, setFilterValue] = React.useState('')
@@ -267,23 +271,40 @@ const AllUsers = ({ users, userCount }) => {
         )
       case 'actions':
         return (
-          <div
-            key={user?._id}
-            className='relative flex justify-end items-center gap-2'
-          >
-            <Dropdown className='bg-background border-1 border-default-200'>
-              <DropdownTrigger>
-                <Button isIconOnly radius='full' size='sm' variant='light'>
-                  <VerticalDotsIcon className='text-default-400' />
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem key='view'>View</DropdownItem>
-                <DropdownItem key='edit'>Edit</DropdownItem>
-                <DropdownItem key='delete'>Delete</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </div>
+          // <div
+          //   key={user?._id}
+          //   className='relative flex justify-end items-center gap-2'
+          // >
+          //   <Dropdown className='bg-background border-1 border-default-200'>
+          //     <DropdownTrigger>
+          //       <Button isIconOnly radius='full' size='sm' variant='light'>
+          //         <VerticalDotsIcon className='text-default-400' />
+          //       </Button>
+          //     </DropdownTrigger>
+          //     <DropdownMenu>
+          //       <DropdownItem key='view'>View</DropdownItem>
+          //       <DropdownItem key='edit'>Edit</DropdownItem>
+          //       <DropdownItem key='delete'>Delete</DropdownItem>
+          //     </DropdownMenu>
+          //   </Dropdown>
+          // </div>
+          <div key={user?._id} className='relative flex items-center gap-2'>
+          <Tooltip content='Details'>
+            <span className='text-lg text-default-400 cursor-pointer active:opacity-50'>
+              <ImEyedropper />
+            </span>
+          </Tooltip>
+          <Tooltip content='Edit user'>
+            <span className='text-lg text-default-400 cursor-pointer active:opacity-50'>
+              <LiaEdit />
+            </span>
+          </Tooltip>
+          <Tooltip color='danger' content='Delete user'>
+            <span className='text-lg text-danger cursor-pointer active:opacity-50'>
+              <FiDelete />
+            </span>
+          </Tooltip>
+        </div>
         )
       default:
         return cellValue

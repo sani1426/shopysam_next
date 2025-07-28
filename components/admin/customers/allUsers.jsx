@@ -461,9 +461,9 @@ const AllUsers = ({ users ,userCount}) => {
       </TableHeader>
       <TableBody emptyContent={"No users found"} items={sortedItems}>
                 {
-                        users?.map((item,index) => (
+                        sortedItems?.map((item,index) => (
                                 <TableRow key={index}>
-                                {(columnKey,index) => <TableCell key={index}>{renderCell(item, columnKey)}</TableCell>}
+                                {(columnKey,index) => <TableCell key={index}>{renderCell(columnKey)}</TableCell>}
                               </TableRow>
                         ))
                 }

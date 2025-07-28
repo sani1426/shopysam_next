@@ -66,10 +66,10 @@ const page = () => {
             <Textarea
              label="Description"
              labelPlacement='outside'
-             variant='bordered'
+             variant='faded'
              color='primary'
              isRequired
-             minRows={2}
+             minRows={4}
              value={data.description}
              name='description'
              onChange={handleChange}

@@ -145,7 +145,7 @@ const statusColorMap = {
   InActive: 'warning',
 }
 
-const INITIAL_VISIBLE_COLUMNS = ['name', 'role', 'status', 'actions']
+const INITIAL_VISIBLE_COLUMNS = ['id,name', 'role', 'status', 'actions']
 
 const AllUsers = ({ users, userCount }) => {
   const [filterValue, setFilterValue] = React.useState('')

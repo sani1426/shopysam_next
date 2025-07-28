@@ -4,7 +4,8 @@ import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import SummaryApi from '@/common'
+
+import {Input, Select,SelectItem,Button,Textarea} from '@heroui/react'
 
 const page = () => {
         const { dashboardOpen } = useAppContext()

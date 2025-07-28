@@ -424,6 +424,7 @@ const AllUsers = ({ users ,userCount}) => {
           All Customers
         </h2>
       </div>
+    <div className="w-full p-5">
 
       <Table
       isCompact
@@ -447,7 +448,7 @@ const AllUsers = ({ users ,userCount}) => {
     >
       <TableHeader columns={headerColumns}>
         {
-                columns?.map((col,index)=>(
+                visibleColumns?.map((col,index)=>(
                         <TableColumn
                         key={index}
                         align={col.uid === "actions" ? "center" : "start"}
@@ -471,6 +472,7 @@ const AllUsers = ({ users ,userCount}) => {
 
       </TableBody>
     </Table>
+    </div>
 
     </section>
   )

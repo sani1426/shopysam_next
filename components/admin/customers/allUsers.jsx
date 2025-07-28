@@ -222,7 +222,7 @@ const AllUsers = ({ users, userCount }) => {
               description: 'text-default-500',
             }}
             description={user?.email}
-            name={cellValue}
+            name={user?.name}
           >
             {user?.email}
           </User>
@@ -475,10 +475,11 @@ const AllUsers = ({ users, userCount }) => {
               </TableColumn>
             ))}
           </TableHeader>
-          <TableBody emptyContent={'No users found'} items={sortedItems}>
+          {/* <TableBody emptyContent={'No users found'} items={sortedItems}>
             {sortedItems?.map((item, index) => (
               <TableRow key={index}>
-                <TableCell>
+{(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>} */}
+                {/* <TableCell>
                   <User
                     avatarProps={{
                       radius: 'full',
@@ -496,7 +497,7 @@ const AllUsers = ({ users, userCount }) => {
                 </TableCell>
                 <TableCell>
                   <div className='flex flex-col'>
-                    {/* <p className="text-bold text-small capitalize">{cellValue}</p> */}
+                    {/* <p className="text-bold text-small capitalize">{cellValue}</p> 
                     <p className='text-bold text-tiny capitalize text-default-500'>
                       {item?.role}
                     </p>
@@ -532,10 +533,17 @@ const AllUsers = ({ users, userCount }) => {
                       </DropdownMenu>
                     </Dropdown>
                   </div>
-                </TableCell>
-              </TableRow>
+                </TableCell> */}
+              {/* </TableRow>
             ))}
-          </TableBody>
+          </TableBody> */}
+              <TableBody emptyContent={"No users found"} items={sortedItems}>
+        {(item) => (
+          <TableRow key={item._id}>
+            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
         </Table>
       </div>
     </section>

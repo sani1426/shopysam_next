@@ -467,7 +467,7 @@ const AllUsers = ({ users, userCount }) => {
           <TableHeader columns={headerColumns}>
             {headerColumns?.map((col, index) => (
               <TableColumn
-                key={index}
+                key={col.uid}
                 align={col.uid === 'actions' ? 'center' : 'start'}
                 allowsSorting={col.sortable}
               >
@@ -540,7 +540,7 @@ const AllUsers = ({ users, userCount }) => {
               <TableBody emptyContent={"No users found"} items={sortedItems}>
         {(item) => (
           <TableRow key={item._id}>
-            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+            {(colKey) => <TableCell>{renderCell(item, colKey)}</TableCell>}
           </TableRow>
         )}
       </TableBody>

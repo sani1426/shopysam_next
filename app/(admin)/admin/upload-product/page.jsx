@@ -85,8 +85,8 @@ const page = () => {
                 </div>
                 <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
                     <p className='font-medium'>Image</p>
-                    <div>
-                      {/* <label htmlFor='productImage' className='bg-blue-50 h-24 border rounded flex justify-center items-center cursor-pointer'>
+                    <div className='w-full'>
+                      <label htmlFor='productImage' className='bg-blue-50 h-24 border rounded flex justify-center items-center cursor-pointer'>
                           <div className='text-center w-full flex justify-center items-center flex-col'>
                             {
                               imageLoading ?  <Loading/> : (
@@ -104,29 +104,8 @@ const page = () => {
                             accept='image/*'
                             // onChange={handleUploadImage}
                           />
-                      </label> */}
-                        <Input
-                    type='file'
-                    size='lg'
-                    labelPlacement='outside'
-                    isRequired
-                    variant='flat'
-                    color='primary'
-                    label='Image'
-                    children={
-                      imageLoading ?  <Loading/> : (
-                        <>
-                           <FaCloudUploadAlt size={35}/>
-                           <p>Upload Image</p>
-                        </>
-                      )
-                    }
-                    value={data.name}
-                    // onChange={handleUploadImage}
-                    className='max-w-[80%]'
-                    placeholder='Enter Product Name'
-
-                  />
+                      </label>
+                   
 
                       {/**display uploded image*/}
                       <div className='flex flex-wrap gap-4'>

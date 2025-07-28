@@ -487,7 +487,7 @@ const AllUsers = ({ users, userCount }) => {
             {headerColumns?.map((col, index) => (
               <TableColumn
                 key={col.uid}
-                align={col.uid === "actions" ? "center" : "start"}
+                align={"start"}
                 allowsSorting={col.sortable}
               >
                 {col.name}

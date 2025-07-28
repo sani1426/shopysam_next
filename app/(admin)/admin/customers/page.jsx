@@ -2,13 +2,11 @@
 import AdminNav from '@/components/admin/adminNav'
 import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
-// import AllUsers from '@/components/admin/customers/allUsers'
+import AllUsers from '@/components/admin/customers/allUsers'
 import { useEffect, useState } from 'react'
-// import Axios from '@/utils/axios'
-// import BackendApi from '@/common/api'
-// import { toast } from 'sonner'
+
 import SummaryApi from '@/common'
-import AllCustomers from '@/components/admin/customers/allCustomers'
+// import AllCustomers from '@/components/admin/customers/allCustomers'
 
 
 
@@ -32,7 +30,7 @@ const page = () => {
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>
       <AdminNav />
-      <AllCustomers users={users} userCount={userCount} />
+      <AllUsers users={users} userCount={userCount} />
     </div>
   )
 }

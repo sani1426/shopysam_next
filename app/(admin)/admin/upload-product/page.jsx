@@ -218,7 +218,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <div className='w-full grid gap-1 justify-center'>
+            <div className='w-[80%] grid gap-1 mx-auto'>
             <Select
                   size='lg'
                   isRequired
@@ -226,6 +226,7 @@ const page = () => {
                   labelPlacement='outside'
                   variant='flat'
                   color='primary'
+                  value={selectCategory}
                   placeholder='Select Product Categories'
                   onChange={(e)=>{
                     const value = e.target.value 
@@ -237,10 +238,9 @@ const page = () => {
                         category : [...preve.category,category],
                       }
                     })
-                
+                    setSelectCategory("")
                   }}
-                  value={data?.category}
-                  className='max-w-[80%]'
+                  className='w-full'
                 >
                      {
                         allCategory?.map((c,index)=>{

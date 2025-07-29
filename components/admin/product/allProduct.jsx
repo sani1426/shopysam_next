@@ -15,7 +15,6 @@ import {
   DropdownMenu,
   DropdownItem,
   Chip,
-  User,
   Pagination,
   Tooltip,
 } from '@heroui/react'
@@ -158,7 +157,7 @@ const INITIAL_VISIBLE_COLUMNS = [
   'actions',
 ]
 
-const AllProducts = ({ data, productCount }) => {
+const AllProducts = ({ products, productCount }) => {
   const [imageURL, setImageURL] = useState('')
   const [filterValue, setFilterValue] = React.useState('')
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]))

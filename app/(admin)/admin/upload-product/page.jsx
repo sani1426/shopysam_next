@@ -198,12 +198,12 @@ const page = () => {
                         <Badge
                           color='danger'
                           onClick={()=>handleDeleteImage(index)} 
-                          content={<IoClose className='text-xl' />}
+                          content={<IoClose  />}
                           shape='circle'
                           className=' cursor-pointer'
                           size="md"
-                          showOutline={false}
-                          placement='bottom-right'
+                          showOutline={true}
+                          placement='top-right'
                         >
                           <img
                             src={img}

@@ -213,16 +213,59 @@ const page = () => {
                             onClick={()=>setViewImageURL(img)}
                           />
                         </Badge>
-                        {/* <div
-                                  onClick={()=>handleDeleteImage(index)} className='absolute bottom-0 right-0 p-1 bg-red-600 hover:bg-red-600 rounded text-white hidden group-hover:block cursor-pointer'>
-                                    <MdDelete/>
-                                  </div> */}
                       </div>
                     )
                   })}
                 </div>
               </div>
             </div>
+            <div className='grid gap-1'>
+            <Select
+                  size='lg'
+                  isRequired
+                  label="Category"
+                  labelPlacement='outside'
+                  variant='flat'
+                  color='primary'
+                  placeholder='Select Product Categories'
+                  onChange={(e)=>{
+                    const value = e.target.value 
+                    const category = allCategory.find(el => el._id === value )
+                    
+                    setData((preve)=>{
+                      return{
+                        ...preve,
+                        category : [...preve.category,category],
+                      }
+                    })
+                    setSelectCategory("")
+                  }}
+                  value={selectCategory}
+                  className='max-w-[80%]'
+                >
+                     {
+                        allCategory?.map((c,index)=>{
+                          return(
+                            <SelectItem key={index} value={c?._id}>{c.name}</SelectItem>
+                          )
+                        })
+                      }
+                </Select>
+                <div className='flex flex-wrap gap-3'>
+                      {
+                        data.category.map((c,index)=>{
+                          return(
+                            <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
+                              <p>{c.name}</p>
+                              <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
+                                <IoClose size={20}/>
+                              </div>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                    </div>
           </form>
         </div>
         {

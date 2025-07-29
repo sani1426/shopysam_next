@@ -6,13 +6,7 @@ import { useEffect, useState } from 'react'
 import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 
-import {
-  Input,
-
-  Button,
-  Textarea,
-  Badge,
-} from '@heroui/react'
+import { Input, Button, Textarea, Badge } from '@heroui/react'
 import Loading from '@/components/shared/loading'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 
@@ -101,37 +95,38 @@ const page = () => {
 
     try {
       const response = await Axios({
-          ...BackendApi.create_Product,
-          data : data
+        ...BackendApi.create_Product,
+        data: data,
       })
-      const { data : responseData} = response
+      const { data: responseData } = response
 
-      if(responseData.success){
-          successAlert(responseData.message)
-          setData({
-            name : "",
-            image : [],
-            category : [],
-            subCategory : [],
-            unit : "",
-            stock : "",
-            price : "",
-            discount : "",
-            description : "",
-          })
-
+      if (responseData.success) {
+        successAlert(responseData.message)
+        setData({
+          name: '',
+          image: [],
+          category: [],
+          subCategory: [],
+          unit: '',
+          stock: '',
+          price: '',
+          discount: '',
+          description: '',
+        })
       }
     } catch (error) {
-        faildAlert(error)
+      faildAlert(error)
     }
   }
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>
       <AdminNav />
 
-      <section className=''>
+      <section className='pt-2 border-t-1 border-s-slate-100 '>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
-          <h2 className='font-semibold'>Upload Product</h2>
+          <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
+            Upload Product
+          </h2>
         </div>
         <div className='grid p-5 my-10'>
           <form
@@ -228,7 +223,6 @@ const page = () => {
                 </div>
               </div>
             </div>
-
 
             <div className='grid gap-1 w-[80%] mx-auto'>
               <label className='font-medium text-[#486FEF]'>Category</label>
@@ -353,7 +347,7 @@ const page = () => {
 
             <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
               <Input
-                 type='number'
+                type='number'
                 size='lg'
                 labelPlacement='outside'
                 isRequired
@@ -370,7 +364,7 @@ const page = () => {
 
             <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
               <Input
-                 type='number'
+                type='number'
                 size='lg'
                 labelPlacement='outside'
                 isRequired
@@ -387,7 +381,7 @@ const page = () => {
 
             <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
               <Input
-                 type='number'
+                type='number'
                 size='lg'
                 labelPlacement='outside'
                 isRequired
@@ -403,12 +397,12 @@ const page = () => {
             </div>
 
             <Button
-            className='w-[80%] mx-auto mt-4 mb-2'
-            variant='shadow'
-            color='primary'
-                >
-                  Submit
-                </Button>
+              className='w-[80%] mx-auto mt-4 mb-2'
+              variant='shadow'
+              color='primary'
+            >
+              Submit
+            </Button>
           </form>
         </div>
         {ViewImageURL && (

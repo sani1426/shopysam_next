@@ -254,7 +254,7 @@ const page = () => {
                       {
                         data?.category.map((c,index)=>{
                           return(
-                            <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
+                            <div key={c?._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
                               <p>{c?.name}</p>
                               <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
                                 <IoClose size={20}/>

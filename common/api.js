@@ -75,6 +75,10 @@ const BackendApi = {
     url: '/api/file/upload',
     method: 'post',
   },
+  create_Product: {
+    url: '/api/product/create',
+    method: 'post',
+  },
 
   //  // shop api // //
   getDigitalsCategory: {

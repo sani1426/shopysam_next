@@ -3,22 +3,24 @@ import AdminNav from '@/components/admin/adminNav'
 import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import Axios from '@/utils/axios'
+import BackendApi from '@/common/api'
 
 import {
   Input,
-  Select,
-  SelectItem,
+
   Button,
   Textarea,
   Badge,
 } from '@heroui/react'
 import Loading from '@/components/shared/loading'
 import { FaCloudUploadAlt } from 'react-icons/fa'
-import { MdDelete } from 'react-icons/md'
+
 import { IoClose } from 'react-icons/io5'
 import uploadImage from '@/utils/UploadImage'
 import ViewImage from '@/components/UI/ViewImage'
+import successAlert from '@/utils/SuccessAllert'
+import faildAlert from '@/utils/FaildAllert'
 
 const page = () => {
   const { dashboardOpen, allCategory, allSubCategory } = useAppContext()
@@ -97,31 +99,31 @@ const page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // try {
-    //   const response = await Axios({
-    //       ...SummaryApi.createProduct,
-    //       data : data
-    //   })
-    //   const { data : responseData} = response
+    try {
+      const response = await Axios({
+          ...BackendApi.create_Product,
+          data : data
+      })
+      const { data : responseData} = response
 
-    //   if(responseData.success){
-    //       successAlert(responseData.message)
-    //       setData({
-    //         name : "",
-    //         image : [],
-    //         category : [],
-    //         subCategory : [],
-    //         unit : "",
-    //         stock : "",
-    //         price : "",
-    //         discount : "",
-    //         description : "",
-    //       })
+      if(responseData.success){
+          successAlert(responseData.message)
+          setData({
+            name : "",
+            image : [],
+            category : [],
+            subCategory : [],
+            unit : "",
+            stock : "",
+            price : "",
+            discount : "",
+            description : "",
+          })
 
-    //   }
-    // } catch (error) {
-    //     AxiosToastError(error)
-    // }
+      }
+    } catch (error) {
+        faildAlert(error)
+    }
   }
   return (
     <div class={`main ${dashboardOpen && 'active'}`}>

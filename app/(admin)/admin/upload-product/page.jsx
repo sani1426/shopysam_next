@@ -206,10 +206,10 @@ const page = () => {
                           color='danger'
                           onClick={() => handleDeleteImage(index)}
                           content={<IoClose />}
-                          shape='circle'
+                
                           className=' cursor-pointer'
-                          size='md'
-                          showOutline={true}
+                          size='lg'
+                          // showOutline={true}
                           placement='top-right'
                         >
                           <img

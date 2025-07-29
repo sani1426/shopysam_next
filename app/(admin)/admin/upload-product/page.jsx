@@ -127,8 +127,8 @@ const page = () => {
       <AdminNav />
 
       <section className='pt-2 border-t-1 border-s-slate-100 '>
-        <div className='p-2   bg-white shadow-md flex items-center justify-between'>
-          <h2 className='font-semibold text-[1.2rem] text-[#2a2185]'>
+        <div className='p-3   bg-white shadow-md flex items-center justify-between'>
+          <h2 className='font-bold text-[1.3rem] text-[#2a2185]'>
             Upload Product
           </h2>
         </div>
@@ -401,7 +401,7 @@ const page = () => {
             </div>
 
             <Button
-              className='w-[80%] mx-auto mt-4 mb-2 bg-primary py-2 px-4 rounded-xl'
+              className='w-[80%] mx-auto mt-4 mb-2 text-xl'
                   color="primary"
                   variant='shadow'
                   type='submit'

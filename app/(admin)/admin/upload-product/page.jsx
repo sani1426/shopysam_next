@@ -218,7 +218,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <div className='grid gap-1'>
+            <div className='w-full grid gap-1'>
             <Select
                   size='lg'
                   isRequired

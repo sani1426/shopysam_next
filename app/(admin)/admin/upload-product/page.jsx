@@ -131,7 +131,7 @@ const page = () => {
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
           <h2 className='font-semibold'>Upload Product</h2>
         </div>
-        <div className='grid p-3'>
+        <div className='grid p-5 my-10'>
           <form
             className='flex flex-col gap-5 justify-center w-full items-center'
             onSubmit={handleSubmit}
@@ -401,7 +401,7 @@ const page = () => {
             </div>
 
             <Button
-            className='w-[80%] mx-auto'
+            className='w-[80%] mx-auto mt-4 mb-2'
             variant='shadow'
             color='primary'
                 >

@@ -396,13 +396,12 @@ const page = () => {
               />
             </div>
 
-            <Button
-              className='w-[80%] mx-auto mt-4 mb-2'
-              variant='shadow'
-              color='primary'
+            <button
+              className='w-[80%] mx-auto mt-4 mb-2 bg-primary py-2 px-4 rounded-xl'
+ 
             >
               Submit
-            </Button>
+            </button>
           </form>
         </div>
         {ViewImageURL && (

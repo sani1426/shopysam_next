@@ -1,143 +1,236 @@
-"use client"
+'use client'
 import AdminNav from '@/components/admin/adminNav'
 import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import {Input, Select,SelectItem,Button,Textarea} from '@heroui/react'
+import { Input, Select, SelectItem, Button, Textarea } from '@heroui/react'
 import Loading from '@/components/shared/loading'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
+import { IoClose } from 'react-icons/io5'
+import uploadImage from '@/utils/UploadImage'
+import ViewImage from '@/components/UI/ViewImage'
 
 const page = () => {
-        const { dashboardOpen } = useAppContext()
-        const [imageLoading,setImageLoading] = useState(false)
-        const [selectCategory,setSelectCategory] = useState("")
-  const [selectSubCategory,setSelectSubCategory] = useState("")
-        const [ViewImageURL,setViewImageURL] = useState("")
-        const [data,setData] = useState({
-          name : "",
-          image : [],
-          category : [],
-          subCategory : [],
-          unit : "",
-          stock : "",
-          price : "",
-          discount : "",
-          description : "",
-          more_details : {},
-      })
+  const { dashboardOpen } = useAppContext()
+  const [imageLoading, setImageLoading] = useState(false)
+  const [selectCategory, setSelectCategory] = useState('')
+  const [selectSubCategory, setSelectSubCategory] = useState('')
+  const [ViewImageURL, setViewImageURL] = useState('')
+  const [data, setData] = useState({
+    name: '',
+    image: [],
+    category: [],
+    subCategory: [],
+    unit: '',
+    stock: '',
+    price: '',
+    discount: '',
+    description: '',
+  })
 
-      const handleChange = (e)=>{
-        const { name, value} = e.target 
-    
-        setData((preve)=>{
-          return{
-              ...preve,
-              [name]  : value
-          }
-        })
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setData((preve) => {
+      return {
+        ...preve,
+        [name]: value,
       }
-        const handleSubmit = (e) => {
-          e.preventDefault()
-        }
-  return (
-        <div class={`main ${dashboardOpen && "active"}`}>
-        <AdminNav />
+    })
+  }
+  const handleUploadImage = async(e)=>{
+    const file = e.target.files[0]
 
-        <section className=''>
+    if(!file){
+      return 
+    }
+    setImageLoading(true)
+    const response = await uploadImage(file)
+    const { data : ImageResponse } = response
+    const imageUrl = ImageResponse.data.url 
+
+    setData((preve)=>{
+      return{
+        ...preve,
+        image : [...preve.image,imageUrl]
+      }
+    })
+    setImageLoading(false)
+
+  }
+
+  const handleDeleteImage = async(index)=>{
+      data.image.splice(index,1)
+      setData((preve)=>{
+        return{
+            ...preve
+        }
+      })
+  }
+
+  const handleRemoveCategory = async(index)=>{
+    data.category.splice(index,1)
+    setData((preve)=>{
+      return{
+        ...preve
+      }
+    })
+  }
+  const handleRemoveSubCategory = async(index)=>{
+      data.subCategory.splice(index,1)
+      setData((preve)=>{
+        return{
+          ...preve
+        }
+      })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    // try {
+    //   const response = await Axios({
+    //       ...SummaryApi.createProduct,
+    //       data : data
+    //   })
+    //   const { data : responseData} = response
+
+    //   if(responseData.success){
+    //       successAlert(responseData.message)
+    //       setData({
+    //         name : "",
+    //         image : [],
+    //         category : [],
+    //         subCategory : [],
+    //         unit : "",
+    //         stock : "",
+    //         price : "",
+    //         discount : "",
+    //         description : "",
+    //         more_details : {},
+    //       })
+
+    //   }
+    // } catch (error) {
+    //     AxiosToastError(error)
+    // }
+  }
+  return (
+    <div class={`main ${dashboardOpen && 'active'}`}>
+      <AdminNav />
+
+      <section className=''>
         <div className='p-2   bg-white shadow-md flex items-center justify-between'>
-            <h2 className='font-semibold'>Upload Product</h2>
+          <h2 className='font-semibold'>Upload Product</h2>
         </div>
         <div className='grid p-3'>
-            <form   className='flex flex-col gap-5 justify-center w-full items-center' onSubmit={handleSubmit}>
+          <form
+            className='flex flex-col gap-5 justify-center w-full items-center'
+            onSubmit={handleSubmit}
+          >
             <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
-                  <Input
-                    type='text'
-                    size='lg'
-                    labelPlacement='outside'
-                    isRequired
-                    variant='flat'
-                    color='primary'
-                    label='Name'
-                    value={data.name}
-                    onChange={handleChange}
-                    name='name'
-                    className='max-w-[80%]'
-                    placeholder='Enter Product Name'
-
+              <Input
+                type='text'
+                size='lg'
+                labelPlacement='outside'
+                isRequired
+                variant='flat'
+                color='primary'
+                label='Name'
+                value={data.name}
+                onChange={handleChange}
+                name='name'
+                className='max-w-[80%]'
+                placeholder='Enter Product Name'
+              />
+            </div>
+            <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+              <Textarea
+                label='Description'
+                labelPlacement='outside'
+                variant='flat'
+                color='primary'
+                isRequired
+                minRows={4}
+                value={data.description}
+                name='description'
+                onChange={handleChange}
+                placeholder='Enter Product description'
+                className='max-w-[80%]'
+              />
+            </div>
+            <div className='flex flex-col w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+              <div className='w-full max-w-[80%] mx-auto'>
+                <p className='font-medium text-[#486FEF]'>Image</p>
+                <label
+                  htmlFor='productImage'
+                  className='bg-[#CBE2FC] h-24  rounded-xl flex justify-center items-center cursor-pointer'
+                >
+                  <div className='text-center w-full flex justify-center items-center flex-col text-[#486FEF]'>
+                    {imageLoading ? (
+                      <Loading />
+                    ) : (
+                      <>
+                        <FaCloudUploadAlt size={35} />
+                        <p>Upload Image</p>
+                      </>
+                    )}
+                  </div>
+                  <input
+                    type='file'
+                    id='productImage'
+                    className='hidden'
+                    accept='image/*'
+                    onChange={handleUploadImage}
                   />
-                </div>
-            <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
-            <Textarea
-             label="Description"
-             labelPlacement='outside'
-             variant='flat'
-             color='primary'
-             isRequired
-             minRows={4}
-             value={data.description}
-             name='description'
-             onChange={handleChange}
-            placeholder="Enter Product description"
-            className='max-w-[80%]' />
-                </div>
-                <div className='flex flex-col w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
-                  
-                    <div className='w-full max-w-[80%] mx-auto'>
-                        <p className='font-medium text-[#486FEF]'>Image</p>
-                      <label htmlFor='productImage' className='bg-[#CBE2FC] h-24  rounded-xl flex justify-center items-center cursor-pointer'>
-                          <div className='text-center w-full flex justify-center items-center flex-col text-[#486FEF]'>
-                            {
-                              imageLoading ?  <Loading/> : (
-                                <>
-                                   <FaCloudUploadAlt size={35}/>
-                                   <p>Upload Image</p>
-                                </>
-                              )
-                            }
-                          </div>
-                          <input 
-                            type='file'
-                            id='productImage'
-                            className='hidden'
-                            accept='image/*'
-                            // onChange={handleUploadImage}
-                          />
-                      </label>
-                   
+                </label>
 
-                      {/**display uploded image*/}
-                      <div className='flex flex-wrap gap-4'>
-                        {
-                          data?.image.map((img,index) =>{
-                              return(
-                                <div key={img+index} className='h-20 mt-1 w-20 min-w-20 bg-blue-50 border relative group'>
-                                  <img
-                                    src={img}
-                                    alt={img}
-                                    className='w-full h-full object-scale-down cursor-pointer' 
-                                    // onClick={()=>setViewImageURL(img)}
-                                  />
-                                  <div
+                {/**display uploded image*/}
+                <div className='flex flex-wrap gap-4'>
+                  {data?.image.map((img, index) => {
+                    return (
+                      <div
+                        key={img + index}
+                        className='h-20 mt-1 w-20 min-w-20 bg-blue-50 border relative group'
+                      >
+                        <Badge
+                          color='danger'
+                          onClick={()=>handleDeleteImage(index)} 
+                          content={<IoClose className='text-xl' />}
+                          shape='circle'
+                          size="md"
+                          showOutline={false}
+                          placement='top-right'
+                        >
+                          <img
+                            src={img}
+                            alt={img}
+                            className='w-full h-full object-scale-down cursor-pointer'
+                            onClick={()=>setViewImageURL(img)}
+                          />
+                        </Badge>
+                        {/* <div
                                   onClick={()=>handleDeleteImage(index)} className='absolute bottom-0 right-0 p-1 bg-red-600 hover:bg-red-600 rounded text-white hidden group-hover:block cursor-pointer'>
                                     <MdDelete/>
-                                  </div>
-                                </div>
-                              )
-                          })
-                        }
-                   
-                    </div>
-
+                                  </div> */}
+                      </div>
+                    )
+                  })}
                 </div>
-                </div>
-             </form>
               </div>
-              </section>
-        
-      </div>
+            </div>
+          </form>
+        </div>
+        {
+          ViewImageURL && (
+            <ViewImage url={ViewImageURL} close={()=>setViewImageURL("")}/>
+          )
+        }
+      </section>
+    </div>
   )
 }
 

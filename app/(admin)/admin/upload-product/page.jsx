@@ -5,7 +5,7 @@ import '@/components/admin/admin.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import { Input, Select, SelectItem, Button, Textarea } from '@heroui/react'
+import { Input, Select, SelectItem, Button, Textarea,Badge } from '@heroui/react'
 import Loading from '@/components/shared/loading'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'

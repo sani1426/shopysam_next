@@ -14,7 +14,7 @@ import uploadImage from '@/utils/UploadImage'
 import ViewImage from '@/components/UI/ViewImage'
 
 const page = () => {
-  const { dashboardOpen } = useAppContext()
+  const { dashboardOpen,allCategory } = useAppContext()
   const [imageLoading, setImageLoading] = useState(false)
   const [selectCategory, setSelectCategory] = useState('')
   const [selectSubCategory, setSelectSubCategory] = useState('')

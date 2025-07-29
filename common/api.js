@@ -79,6 +79,10 @@ const BackendApi = {
     url: '/api/product/create',
     method: 'post',
   },
+  get_Products: {
+    url: '/api/product/all',
+    method: 'get',
+  },
 
   //  // shop api // //
   getDigitalsCategory: {

@@ -110,7 +110,6 @@ const page = () => {
     //         price : "",
     //         discount : "",
     //         description : "",
-    //         more_details : {},
     //       })
 
     //   }
@@ -194,14 +193,14 @@ const page = () => {
                     return (
                       <div
                         key={img + index}
-                        className='h-28 mt-2 w-28 min-w-28 bg-blue-50 rounded relative group'
+                        className='h-28 mt-2 w-28 min-w-28 bg-blue-50 rounded relative '
                       >
                         <Badge
                           color='danger'
                           onClick={()=>handleDeleteImage(index)} 
                           content={<IoClose className='text-xl' />}
                           shape='circle'
-                          className='hidden group-hover:block cursor-pointer'
+                          className=' cursor-pointer'
                           size="md"
                           showOutline={false}
                           placement='bottom-right'
@@ -253,10 +252,10 @@ const page = () => {
                 </Select>
                 <div className='flex flex-wrap gap-3'>
                       {
-                        data.category.map((c,index)=>{
+                        data?.category.map((c,index)=>{
                           return(
                             <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c.name}</p>
+                              <p>{c?.name}</p>
                               <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
                                 <IoClose size={20}/>
                               </div>

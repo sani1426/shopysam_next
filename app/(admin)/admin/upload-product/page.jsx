@@ -194,16 +194,17 @@ const page = () => {
                     return (
                       <div
                         key={img + index}
-                        className='h-20 mt-1 w-20 min-w-20 bg-blue-50 border relative group'
+                        className='h-28 mt-2 w-28 min-w-28 bg-blue-50 rounded relative group'
                       >
                         <Badge
                           color='danger'
                           onClick={()=>handleDeleteImage(index)} 
                           content={<IoClose className='text-xl' />}
                           shape='circle'
+                          className='hidden group-hover:block cursor-pointer'
                           size="md"
                           showOutline={false}
-                          placement='top-right'
+                          placement='bottom-right'
                         >
                           <img
                             src={img}

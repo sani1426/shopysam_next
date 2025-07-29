@@ -265,6 +265,51 @@ const page = () => {
                       }
                     </div>
                     </div>
+
+                    <div className='grid gap-1 w-[80%] mx-auto'>
+                  <label className='font-medium'>Category</label>
+                  <div>
+                    <select
+                      className='bg-blue-50 border w-full p-2 rounded'
+                      value={selectCategory}
+                      onChange={(e)=>{
+                        const value = e.target.value 
+                        const category = allCategory.find(el => el._id === value )
+                        
+                        setData((preve)=>{
+                          return{
+                            ...preve,
+                            category : [...preve.category,category],
+                          }
+                        })
+                        setSelectCategory("")
+                      }}
+                    >
+                      <option value={""}>Select Category</option>
+                      {
+                        allCategory.map((c,index)=>{
+                          return(
+                            <option value={c?._id}>{c.name}</option>
+                          )
+                        })
+                      }
+                    </select>
+                    <div className='flex flex-wrap gap-3'>
+                      {
+                        data.category.map((c,index)=>{
+                          return(
+                            <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
+                              <p>{c.name}</p>
+                              <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
+                                <IoClose size={20}/>
+                              </div>
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                  </div>
+                </div>
           </form>
         </div>
         {

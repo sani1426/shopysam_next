@@ -12,6 +12,7 @@ export const AppContextProvider = ({ children }) => {
   const [digitals , setDigitals]=useState([])
   const [clothes , setClothes]=useState([])
   const [allCategory , setAllCategory] = useState([])
+  const [allSubCategory , setAllSubCategory] = useState([])
   const [userDetail, setUserDetail] = useState()
   const [dashboardOpen, setDashboardOpen] = useState(true)
   const fetchUserDetails = async () => {
@@ -35,10 +36,25 @@ export const AppContextProvider = ({ children }) => {
       console.log(error)
     } 
   }
+  const fetchSubCategory = async () => {
+    try {
+      const response = await Axios({
+        ...BackendApi.get_SubCategories,
+      })
+      const { data: responseData } = response
+
+      if (responseData?.success) {
+        setAllSubCategory(responseData?.data)
+      }
+    } catch (error) {
+      console.log(error)
+    } 
+  }
 
   useEffect(() => {
     fetchUserDetails()
     fetchCategory()
+    fetchSubCategory()
   }, [])
 
   const toggleTheme = () => {
@@ -56,7 +72,7 @@ export const AppContextProvider = ({ children }) => {
   }, [theme])
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail ,dashboardOpen, setDashboardOpen ,allCategory , setAllCategory}}>
+    <AppContext.Provider value={{ theme, toggleTheme , digitals ,setDigitals,clothes,setClothes ,userDetail , setUserDetail ,dashboardOpen, setDashboardOpen ,allCategory , setAllCategory,allSubCategory }}>
       {children}
     </AppContext.Provider>
   )

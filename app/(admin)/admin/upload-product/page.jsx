@@ -14,7 +14,7 @@ import uploadImage from '@/utils/UploadImage'
 import ViewImage from '@/components/UI/ViewImage'
 
 const page = () => {
-  const { dashboardOpen,allCategory } = useAppContext()
+  const { dashboardOpen,allCategory,allSubCategory } = useAppContext()
   const [imageLoading, setImageLoading] = useState(false)
   const [selectCategory, setSelectCategory] = useState('')
   const [selectSubCategory, setSelectSubCategory] = useState('')
@@ -218,7 +218,7 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <div className='w-full grid gap-1'>
+            <div className='w-full grid gap-1 justify-center'>
             <Select
                   size='lg'
                   isRequired
@@ -237,9 +237,9 @@ const page = () => {
                         category : [...preve.category,category],
                       }
                     })
-                    setSelectCategory("")
+                
                   }}
-                  value={selectCategory}
+                  value={data?.category}
                   className='max-w-[80%]'
                 >
                      {

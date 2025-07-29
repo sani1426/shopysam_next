@@ -142,7 +142,7 @@ const page = () => {
                 size='lg'
                 labelPlacement='outside'
                 isRequired
-                variant='flat'
+                variant='bordered'
                 color='primary'
                 label='Name'
                 value={data.name}
@@ -226,7 +226,7 @@ const page = () => {
             </div>
 
             <div className='grid gap-1 w-[80%] mx-auto'>
-              <label className='font-medium'>Category</label>
+              {/* <label className='font-medium'>Category</label> */}
               <div>
                 <Select
                 label="Category"
@@ -257,10 +257,10 @@ const page = () => {
                   {data.category.map((c, index) => {
                     return (
                       <div
-                        key={c._id + index + 'productsection'}
+                        key={c?._id + index + 'productsection'}
                         className='text-sm flex items-center gap-1 bg-blue-50 mt-2'
                       >
-                        <p>{c.name}</p>
+                        <p>{c?.name}</p>
                         <div
                           className='hover:text-red-500 cursor-pointer'
                           onClick={() => handleRemoveCategory(index)}

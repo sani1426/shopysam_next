@@ -5,7 +5,14 @@ import '@/components/admin/admin.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import { Input, Select, SelectItem, Button, Textarea,Badge } from '@heroui/react'
+import {
+  Input,
+  Select,
+  SelectItem,
+  Button,
+  Textarea,
+  Badge,
+} from '@heroui/react'
 import Loading from '@/components/shared/loading'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
@@ -14,7 +21,7 @@ import uploadImage from '@/utils/UploadImage'
 import ViewImage from '@/components/UI/ViewImage'
 
 const page = () => {
-  const { dashboardOpen,allCategory,allSubCategory } = useAppContext()
+  const { dashboardOpen, allCategory, allSubCategory } = useAppContext()
   const [imageLoading, setImageLoading] = useState(false)
   const [selectCategory, setSelectCategory] = useState('')
   const [selectSubCategory, setSelectSubCategory] = useState('')
@@ -41,51 +48,50 @@ const page = () => {
       }
     })
   }
-  const handleUploadImage = async(e)=>{
+  const handleUploadImage = async (e) => {
     const file = e.target.files[0]
 
-    if(!file){
-      return 
+    if (!file) {
+      return
     }
     setImageLoading(true)
     const response = await uploadImage(file)
-    const { data : ImageResponse } = response
-    const imageUrl = ImageResponse.data.url 
+    const { data: ImageResponse } = response
+    const imageUrl = ImageResponse.data.url
 
-    setData((preve)=>{
-      return{
+    setData((preve) => {
+      return {
         ...preve,
-        image : [...preve.image,imageUrl]
+        image: [...preve.image, imageUrl],
       }
     })
     setImageLoading(false)
-
   }
 
-  const handleDeleteImage = async(index)=>{
-      data.image.splice(index,1)
-      setData((preve)=>{
-        return{
-            ...preve
-        }
-      })
-  }
-
-  const handleRemoveCategory = async(index)=>{
-    data.category.splice(index,1)
-    setData((preve)=>{
-      return{
-        ...preve
+  const handleDeleteImage = async (index) => {
+    data.image.splice(index, 1)
+    setData((preve) => {
+      return {
+        ...preve,
       }
     })
   }
-  const handleRemoveSubCategory = async(index)=>{
-      data.subCategory.splice(index,1)
-      setData((preve)=>{
-        return{
-          ...preve
-        }
-      })
+
+  const handleRemoveCategory = async (index) => {
+    data.category.splice(index, 1)
+    setData((preve) => {
+      return {
+        ...preve,
+      }
+    })
+  }
+  const handleRemoveSubCategory = async (index) => {
+    data.subCategory.splice(index, 1)
+    setData((preve) => {
+      return {
+        ...preve,
+      }
+    })
   }
 
   const handleSubmit = async (e) => {
@@ -197,11 +203,11 @@ const page = () => {
                       >
                         <Badge
                           color='danger'
-                          onClick={()=>handleDeleteImage(index)} 
-                          content={<IoClose  />}
+                          onClick={() => handleDeleteImage(index)}
+                          content={<IoClose />}
                           shape='circle'
                           className=' cursor-pointer'
-                          size="md"
+                          size='md'
                           showOutline={true}
                           placement='top-right'
                         >
@@ -209,7 +215,7 @@ const page = () => {
                             src={img}
                             alt={img}
                             className='w-full h-full object-scale-down cursor-pointer'
-                            onClick={()=>setViewImageURL(img)}
+                            onClick={() => setViewImageURL(img)}
                           />
                         </Badge>
                       </div>
@@ -218,105 +224,60 @@ const page = () => {
                 </div>
               </div>
             </div>
-            <div className='w-[80%] grid gap-1 mx-auto'>
-            <Select
-                  size='lg'
-                  isRequired
-                  label="Category"
-                  labelPlacement='outside'
-                  variant='flat'
-                  color='primary'
+
+            <div className='grid gap-1 w-[80%] mx-auto'>
+              <label className='font-medium'>Category</label>
+              <div>
+                <Select
+                label="Category"
+                labelPlacement='outside'
+                variant='flat'
+                color='primary'
+                  className=' w-full '
                   value={selectCategory}
-                  placeholder='Select Product Categories'
-                  onChange={(e)=>{
-                    const value = e.target.value 
-                    const category = allCategory.find(el => el._id === value )
-                    
-                    setData((preve)=>{
-                      return{
+                  onChange={(e) => {
+                    const value = e.target.value
+                    const category = allCategory.find((el) => el._id === value)
+
+                    setData((preve) => {
+                      return {
                         ...preve,
-                        category : [...preve.category,category],
+                        category: [...preve.category, category],
                       }
                     })
-                    setSelectCategory("")
+                    setSelectCategory('')
                   }}
-                  className='w-full'
                 >
-                     {
-                        allCategory?.map((c,index)=>{
-                          return(
-                            <SelectItem key={index} value={c?._id}>{c.name}</SelectItem>
-                          )
-                        })
-                      }
+                
+                  {allCategory.map((c, index) => {
+                    return <SelectItem value={c?._id}>{c.name}</SelectItem>
+                  })}
                 </Select>
                 <div className='flex flex-wrap gap-3'>
-                      {
-                        data?.category.map((c,index)=>{
-                          return(
-                            <div key={c?._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c?.name}</p>
-                              <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
-                                <IoClose size={20}/>
-                              </div>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                    </div>
-
-                    <div className='grid gap-1 w-[80%] mx-auto'>
-                  <label className='font-medium'>Category</label>
-                  <div>
-                    <select
-                      className='bg-blue-50 border w-full p-2 rounded'
-                      value={selectCategory}
-                      onChange={(e)=>{
-                        const value = e.target.value 
-                        const category = allCategory.find(el => el._id === value )
-                        
-                        setData((preve)=>{
-                          return{
-                            ...preve,
-                            category : [...preve.category,category],
-                          }
-                        })
-                        setSelectCategory("")
-                      }}
-                    >
-                      <option value={""}>Select Category</option>
-                      {
-                        allCategory.map((c,index)=>{
-                          return(
-                            <option value={c?._id}>{c.name}</option>
-                          )
-                        })
-                      }
-                    </select>
-                    <div className='flex flex-wrap gap-3'>
-                      {
-                        data.category.map((c,index)=>{
-                          return(
-                            <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c.name}</p>
-                              <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
-                                <IoClose size={20}/>
-                              </div>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div>
+                  {data.category.map((c, index) => {
+                    return (
+                      <div
+                        key={c._id + index + 'productsection'}
+                        className='text-sm flex items-center gap-1 bg-blue-50 mt-2'
+                      >
+                        <p>{c.name}</p>
+                        <div
+                          className='hover:text-red-500 cursor-pointer'
+                          onClick={() => handleRemoveCategory(index)}
+                        >
+                          <IoClose size={20} />
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
+              </div>
+            </div>
           </form>
         </div>
-        {
-          ViewImageURL && (
-            <ViewImage url={ViewImageURL} close={()=>setViewImageURL("")}/>
-          )
-        }
+        {ViewImageURL && (
+          <ViewImage url={ViewImageURL} close={() => setViewImageURL('')} />
+        )}
       </section>
     </div>
   )

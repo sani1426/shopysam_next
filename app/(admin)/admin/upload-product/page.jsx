@@ -2,7 +2,7 @@
 import AdminNav from '@/components/admin/adminNav'
 import { useAppContext } from '@/context/appContext'
 import '@/components/admin/admin.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 
@@ -19,6 +19,7 @@ import faildAlert from '@/utils/FaildAllert'
 const page = () => {
   const { dashboardOpen, allCategory, allSubCategory } = useAppContext()
   const [imageLoading, setImageLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [selectCategory, setSelectCategory] = useState('')
   const [selectSubCategory, setSelectSubCategory] = useState('')
   const [ViewImageURL, setViewImageURL] = useState('')
@@ -94,6 +95,7 @@ const page = () => {
     e.preventDefault()
 
     try {
+      setLoading(true)
       const response = await Axios({
         ...BackendApi.create_Product,
         data: data,
@@ -116,6 +118,8 @@ const page = () => {
       }
     } catch (error) {
       faildAlert(error)
+    }finally{
+      setLoading(false)
     }
   }
   return (
@@ -396,12 +400,15 @@ const page = () => {
               />
             </div>
 
-            <button
+            <Button
               className='w-[80%] mx-auto mt-4 mb-2 bg-primary py-2 px-4 rounded-xl'
- 
+                  color="primary"
+                  variant='shadow'
+                  type='submit'
+                  isLoading={loading}
             >
               Submit
-            </button>
+            </Button>
           </form>
         </div>
         {ViewImageURL && (

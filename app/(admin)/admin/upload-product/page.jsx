@@ -143,6 +143,7 @@ const page = () => {
                 labelPlacement='outside'
                 isRequired
                 variant='bordered'
+                radius='lg'
                 color='primary'
                 label='Name'
                 value={data.name}

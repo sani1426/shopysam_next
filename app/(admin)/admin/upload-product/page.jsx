@@ -142,8 +142,8 @@ const page = () => {
                 size='lg'
                 labelPlacement='outside'
                 isRequired
-                variant='bordered'
-                radius='lg'
+                variant='flat'
+                radius='full'
                 color='primary'
                 label='Name'
                 value={data.name}
@@ -153,6 +153,7 @@ const page = () => {
                 placeholder='Enter Product Name'
               />
             </div>
+
             <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
               <Textarea
                 label='Description'
@@ -168,6 +169,7 @@ const page = () => {
                 className='max-w-[80%]'
               />
             </div>
+
             <div className='flex flex-col w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
               <div className='w-full max-w-[80%] mx-auto'>
                 <p className='font-medium text-[#486FEF]'>Image</p>
@@ -206,7 +208,6 @@ const page = () => {
                           color='danger'
                           onClick={() => handleDeleteImage(index)}
                           content={<IoClose />}
-                
                           className=' cursor-pointer'
                           size='lg'
                           // showOutline={true}
@@ -226,95 +227,186 @@ const page = () => {
               </div>
             </div>
 
+
             <div className='grid gap-1 w-[80%] mx-auto'>
-                  <label className='font-medium text-[#486FEF]'>Category</label>
-                  <div>
-                    <select
-                      className='bg-[#CBE2FC]  w-full p-2 rounded-xl'
-                      value={selectCategory}
-                      onChange={(e)=>{
-                        const value = e.target.value 
-                        const category = allCategory.find(el => el._id === value )
-                        
-                        setData((preve)=>{
-                          return{
-                            ...preve,
-                            category : [...preve.category,category],
-                          }
-                        })
-                        setSelectCategory("")
-                      }}
-                    >
-                      <option className='text-[#486FEF]' value={""}>Select Category</option>
-                      {
-                        allCategory.map((c,index)=>{
-                          return(
-                            <option className='text-[#486FEF]' value={c?._id}>{c.name}</option>
-                          )
-                        })
-                      }
-                    </select>
-                    <div className='flex flex-wrap gap-3'>
-                      {
-                        data.category.map((c,index)=>{
-                          return(
-                            <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c.name}</p>
-                              <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveCategory(index)}>
-                                <IoClose size={20}/>
-                              </div>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+              <label className='font-medium text-[#486FEF]'>Category</label>
+              <div>
+                <select
+                  className='bg-[#CBE2FC]  w-full py-3 px-4 rounded-xl'
+                  value={selectCategory}
+                  onChange={(e) => {
+                    const value = e.target.value
+                    const category = allCategory.find((el) => el._id === value)
 
-                <div className='grid gap-1 w-[80%] mx-auto'>
-                  <label className='font-medium text-[#486FEF]'>Sub Category</label>
-                  <div>
-                    <select
-                      className='bg-[#CBE2FC]  w-full p-2 rounded-xl'
-                      value={selectSubCategory}
-                      onChange={(e)=>{
-                        const value = e.target.value 
-                        const subCategory = allSubCategory.find(el => el._id === value )
-
-                        setData((preve)=>{
-                          return{
-                            ...preve,
-                            subCategory : [...preve.subCategory,subCategory]
-                          }
-                        })
-                        setSelectSubCategory("")
-                      }}
-                    >
-                      <option value={""} className='text-[#486FEF]'>Select Sub Category</option>
-                      {
-                        allSubCategory.map((c,index)=>{
-                          return(
-                            <option className='text-[#486FEF]' value={c?._id}>{c.name}</option>
-                          )
-                        })
+                    setData((preve) => {
+                      return {
+                        ...preve,
+                        category: [...preve.category, category],
                       }
-                    </select>
-                    <div className='flex flex-wrap gap-3'>
-                      {
-                        data.subCategory.map((c,index)=>{
-                          return(
-                            <div key={c._id+index+"productsection"} className='text-sm flex items-center gap-1 bg-blue-50 mt-2'>
-                              <p>{c.name}</p>
-                              <div className='hover:text-red-500 cursor-pointer' onClick={()=>handleRemoveSubCategory(index)}>
-                                <IoClose size={20}/>
-                              </div>
-                            </div>
-                          )
-                        })
-                      }
-                    </div>
-                  </div>
+                    })
+                    setSelectCategory('')
+                  }}
+                >
+                  <option className='text-[#486FEF]' value={''}>
+                    Select Category
+                  </option>
+                  {allCategory.map((c, index) => {
+                    return (
+                      <option className='text-[#486FEF]' value={c?._id}>
+                        {c.name}
+                      </option>
+                    )
+                  })}
+                </select>
+                <div className='flex flex-wrap gap-3'>
+                  {data.category.map((c, index) => {
+                    return (
+                      <div
+                        key={c._id + index + 'productsection'}
+                        className='text-sm flex items-center gap-1 bg-blue-50 mt-2'
+                      >
+                        <p>{c.name}</p>
+                        <div
+                          className='hover:text-red-500 cursor-pointer'
+                          onClick={() => handleRemoveCategory(index)}
+                        >
+                          <IoClose size={20} />
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
+              </div>
+            </div>
+
+            <div className='grid gap-1 w-[80%] mx-auto'>
+              <label className='font-medium text-[#486FEF]'>Sub Category</label>
+              <div>
+                <select
+                  className='bg-[#CBE2FC]  w-full py-3 px-4  rounded-xl'
+                  value={selectSubCategory}
+                  onChange={(e) => {
+                    const value = e.target.value
+                    const subCategory = allSubCategory.find(
+                      (el) => el._id === value
+                    )
+
+                    setData((preve) => {
+                      return {
+                        ...preve,
+                        subCategory: [...preve.subCategory, subCategory],
+                      }
+                    })
+                    setSelectSubCategory('')
+                  }}
+                >
+                  <option value={''} className='text-[#486FEF]'>
+                    Select Sub Category
+                  </option>
+                  {allSubCategory.map((c, index) => {
+                    return (
+                      <option className='text-[#486FEF]' value={c?._id}>
+                        {c.name}
+                      </option>
+                    )
+                  })}
+                </select>
+                <div className='flex flex-wrap gap-3'>
+                  {data.subCategory.map((c, index) => {
+                    return (
+                      <div
+                        key={c._id + index + 'productsection'}
+                        className='text-sm flex items-center gap-1 bg-blue-50 mt-2'
+                      >
+                        <p>{c.name}</p>
+                        <div
+                          className='hover:text-red-500 cursor-pointer'
+                          onClick={() => handleRemoveSubCategory(index)}
+                        >
+                          <IoClose size={20} />
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+              <Input
+                type='text'
+                size='lg'
+                labelPlacement='outside'
+                isRequired
+                variant='flat'
+                color='primary'
+                label='Unit'
+                name='unit'
+                value={data.unit}
+                onChange={handleChange}
+                className='max-w-[80%]'
+                placeholder='Enter product unit'
+              />
+            </div>
+
+            <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+              <Input
+                 type='number'
+                size='lg'
+                labelPlacement='outside'
+                isRequired
+                variant='flat'
+                color='primary'
+                label='Number of Stock'
+                placeholder='Enter product stock'
+                name='stock'
+                value={data.stock}
+                onChange={handleChange}
+                className='max-w-[80%]'
+              />
+            </div>
+
+            <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+              <Input
+                 type='number'
+                size='lg'
+                labelPlacement='outside'
+                isRequired
+                variant='flat'
+                color='primary'
+                label='Price'
+                placeholder='Enter product price'
+                name='price'
+                value={data.price}
+                onChange={handleChange}
+                className='max-w-[80%]'
+              />
+            </div>
+
+            <div className='flex w-full flex-wrap md:flex-nowrap gap-1 justify-center'>
+              <Input
+                 type='number'
+                size='lg'
+                labelPlacement='outside'
+                isRequired
+                variant='flat'
+                color='primary'
+                label='Discount'
+                placeholder='Enter product discount'
+                name='discount'
+                value={data.discount}
+                onChange={handleChange}
+                className='max-w-[80%]'
+              />
+            </div>
+
+            <Button
+            className='w-[80%] mx-auto'
+            variant='shadow'
+            color='primary'
+                >
+                  Submit
+                </Button>
           </form>
         </div>
         {ViewImageURL && (

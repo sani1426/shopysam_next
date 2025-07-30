@@ -231,19 +231,28 @@ const AllProducts = ({ products, productCount }) => {
       case 'image':
         return (
           <div className='w-full flex justify-center items-center gap-2'>
-            {
-              product?.image.map((img , index)=> (
+
                 <img
-                key={index}
-                src={img}
+                src={product?.image[0]}
                 alt={product?.name}
                 className='w-12 h-12 cursor-pointer rounded'
                 onClick={() => {
                   setImageURL(product?.image[0])
                 }}
               />
-              ))
-            }
+              {
+                product?.image[1] && (
+                  <img
+                  src={product?.image[1]}
+                  alt={product?.name}
+                  className='w-12 h-12 cursor-pointer rounded'
+                  onClick={() => {
+                    setImageURL(product?.image[1])
+                  }}
+                />
+                )
+              }
+       
     
           </div>
         )
@@ -552,7 +561,7 @@ const AllProducts = ({ products, productCount }) => {
       </div>
       {
         imageURL && (
-          <ViewImage url={imageURL} close={()=>setImageURL('')} />
+          <ViewImage url={imageURL}  close={() => setImageURL('')} />
         )
       }
     </section>

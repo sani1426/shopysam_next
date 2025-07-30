@@ -296,16 +296,16 @@ const AllProducts = ({ products, productCount }) => {
       case 'category':
         return (
           <div>
-            {product?.category.map((p, index) => (
-              <p key={index}>{p}</p>
+            {product?.category?.map((p, index) => (
+              <p key={index}>{p?.name}</p>
             ))}
           </div>
         )
       case 'subCategory':
         return (
           <div>
-            {product?.subCategory.map((p, index) => (
-              <p key={index}>{p}</p>
+            {product?.subCategory?.map((p, index) => (
+              <p key={index}>{p?.name}</p>
             ))}
           </div>
         )

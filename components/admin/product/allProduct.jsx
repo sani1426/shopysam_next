@@ -23,6 +23,8 @@ import { RiEyeFill } from 'react-icons/ri'
 import { CiEdit } from 'react-icons/ci'
 import { MdDeleteOutline } from 'react-icons/md'
 import Link from 'next/link'
+import ViewImage from '@/components/shared/viewImage'
+
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
@@ -229,14 +231,20 @@ const AllProducts = ({ products, productCount }) => {
       case 'image':
         return (
           <div className='w-full flex justify-center items-center'>
-            <img
-              src={product?.image[0]}
-              alt={product?.name}
-              className='w-20 h-20 cursor-pointer rounded'
-              onClick={() => {
-                setImageURL(product?.image[0])
-              }}
-            />
+            {
+              product?.image.map((img , index)=> (
+                <img
+                key={index}
+                src={img}
+                alt={product?.name}
+                className='w-12 h-12 cursor-pointer rounded'
+                onClick={() => {
+                  setImageURL(product?.image[0])
+                }}
+              />
+              ))
+            }
+    
           </div>
         )
       case 'name':
@@ -268,7 +276,7 @@ const AllProducts = ({ products, productCount }) => {
               base: 'bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
               content: 'drop-shadow-xs shadow-black text-white',
             }}
-            size='sm'
+            size='md'
             variant='shadow'
           >
             {product?.discount}%
@@ -542,6 +550,11 @@ const AllProducts = ({ products, productCount }) => {
           </TableBody>
         </Table>
       </div>
+      {
+        imageURL && (
+          <ViewImage url={imageURL} close={()=>setImageURL('')} />
+        )
+      }
     </section>
   )
 }

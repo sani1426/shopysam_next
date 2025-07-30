@@ -23,7 +23,7 @@ import { RiEyeFill } from 'react-icons/ri'
 import { CiEdit } from 'react-icons/ci'
 import { MdDeleteOutline } from 'react-icons/md'
 import Link from 'next/link'
-import ViewImage from '@/components/shared/viewImage'
+import ViewImage from '@/components/UI/ViewImage'
 
 
 export const columns = [

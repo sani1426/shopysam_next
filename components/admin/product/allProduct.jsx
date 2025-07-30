@@ -230,7 +230,7 @@ const AllProducts = ({ products, productCount }) => {
     switch (columnKey) {
       case 'image':
         return (
-          <div className='w-full flex justify-center items-center'>
+          <div className='w-full flex justify-center items-center gap-2'>
             {
               product?.image.map((img , index)=> (
                 <img

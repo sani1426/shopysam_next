@@ -275,18 +275,18 @@ const AllProducts = ({ products, productCount }) => {
         )
       case 'actions':
         return (
-          <div key={user?._id} className='relative flex items-center gap-2'>
+          <div key={product?._id} className='relative flex items-center gap-2'>
             <Tooltip color='primary' content='Details'>
               <span className='text-[22px] text-sky-600 cursor-pointer active:opacity-50'>
                 <RiEyeFill />
               </span>
             </Tooltip>
-            <Tooltip color='success' content='Edit user'>
+            <Tooltip color='success' content='Edit product'>
               <span className='text-[25px] text-success cursor-pointer active:opacity-50'>
                 <CiEdit />
               </span>
             </Tooltip>
-            <Tooltip color='danger' content='Delete user'>
+            <Tooltip color='danger' content='Delete product'>
               <span className='text-[22px] text-danger cursor-pointer active:opacity-50'>
                 <MdDeleteOutline />
               </span>

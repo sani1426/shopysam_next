@@ -22,6 +22,7 @@ import { GoDotFill } from 'react-icons/go'
 import { RiEyeFill } from 'react-icons/ri'
 import { CiEdit } from 'react-icons/ci'
 import { MdDeleteOutline } from 'react-icons/md'
+import Link from 'next/link'
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
@@ -418,7 +419,10 @@ const AllProducts = ({ products, productCount }) => {
               endContent={<PlusIcon />}
               size='sm'
             >
+              <Link href="/admin/upload-product" >
+
               Add New
+              </Link>
             </Button>
           </div>
         </div>

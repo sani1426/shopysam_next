@@ -231,7 +231,7 @@ const AllProducts = ({ products, productCount }) => {
             <img
               src={product?.image[0]}
               alt={product?.name}
-              className='w-12 h-12 cursor-pointer'
+              className='w-20 h-20 cursor-pointer'
               onClick={() => {
                 setImageURL(product?.image[0])
               }}
@@ -239,11 +239,11 @@ const AllProducts = ({ products, productCount }) => {
           </div>
         )
       case 'name':
-        return <h1>{product?.name}</h1>
+        return <h1 className='text-xl font-bold truncate text-ellipsis'>{product?.name}</h1>
       case 'price':
         return (
           <div key={product?._id} className='flex flex-col'>
-            <p className='text-bold text-small capitalize'>{product?.price}$</p>
+            <p className='text-bold text-small capitalize'>{product?.price}{' '}$</p>
           </div>
         )
       case 'publish':
@@ -256,7 +256,7 @@ const AllProducts = ({ products, productCount }) => {
             startContent={<GoDotFill size={18} />}
             variant='flat'
           >
-            {cellValue}
+            {product?.publish}
           </Chip>
         )
       case 'discount':
@@ -297,7 +297,15 @@ const AllProducts = ({ products, productCount }) => {
         return (
           <div>
             {product?.category?.map((p, index) => (
-              <p key={index}>{p?.name}</p>
+            <Chip
+            key={index}
+            className='capitalize border-none gap-1 text-default-600'
+            color="primary"
+            size='sm'
+            variant='dot'
+          >
+            {p?.name}
+          </Chip>
             ))}
           </div>
         )
@@ -305,7 +313,15 @@ const AllProducts = ({ products, productCount }) => {
         return (
           <div>
             {product?.subCategory?.map((p, index) => (
-              <p key={index}>{p?.name}</p>
+                      <Chip
+                      key={index}
+                      className='capitalize border-none gap-1 text-default-600'
+                      color="warning"
+                      size='sm'
+                      variant='dot'
+                    >
+                      {p?.name}
+                    </Chip>
             ))}
           </div>
         )
@@ -488,7 +504,6 @@ const AllProducts = ({ products, productCount }) => {
           isStriped
           isCompact
           removeWrapper
-          aria-label='Example table with custom cells, pagination and sorting'
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
           classNames={classNames}
@@ -507,6 +522,7 @@ const AllProducts = ({ products, productCount }) => {
                 key={col.uid}
                 align={'start'}
                 allowsSorting={col.sortable}
+                className='text-xl font-semibold'
               >
                 {col.name}
               </TableColumn>

@@ -26,8 +26,8 @@ import Link from 'next/link'
 
 export const columns = [
   { name: 'ID', uid: '_id', sortable: true },
-  { name: 'NAME', uid: 'name', sortable: true },
   { name: 'Image', uid: 'image' },
+  { name: 'NAME', uid: 'name', sortable: true },
   { name: 'Price', uid: 'price', sortable: true },
   { name: 'Category', uid: 'category' },
   { name: 'Sub_Category', uid: 'subCategory' },
@@ -153,7 +153,7 @@ const INITIAL_VISIBLE_COLUMNS = [
   'image',
   'name',
   'price',
-  'category',
+  'discount',
   'publish',
   'actions',
 ]
@@ -232,7 +232,7 @@ const AllProducts = ({ products, productCount }) => {
             <img
               src={product?.image[0]}
               alt={product?.name}
-              className='w-20 h-20 cursor-pointer'
+              className='w-20 h-20 cursor-pointer rounded'
               onClick={() => {
                 setImageURL(product?.image[0])
               }}
@@ -257,7 +257,7 @@ const AllProducts = ({ products, productCount }) => {
             startContent={<GoDotFill size={18} />}
             variant='flat'
           >
-            {product?.publish}
+            {product?.publish === true ? "true" : "false"}
           </Chip>
         )
       case 'discount':
@@ -506,7 +506,7 @@ const AllProducts = ({ products, productCount }) => {
       <div className='w-full p-8'>
         <Table
           isStriped
-          isCompact
+          // isCompact
           removeWrapper
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
@@ -526,7 +526,7 @@ const AllProducts = ({ products, productCount }) => {
                 key={col.uid}
                 align={'start'}
                 allowsSorting={col.sortable}
-                className='text-xl font-semibold'
+                className='text-[1.15rem] font-semibold'
               >
                 {col.name}
               </TableColumn>

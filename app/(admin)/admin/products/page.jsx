@@ -37,7 +37,7 @@ const page = () => {
         <div class={`main ${dashboardOpen && "active"}`}>
         <AdminNav />
 
-<AllProducts products={products} productCount={productCount} />
+<AllProducts products={products} productCount={productCount} fetchProduct={getAllProducts} />
    
       </div>
   )

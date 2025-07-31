@@ -83,6 +83,14 @@ const BackendApi = {
     url: '/api/product/all',
     method: 'get',
   },
+  update_Product: {
+    url: '/api/product/update',
+    method: 'put',
+  },
+  delete_Product: {
+    url: '/api/product/delete',
+    method: 'delete',
+  },
 
   //  // shop api // //
   getDigitalsCategory: {

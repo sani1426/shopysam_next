@@ -24,7 +24,10 @@ import { CiEdit } from 'react-icons/ci'
 import { MdDeleteOutline } from 'react-icons/md'
 import Link from 'next/link'
 import ViewImage from '@/components/UI/ViewImage'
-import useMobile from '@/utils/IsMobile'
+import EditProduct from './EditProduct'
+import { IoClose } from 'react-icons/io5'
+import { toast } from 'sonner'
+import BackendApi from '@/common/api'
 
 
 export const columns = [
@@ -152,43 +155,49 @@ const publishColorMap = {
   false: 'danger',
 }
 
+const INITIAL_VISIBLE_COLUMNS = [
+  'image',
+  'name',
+  'price',
+  'discount',
+  'publish',
+  'actions',
+]
 
-
-const AllProducts = ({ products, productCount }) => {
-  // const INITIAL_VISIBLE_COLUMNS = [
-  //   'image',
-  //   'name',
-  //   'price',
-  //   'discount',
-  //   'publish',
-  //   'actions',
-  // ]
-  // const Visible_Columns = () => {
-    const INITIAL_VISIBLE_COLUMNS = [] ;
-    const [isMobile]= useMobile()
-    if (isMobile) {
-      INITIAL_VISIBLE_COLUMNS =[
-        'image',
-        'name',
-        'price',
-        'actions',
-      ]
-    }else{
-      INITIAL_VISIBLE_COLUMNS =[
-        'image',
-        'name',
-        'price',
-        'discount',
-        'publish',
-        'actions',
-      ]
-    }
-  //   return  INITIAL_VISIBLE_COLUMNS
-  // }
- 
+const AllProducts = ({ products, productCount,fetchProduct }) => {
   const [imageURL, setImageURL] = useState('')
   const [filterValue, setFilterValue] = React.useState('')
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]))
+  const [editOpen,setEditOpen]= useState(false)
+  const [openDelete,setOpenDelete] = useState(false)
+  const [data , setData]=useState()
+
+  const handleDeleteCancel  = ()=>{
+      setOpenDelete(false)
+  }
+
+  const handleDelete = async()=>{
+    try {
+      const response = await Axios({
+        ...BackendApi.delete_Product,
+        data : {
+          _id : data._id
+        }
+      })
+
+      const { data : responseData } = response
+
+      if(responseData?.success){
+          toast.success(responseData?.message)
+          if(fetchProduct){
+            fetchProduct()
+          }
+          setOpenDelete(false)
+      }
+    } catch (error) {
+      toast.error('error')
+    }
+  }
   const [visibleColumns, setVisibleColumns] = React.useState(
     new Set(INITIAL_VISIBLE_COLUMNS)
   )
@@ -325,12 +334,16 @@ const AllProducts = ({ products, productCount }) => {
               </span>
             </Tooltip>
             <Tooltip color='success' content='Edit product'>
-              <span className='text-[25px] text-success cursor-pointer active:opacity-50'>
+              <span onClick={()=>{
+                setData(product)
+                setEditOpen(true)}}  className='text-[25px] text-success cursor-pointer active:opacity-50'>
                 <CiEdit />
               </span>
             </Tooltip>
             <Tooltip color='danger' content='Delete product'>
-              <span className='text-[22px] text-danger cursor-pointer active:opacity-50'>
+              <span  onClick={()=>{
+                setData(product)
+                setOpenDelete(true)}}  className='text-[22px] text-danger cursor-pointer active:opacity-50'>
                 <MdDeleteOutline />
               </span>
             </Tooltip>
@@ -589,6 +602,32 @@ const AllProducts = ({ products, productCount }) => {
           <ViewImage url={imageURL}  close={() => setImageURL('')} />
         )
       }
+
+{
+          editOpen && (
+            <EditProduct fetchProductData={fetchProduct} data={data} close={()=>setEditOpen(false)}/>
+          )
+        }
+
+        {
+          openDelete && (
+            <section className='fixed top-0 left-0 right-0 bottom-0 bg-neutral-600 z-50 bg-opacity-70 p-4 flex justify-center items-center '>
+                <div className='bg-white p-4 w-full max-w-md rounded-md'>
+                    <div className='flex items-center justify-between gap-4'>
+                        <h3 className='font-semibold'>Permanent Delete</h3>
+                        <button onClick={()=>setOpenDelete(false)}>
+                          <IoClose size={25}/>
+                        </button>
+                    </div>
+                    <p className='my-2'>Are you sure want to delete permanent ?</p>
+                    <div className='flex justify-end gap-5 py-4'>
+                      <button onClick={handleDeleteCancel} className='border px-3 py-1 rounded bg-red-100 border-red-500 text-red-500 hover:bg-red-200'>Cancel</button>
+                      <button onClick={handleDelete} className='border px-3 py-1 rounded bg-green-100 border-green-500 text-green-500 hover:bg-green-200'>Delete</button>
+                    </div>
+                </div>
+            </section>
+          )
+}
     </section>
   )
 }

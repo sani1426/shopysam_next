@@ -24,6 +24,7 @@ import { CiEdit } from 'react-icons/ci'
 import { MdDeleteOutline } from 'react-icons/md'
 import Link from 'next/link'
 import ViewImage from '@/components/UI/ViewImage'
+import useMobile from '@/utils/IsMobile'
 
 
 export const columns = [
@@ -151,16 +152,40 @@ const publishColorMap = {
   false: 'danger',
 }
 
-const INITIAL_VISIBLE_COLUMNS = [
-  'image',
-  'name',
-  'price',
-  'discount',
-  'publish',
-  'actions',
-]
+
 
 const AllProducts = ({ products, productCount }) => {
+  // const INITIAL_VISIBLE_COLUMNS = [
+  //   'image',
+  //   'name',
+  //   'price',
+  //   'discount',
+  //   'publish',
+  //   'actions',
+  // ]
+  // const Visible_Columns = () => {
+    const INITIAL_VISIBLE_COLUMNS = [] ;
+    const [isMobile]= useMobile()
+    if (isMobile) {
+      INITIAL_VISIBLE_COLUMNS =[
+        'image',
+        'name',
+        'price',
+        'actions',
+      ]
+    }else{
+      INITIAL_VISIBLE_COLUMNS =[
+        'image',
+        'name',
+        'price',
+        'discount',
+        'publish',
+        'actions',
+      ]
+    }
+  //   return  INITIAL_VISIBLE_COLUMNS
+  // }
+ 
   const [imageURL, setImageURL] = useState('')
   const [filterValue, setFilterValue] = React.useState('')
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]))

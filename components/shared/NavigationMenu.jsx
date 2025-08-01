@@ -19,7 +19,7 @@ const NavigationMenu = () => {
 
       <h1 className=' items-center gap-1 ml-32 hidden xl:flex text-gray-600'>
         <span className='text-3xl'><IoRocketOutline /></span>
-        <span>Free International Delivery</span>
+        <span className="text-sm">Free International Delivery</span>
         </h1>
     </div>
   )

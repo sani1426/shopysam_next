@@ -8,6 +8,9 @@ import BackendApi from '@/common/api'
 import successAlert from '@/utils/SuccessAllert'
 import { toast } from 'sonner'
 import { IoClose } from 'react-icons/io5'
+import { FaCloudUploadAlt } from 'react-icons/fa'
+import Loading from '@/components/shared/loading'
+import ViewImage from '@/components/UI/ViewImage'
 
 const EditProduct = ({close ,data : propsData,fetchProductData}) => {
         const [data, setData] = useState({

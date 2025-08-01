@@ -6,6 +6,8 @@ import Axios from '@/utils/axios'
 import React, { useState } from 'react'
 import BackendApi from '@/common/api'
 import successAlert from '@/utils/SuccessAllert'
+import { toast } from 'sonner'
+import { IoClose } from 'react-icons/io5'
 
 const EditProduct = ({close ,data : propsData,fetchProductData}) => {
         const [data, setData] = useState({
@@ -113,7 +115,7 @@ const EditProduct = ({close ,data : propsData,fetchProductData}) => {
             
                   }
                 } catch (error) {
-                  AxiosToastError(error)
+                  toast.error('error')
                 }
             
             

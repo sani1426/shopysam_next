@@ -11,6 +11,7 @@ import { IoClose } from 'react-icons/io5'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 import Loading from '@/components/shared/loading'
 import ViewImage from '@/components/UI/ViewImage'
+import { MdDelete } from 'react-icons/md'
 
 const EditProduct = ({close ,data : propsData,fetchProductData}) => {
         const [data, setData] = useState({

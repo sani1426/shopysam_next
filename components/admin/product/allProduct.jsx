@@ -353,7 +353,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
         )
       case 'category':
         return (
-          <div className='grid grid-cols-3 items-center gap-1'>
+          <div className='grid grid-cols-2 items-center gap-1'>
             {product?.category?.map((p, index) => (
             <Chip
             key={index}
@@ -369,7 +369,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
         )
       case 'subCategory':
         return (
-          <div className='grid grid-cols-3 items-center gap-1'>
+          <div className='grid grid-cols-2 items-center gap-1'>
             {product?.subCategory?.map((p, index) => (
                       <Chip
                       key={index}

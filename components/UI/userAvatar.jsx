@@ -43,7 +43,17 @@ export default function UserAvatar() {
          
            
             
-            <span className={`text-xs rounded-xl text-white px-4 py-[1px] ${userDetail?.role ==="Admin"? "bg-blue-400" : "bg-rose-400"}`}>{userDetail?.role}</span>
+            {/* <span className={`text-xs rounded-xl text-white px-4 py-[1px] ${userDetail?.role ==="Admin"? "bg-blue-400" : "bg-rose-400"}`}>{userDetail?.role}</span> */}
+            <Chip
+            classNames={{
+              base: 'bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
+              content: 'drop-shadow-xs shadow-black text-white',
+            }}
+            size='sm'
+            variant='shadow'
+          >
+            {userDetail?.role}
+          </Chip>
           
           </div>
         </div>
@@ -59,7 +69,7 @@ export default function UserAvatar() {
         </DropdownItem>
         {userDetail?.role === 'Admin' && (
           <DropdownItem key='dashboard'>
-            <Link href='/admin/dashboard'>Dashboard</Link>
+            <Link className='text-blue-400' href='/admin/dashboard'>Admin Dashboard</Link>
           </DropdownItem>
         )}
         <DropdownItem key='orders'>Orders</DropdownItem>

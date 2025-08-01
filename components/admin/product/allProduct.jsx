@@ -266,7 +266,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
     switch (columnKey) {
       case 'image':
         return (
-          <div className='w-full grid grid-cols-2 gap-2 justify-center items-center gap-2'>
+          <div className='w-full grid grid-cols-2 gap-2 justify-center items-center '>
 
                 <img
                 src={product?.image[0]}

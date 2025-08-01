@@ -29,6 +29,7 @@ import { IoClose } from 'react-icons/io5'
 import { toast } from 'sonner'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
+import Axios from '@/utils/axios'
 
 
 export const columns = [
@@ -265,7 +266,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
     switch (columnKey) {
       case 'image':
         return (
-          <div className='w-full flex justify-center items-center gap-2'>
+          <div className='w-full grid grid-cols-2 gap-2 justify-center items-center gap-2'>
 
                 <img
                 src={product?.image[0]}
@@ -352,7 +353,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
         )
       case 'category':
         return (
-          <div>
+          <div className='grid grid-cols-3 items-center gap-1'>
             {product?.category?.map((p, index) => (
             <Chip
             key={index}
@@ -368,7 +369,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
         )
       case 'subCategory':
         return (
-          <div>
+          <div className='grid grid-cols-3 items-center gap-1'>
             {product?.subCategory?.map((p, index) => (
                       <Chip
                       key={index}

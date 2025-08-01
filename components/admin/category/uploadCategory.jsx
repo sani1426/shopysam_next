@@ -15,6 +15,7 @@ import {
 import { useState } from 'react'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner'
+import AxiosToastError from '@/utils/axiosToastError'
 
 const UploadCategory = ({fetchCategories}) => {
   const { isOpen, onOpen, onOpenChange , onClose } = useDisclosure()
@@ -67,7 +68,7 @@ const UploadCategory = ({fetchCategories}) => {
         fetchCategories()
       }
     } catch (error) {
-      toast.error(error)
+      AxiosToastError(error)
     }finally{
       setLoading(false)
     }

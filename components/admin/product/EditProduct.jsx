@@ -358,7 +358,7 @@ const EditProduct = ({close ,data : propsData,fetchProductData}) => {
 
   
                 <button
-                  className='bg-primary-100 hover:bg-primary-200 py-2 rounded font-semibold'
+                  className='bg-primary-500 hover:bg-primary-600 py-2 rounded font-semibold cursor-pointer'
                 >
                   Update Product
                 </button>

@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { IoClose } from "react-icons/io5";
 import { toast } from 'sonner';
 import BackendApi from '@/common/api'
+import AxiosToastError from '@/utils/axiosToastError';
 
 
 const EditCategory = ({close, fetchData,data : CategoryData}) => {
@@ -60,7 +61,7 @@ const EditCategory = ({close, fetchData,data : CategoryData}) => {
         fetchData()
       }
     } catch (error) {
-      toast.error('error')
+        AxiosToastError(error)
     }finally{
       setLoading(false)
     }

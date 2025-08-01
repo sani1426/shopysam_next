@@ -11,6 +11,7 @@ import BackendApi from '@/common/api'
 import EditCategory from '@/components/admin/category/editCategory'
 import { toast } from 'sonner'
 import CofirmBox from '@/components/UI/ConfirmBox'
+import AxiosToastError from '@/utils/axiosToastError'
 
 const page = () => {
   const { dashboardOpen, setAllCategory } = useAppContext()
@@ -57,13 +58,13 @@ const page = () => {
 
       const { data: responseData } = response
 
-      if (responseData.success) {
-        toast.success(responseData.message)
+      if (responseData?.success) {
+        toast.success(responseData?.message)
         fetchCategory()
         setOpenConfirmBoxDelete(false)
       }
     } catch (error) {
-      toast.error('error')
+      AxiosToastError(error)
     }
   }
 

@@ -12,6 +12,7 @@ import { FaCloudUploadAlt } from 'react-icons/fa'
 import Loading from '@/components/shared/loading'
 import ViewImage from '@/components/UI/ViewImage'
 import { MdDelete } from 'react-icons/md'
+import AxiosToastError from '@/utils/axiosToastError'
 
 const EditProduct = ({close ,data : propsData,fetchProductData}) => {
         const [data, setData] = useState({
@@ -119,7 +120,7 @@ const EditProduct = ({close ,data : propsData,fetchProductData}) => {
             
                   }
                 } catch (error) {
-                  toast.error('error')
+                  AxiosToastError(error)
                 }
             
             

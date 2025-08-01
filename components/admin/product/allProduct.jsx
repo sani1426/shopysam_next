@@ -28,6 +28,7 @@ import EditProduct from './EditProduct'
 import { IoClose } from 'react-icons/io5'
 import { toast } from 'sonner'
 import BackendApi from '@/common/api'
+import AxiosToastError from '@/utils/axiosToastError'
 
 
 export const columns = [
@@ -195,7 +196,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
           setOpenDelete(false)
       }
     } catch (error) {
-      toast.error('error')
+      AxiosToastError(error)
     }
   }
   const [visibleColumns, setVisibleColumns] = React.useState(

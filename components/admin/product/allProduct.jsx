@@ -547,7 +547,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
 
   const classNames = React.useMemo(
     () => ({
-      wrapper: ['max-h-[382px]', 'max-w-3xl'],
+      wrapper: ['max-h-[382px]'],
       th: ['bg-transparent', 'text-default-500', 'border-b', 'border-divider'],
       td: [
         // changing the rows border radius

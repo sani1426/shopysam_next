@@ -273,8 +273,9 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
                 <Image
                 src={product?.image[0]}
                 alt={product?.name}
-                width={48}
-                height={48}
+                width={55}
+                height={50}
+                placeholder='blur'
                 loading='lazy'
                 className=' cursor-pointer rounded'
                 onClick={() => {
@@ -286,8 +287,9 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
                   <Image
                   src={product?.image[1]}
                   alt={product?.name}
-                  width={48}
-                  height={48}
+                  width={55}
+                  height={50}
+                  placeholder='blur'
                   loading='lazy'
                   className=' cursor-pointer rounded'
                   onClick={() => {

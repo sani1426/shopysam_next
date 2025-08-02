@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const NavigationMenu = () => {
   return (
-    <div className='w-full flex items-center gap-16 nav-clr   py-2   mt-4 absolute top-[70px] md:top-[80px]  lg:top-[122px] px-3  lg:px-12  border-slate-300 z-40 shadow-md  dark:shadow-gray-900'>
+    <div className='w-full flex items-center gap-16 nav-clr   py-2   mt-4 absolute top-[72px] md:top-[77px]  lg:top-[117px] px-3  lg:px-12  border-slate-300 z-40 shadow-md  dark:shadow-gray-900'>
       <CategoryMenu />
 
       <ul className=' items-center gap-10 hidden lg:flex dark:text-gray-300'>

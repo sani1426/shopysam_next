@@ -574,7 +574,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
         <Table
           isStriped
           // isCompact
-          removeWrapper
+          // removeWrapper
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
           classNames={classNames}

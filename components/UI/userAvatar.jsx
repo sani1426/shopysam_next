@@ -10,6 +10,7 @@ Chip
 } from '@heroui/react'
 import axios from 'axios'
 import Link from 'next/link'
+import { FaAngleDown } from 'react-icons/fa'
 import { toast } from 'sonner'
 
 export default function UserAvatar() {
@@ -37,13 +38,10 @@ export default function UserAvatar() {
             alt=''
             className='w-8 h-8 rounded-full'
           />
-          <div className='flex flex-col gap-2'>
+          <span className='text-xl'><FaAngleDown /></span>
+          {/* <div className='flex flex-col gap-2'>
 
             <h1 className='text-lg'>{userDetail?.name}</h1>
-         
-           
-            
-            {/* <span className={`text-xs rounded-xl text-white px-4 py-[1px] ${userDetail?.role ==="Admin"? "bg-blue-400" : "bg-rose-400"}`}>{userDetail?.role}</span> */}
             <Chip
             classNames={{
               base: 'bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
@@ -55,7 +53,7 @@ export default function UserAvatar() {
             {userDetail?.role}
           </Chip>
           
-          </div>
+          </div> */}
         </div>
 
       </DropdownTrigger>

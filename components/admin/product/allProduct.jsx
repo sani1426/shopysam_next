@@ -23,13 +23,15 @@ import { RiEyeFill } from 'react-icons/ri'
 import { CiEdit } from 'react-icons/ci'
 import { MdDeleteOutline } from 'react-icons/md'
 import Link from 'next/link'
-import ViewImage from '@/components/UI/ViewImage'
+
 import EditProduct from './EditProduct'
 import { IoClose } from 'react-icons/io5'
 import { toast } from 'sonner'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import Axios from '@/utils/axios'
+import ViewImage from '@/components/shared/viewImage'
+import Image from 'next/image'
 
 
 export const columns = [
@@ -268,20 +270,24 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
         return (
           <div className='w-full grid grid-cols-2 gap-2 justify-center items-center '>
 
-                <img
+                <Image
                 src={product?.image[0]}
                 alt={product?.name}
-                className='w-12 h-12 cursor-pointer rounded'
+                width={48}
+                height={48}
+                className=' cursor-pointer rounded'
                 onClick={() => {
                   setImageURL(product?.image[0])
                 }}
               />
               {
                 product?.image[1] && (
-                  <img
+                  <Image
                   src={product?.image[1]}
                   alt={product?.name}
-                  className='w-12 h-12 cursor-pointer rounded'
+                  width={48}
+                  height={48}
+                  className=' cursor-pointer rounded'
                   onClick={() => {
                     setImageURL(product?.image[1])
                   }}

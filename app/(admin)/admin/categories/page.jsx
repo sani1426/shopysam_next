@@ -94,9 +94,10 @@ const page = () => {
                 <Image
                   alt={category?.name}
                   src={category?.image}
-                width={20}
+                width={50}
                 height={45}
                 placeholder='blur'
+                loading='lazy'
                 />
                 <div className='items-center flex gap-2 justify-between py-3'>
                   <button

@@ -30,7 +30,7 @@ import { toast } from 'sonner'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import Axios from '@/utils/axios'
-import ViewImage from '@/components/shared/viewImage'
+import ViewImage from '@/components/UI/ViewImage'
 import Image from 'next/image'
 
 

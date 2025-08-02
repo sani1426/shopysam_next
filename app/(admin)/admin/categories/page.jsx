@@ -91,12 +91,13 @@ const page = () => {
           {categoryData?.map((category, index) => {
             return (
               <div className='category_card ' key={category?._id}>
-                <div className='relative w-full h-[60px] top-0 left-0 right-0'>
+                <div className='relative w-full h-[100px] top-0 left-0 right-0'>
 
                 <Image
                   alt={category?.name}
                   src={category?.image}
                 fill
+                className='object-cover'
                 placeholder='blur'
                 loading='lazy'
                 />

@@ -275,6 +275,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
                 alt={product?.name}
                 width={48}
                 height={48}
+                loading='lazy'
                 className=' cursor-pointer rounded'
                 onClick={() => {
                   setImageURL(product?.image[0])
@@ -287,6 +288,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
                   alt={product?.name}
                   width={48}
                   height={48}
+                  loading='lazy'
                   className=' cursor-pointer rounded'
                   onClick={() => {
                     setImageURL(product?.image[1])

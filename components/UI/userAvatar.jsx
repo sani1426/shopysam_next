@@ -39,10 +39,13 @@ export default function UserAvatar() {
             className='w-8 h-8 rounded-full'
           />
           <span className='text-xl'><FaAngleDown /></span>
-          {/* <div className='flex flex-col gap-2'>
+        </div>
 
-            <h1 className='text-lg'>{userDetail?.name}</h1>
-            <Chip
+      </DropdownTrigger>
+      <DropdownMenu aria-label='User Actions' variant='flat'>
+        <DropdownItem key='profile' className='h-14 flex items-center justify-between px-1'>
+          <p className='font-bold'>{userDetail?.name}</p>
+          <Chip
             classNames={{
               base: 'bg-linear-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
               content: 'drop-shadow-xs shadow-black text-white',
@@ -52,15 +55,7 @@ export default function UserAvatar() {
           >
             {userDetail?.role}
           </Chip>
-          
-          </div> */}
-        </div>
 
-      </DropdownTrigger>
-      <DropdownMenu aria-label='User Actions' variant='flat'>
-        <DropdownItem key='profile' className='h-14 gap-2'>
-          <p className='font-bold'>Signed in as</p>
-          <p className='font-bold'>{userDetail?.name}</p>
         </DropdownItem>
         <DropdownItem key='profile'>
           <Link href='/profile'>Profile</Link>

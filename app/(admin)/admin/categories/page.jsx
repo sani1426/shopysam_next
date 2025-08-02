@@ -121,7 +121,7 @@ const page = () => {
                 </div>
                 <div className='w-full  text-center pb-2 flex items-center justify-evenly'>
                   <h3 className='text-lg'>name:</h3>
-                  <h3 className='overflow-hidden text-ellipsis '>{category?.name}</h3>
+                  <h3 className='overflow-hidden text-clip '>{category?.name}</h3>
                 </div>
               </div>
             )

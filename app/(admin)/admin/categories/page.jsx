@@ -12,6 +12,7 @@ import EditCategory from '@/components/admin/category/editCategory'
 import { toast } from 'sonner'
 import CofirmBox from '@/components/UI/ConfirmBox'
 import AxiosToastError from '@/utils/axiosToastError'
+import Image from 'next/image'
 
 const page = () => {
   const { dashboardOpen, setAllCategory } = useAppContext()
@@ -89,11 +90,13 @@ const page = () => {
         >
           {categoryData?.map((category, index) => {
             return (
-              <div className='category_card' key={category?._id}>
-                <img
+              <div className='category_card ' key={category?._id}>
+                <Image
                   alt={category?.name}
                   src={category?.image}
-                  className='w-full object-scale-down'
+                width={45}
+                height={45}
+                placeholder='blur'
                 />
                 <div className='items-center flex gap-2 justify-between py-3'>
                   <button
@@ -118,7 +121,7 @@ const page = () => {
                 </div>
                 <div className='w-full  text-center pb-2 flex items-center justify-evenly'>
                   <h3 className='text-lg'>name:</h3>
-                  <h3 className='text-lg '>{category?.name}</h3>
+                  <h3 className='overflow-hidden text-ellipsis '>{category?.name}</h3>
                 </div>
               </div>
             )

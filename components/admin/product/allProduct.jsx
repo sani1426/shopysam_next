@@ -578,7 +578,7 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
           bottomContent={bottomContent}
           bottomContentPlacement='outside'
           classNames={classNames}
-          className='p-2 rounded shadow-xl'
+          className='p-2 rounded shadow-xl w-full'
           //       selectedKeys={selectedKeys}
           //       selectionMode="multiple"
           sortDescriptor={sortDescriptor}

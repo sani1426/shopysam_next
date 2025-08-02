@@ -91,14 +91,16 @@ const page = () => {
           {categoryData?.map((category, index) => {
             return (
               <div className='category_card ' key={category?._id}>
+                <div className='relative w-full h-[60px] top-0 left-0 right-0'>
+
                 <Image
                   alt={category?.name}
                   src={category?.image}
-                width={100}
-                height={100}
+                fill
                 placeholder='blur'
                 loading='lazy'
                 />
+                </div>
                 <div className='items-center flex gap-2 justify-between py-3'>
                   <button
                     onClick={() => {
@@ -122,7 +124,7 @@ const page = () => {
                 </div>
                 <div className='w-full  text-center pb-2 flex items-center justify-evenly'>
                   {/* <h3 className='text-lg'>name:</h3> */}
-                  <h3 className='overflow-hidden text-clip '>{category?.name}</h3>
+                  <h3 className='overflow-hidden text-clip font-bold '>{category?.name}</h3>
                 </div>
               </div>
             )

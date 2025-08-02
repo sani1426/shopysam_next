@@ -94,7 +94,7 @@ const page = () => {
                 <Image
                   alt={category?.name}
                   src={category?.image}
-                width={45}
+                width={20}
                 height={45}
                 placeholder='blur'
                 />

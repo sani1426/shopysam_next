@@ -273,8 +273,8 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
                 <Image
                 src={product?.image[0]}
                 alt={product?.name}
-                width={55}
-                height={50}
+                width={65}
+                height={55}
                 placeholder='blur'
                 loading='lazy'
                 className=' cursor-pointer rounded'
@@ -287,8 +287,8 @@ const AllProducts = ({ products, productCount,fetchProduct }) => {
                   <Image
                   src={product?.image[1]}
                   alt={product?.name}
-                  width={55}
-                  height={50}
+                  width={65}
+                  height={55}
                   placeholder='blur'
                   loading='lazy'
                   className=' cursor-pointer rounded'

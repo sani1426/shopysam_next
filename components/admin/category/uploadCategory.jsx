@@ -64,6 +64,10 @@ const UploadCategory = ({fetchCategories}) => {
 
       if(responseData?.success){
         toast.success(responseData?.message)
+        setData({
+          name : "" ,
+          image : ""
+        })
         onClose()
         fetchCategories()
       }

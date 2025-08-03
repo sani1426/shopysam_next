@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner'
 import { IoClose } from 'react-icons/io5'
+import AxiosToastError from '@/utils/axiosToastError'
 
 const UploadSubCategory = ({ allCategory,fetchSubCategory }) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
@@ -78,11 +79,16 @@ const UploadSubCategory = ({ allCategory,fetchSubCategory }) => {
         if(responseData?.success){
             toast.success(responseData?.message)
             fetchSubCategory()
+            setSubCategoryData({
+              name: '',
+              image: '',
+              category: [],
+            })
             onClose()
         }
 
     } catch (error) {
-        toast.error('error')
+        AxiosToastError(error)
     }
   }
 

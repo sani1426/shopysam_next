@@ -37,21 +37,42 @@ export default function CategorySlider() {
   return (
     <>
       <Swiper
-        slidesPerView={10}
+        slidesPerView={5}
         grid={{
           rows: 2,
         }}
-        spaceBetween={10}
+        spaceBetween={30}
+        breakpoints= {{
+           
+                320: {
+                  slidesPerView: 5,
+                  spaceBetween: 30
+                },
+
+                480: {
+                  slidesPerView: 6,
+                  spaceBetween: 20
+                },
+   
+                640: {
+                  slidesPerView: 7,
+                  spaceBetween: 20
+                },
+                840: {
+                  slidesPerView: 10,
+                  spaceBetween: 10
+                }
+              }}
         pagination={{
           clickable: true,
         }}
         modules={[Grid, Pagination]}
-        className='mySwiper'
+        className='mySwiper w-full '
       >
         {
          allCat.map((_, index) => (
               <SwiperSlide className='w-[50px] h-[50px]' key={index}>
-                <img className='max-w-full min-h-full' src={_?.image} alt={_?.name} />
+                <img className='max-w-[50px] min-h-full' src={_?.image} alt={_?.name} />
               </SwiperSlide>
             ))
          }

@@ -43,8 +43,7 @@ const ShowCategory = () => {
                 <div>
                   <img
                     src={cat.image}
-                    className=' min-w-full min-h-[60px] max-h-[60px] object-scale-down'
-                    placeholder='blur'
+                    className=' min-w-full min-h-[80px] max-h-[80px] object-cover'
                   />
                 </div>
               </div>

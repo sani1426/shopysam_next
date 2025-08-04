@@ -67,12 +67,12 @@ export default function CategorySlider() {
           clickable: true,
         }}
         modules={[Grid, Pagination]}
-        className='mySwiper w-full '
+        className='mySwiper w-full grid'
       >
         {
          allCat.map((_, index) => (
-              <SwiperSlide className='w-[50px] h-[50px]' key={index}>
-                <img className='max-w-[50px] min-h-full' src={_?.image} alt={_?.name} />
+              <SwiperSlide className='w-[60px] h-[60px]' key={index}>
+                <img className='max-w-[60px] min-h-full' src={_?.image} alt={_?.name} />
               </SwiperSlide>
             ))
          }

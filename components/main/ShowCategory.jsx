@@ -4,11 +4,32 @@ import { useAppContext } from '@/context/appContext'
 import Image from 'next/image'
 
 const ShowCategory = () => {
-  const { allCategory } = useAppContext()
+  const [allCat, setAllCat] = useState([])
+  const [loading, setLoading] = useState(false)
+  const fetchCategory = async () => {
+    try {
+      setLoading(true)
+      const response = await Axios({
+        ...BackendApi.get_Categories,
+      })
+      const { data: responseData } = response
+
+      if (responseData?.success) {
+        setAllCat(responseData.data)
+        setLoading(false)
+      }
+    } catch (error) {
+      AxiosToastError(error)
+    }
+  }
+  useEffect(() => {
+    fetchCategory()
+  }, [])
   return (
     <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
-      {allCategory
-        ? allCategory?.map((cat, index) => {
+      {loading ? (
+        <>
+          {allCat?.map((cat, index) => {
             return (
               <div
                 key={cat._id + 'displayCategory'}
@@ -23,8 +44,11 @@ const ShowCategory = () => {
                 </div>
               </div>
             )
-          })
-        : new Array(12).fill(null).map((c, index) => {
+          })}
+        </>
+      ) : (
+        <>
+          {new Array(12).fill(null).map((c, index) => {
             return (
               <div
                 key={index + 'loadingcategory'}
@@ -35,6 +59,8 @@ const ShowCategory = () => {
               </div>
             )
           })}
+        </>
+      )}
     </div>
   )
 }

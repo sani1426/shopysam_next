@@ -17,8 +17,9 @@ const ShowCategory = () => {
       const { data: responseData } = response
 
       if (responseData?.success) {
-        setAllCat(responseData.data)
         setLoading(false)
+        setAllCat(responseData.data)
+     
       }
     } catch (error) {
       AxiosToastError(error)
@@ -28,8 +29,8 @@ const ShowCategory = () => {
     fetchCategory()
   }, [])
   return (
-    <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
-      {loading ? (
+    <div className='container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
+      {!loading ? (
         <>
           {allCat?.map((cat, index) => {
             return (

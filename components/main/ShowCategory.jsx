@@ -30,14 +30,14 @@ const ShowCategory = () => {
     fetchCategory()
   }, [])
   return (
-    <div className='container mx-auto px-4 my-8 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-5'>
+    <div className='container mx-auto px-4 my-8 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-8'>
       {!loading ? (
         <>
           {allCat?.map((cat, index) => {
             return (
               <div
                 key={cat._id + 'displayCategory'}
-                className='w-full h-full  rounded-xl '
+                className='w-full h-full  rounded-xl text-center'
                 // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>
@@ -46,6 +46,7 @@ const ShowCategory = () => {
                     className='  rounded-xl min-w-full min-h-[100px] max-h-[100px] object-cover'
                   />
                 </div>
+                <h1 className='text-center font-semibold my-2'>{cat?.name}</h1>
               </div>
             )
           })}

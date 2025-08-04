@@ -49,7 +49,7 @@ export default function CategorySlider() {
         className="mySwiper"
       >
         {
-                loading ? (
+                !loading ? (
                         allCat.map((_,index) => (
                                 <SwiperSlide key={index}>
                                         <img src={_?.image} alt={_?.name} />

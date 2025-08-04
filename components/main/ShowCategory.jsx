@@ -46,7 +46,7 @@ const ShowCategory = () => {
                     className='  rounded-xl min-w-full min-h-[100px] max-h-[100px] object-cover'
                   />
                 </div>
-                <h1 className='text-center font-semibold my-2'>{cat?.name}</h1>
+                <h1 className='text-center text-sm font-semibold my-2'>{cat?.name}</h1>
               </div>
             )
           })}

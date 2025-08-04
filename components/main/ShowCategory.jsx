@@ -37,14 +37,15 @@ const ShowCategory = () => {
             return (
               <div
                 key={cat._id + 'displayCategory'}
-                className='w-[60px] h-[60px] relative'
+                className='w-full h-full '
                 // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>
                   <Image
                     src={cat.image}
-                    className='w-full h-full object-scale-down'
-                    fill
+                    className=' object-scale-down'
+                    width={60}
+                    height={60}
                     loading='lazy'
                     placeholder='blur'
                   />

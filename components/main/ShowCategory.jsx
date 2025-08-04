@@ -30,20 +30,20 @@ const ShowCategory = () => {
     fetchCategory()
   }, [])
   return (
-    <div className='container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
+    <div className='container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-5'>
       {!loading ? (
         <>
           {allCat?.map((cat, index) => {
             return (
               <div
                 key={cat._id + 'displayCategory'}
-                className='w-full h-full '
+                className='w-full h-full  rounded-xl '
                 // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>
                   <img
                     src={cat.image}
-                    className=' min-w-full min-h-[80px] max-h-[80px] object-cover'
+                    className='  rounded-xl min-w-full min-h-[100px] max-h-[100px] object-cover'
                   />
                 </div>
               </div>

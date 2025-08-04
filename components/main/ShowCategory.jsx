@@ -1,7 +1,9 @@
 'use client'
 
-import { useAppContext } from '@/context/appContext'
-import Image from 'next/image'
+import Axios from '@/utils/axios'
+import BackendApi from '@/common/api'
+import AxiosToastError from '@/utils/axiosToastError'
+import { useEffect, useState } from 'react'
 
 const ShowCategory = () => {
   const [allCat, setAllCat] = useState([])

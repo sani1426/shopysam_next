@@ -37,7 +37,7 @@ const ShowCategory = () => {
             return (
               <div
                 key={cat._id + 'displayCategory'}
-                className='w-full h-full relative'
+                className='w-[60px] h-[60px] relative'
                 // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>

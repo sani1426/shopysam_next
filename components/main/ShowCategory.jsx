@@ -11,12 +11,13 @@ const ShowCategory = () => {
                 allCategory ? (
                         allCategory?.map((cat,index)=>{
                                 return(
-                                  <div key={cat?._id+"displayCategory"} className='w-full h-full relative' >
+                                  <div key={cat?._id+"displayCategory"} className='w-full h-full ' >
                                     <div>
                                         <Image
                                           src={cat.image}
                                           className='w-full h-full object-scale-down'
-                                          fill 
+                                         width={70}
+                                         height={70}
                                           loading="lazy"
                                           placeholder="blur"
                                         />

@@ -41,12 +41,9 @@ const ShowCategory = () => {
                 // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>
-                  <Image
+                  <img
                     src={cat.image}
-                    className=' object-scale-down'
-                    width={60}
-                    height={60}
-                    loading='lazy'
+                    className=' min-w-full min-h-[60px] max-h-[60px] object-scale-down'
                     placeholder='blur'
                   />
                 </div>

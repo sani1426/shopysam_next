@@ -30,7 +30,7 @@ const ShowCategory = () => {
     fetchCategory()
   }, [])
   return (
-    <div className='container mx-auto px-4 my-4 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-5'>
+    <div className='container mx-auto px-4 my-8 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-5'>
       {!loading ? (
         <>
           {allCat?.map((cat, index) => {

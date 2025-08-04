@@ -4,6 +4,7 @@ import Axios from '@/utils/axios'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 const ShowCategory = () => {
   const [allCat, setAllCat] = useState([])
@@ -36,13 +37,16 @@ const ShowCategory = () => {
             return (
               <div
                 key={cat._id + 'displayCategory'}
-                className='w-full h-full'
+                className='w-full h-full relative'
                 // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>
-                  <img
+                  <Image
                     src={cat.image}
                     className='w-full h-full object-scale-down'
+                    fill
+                    loading='lazy'
+                    placeholder='blur'
                   />
                 </div>
               </div>

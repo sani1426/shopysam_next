@@ -8,7 +8,7 @@ import AxiosToastError from "@/utils/axiosToastError"
 import Link from "next/link"
 import CardLoading from "../UI/CardSkeleton"
 import CardProduct from "../shared/ProductCard"
-import { FaAngleRight } from "react-icons/fa"
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 
 
 const CategoryWiseProductDisplay = ({ id, name }) => {

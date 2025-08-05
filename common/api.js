@@ -109,6 +109,10 @@ const BackendApi = {
     url: '/api/cloth/filtering',
     method: 'get',
   },
+  get_Product_ByCategory: {
+    url: '/api/product/by-category',
+    method: 'post',
+  },
 }
 
 export default BackendApi

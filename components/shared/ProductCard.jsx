@@ -34,7 +34,7 @@ const CardProduct = ({data}) => {
       <div className='px-2 lg:px-0 font-medium text-ellipsis text-sm lg:text-base line-clamp-2'>
         {data?.name}
       </div>
-      <div className='w-full flex items-center justify-between px-5'>
+      <div className='w-full flex items-center justify-between px-3'>
       <div className='line-through text-sm text-red-600'>
              {data?.price} $
           </div>

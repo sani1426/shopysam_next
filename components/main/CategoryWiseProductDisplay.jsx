@@ -78,16 +78,12 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
                 </div>
                 <div className='relative flex items-center '>
                     <div className=' flex gap-4 md:gap-6 lg:gap-8 container mx-auto px-4 overflow-x-scroll scrollbar-none scroll-smooth' ref={containerRef}>
-                        {loading &&
+                        {loading ?
                             loadingCardNumber.map((_, index) => {
                                 return (
                                     <CardLoading key={"CategorywiseProductDisplay123" + index} />
                                 )
-                            })
-                        }
-    
-    
-                        {
+                            }) :
                             data.map((p, index) => {
                                 return (
                                     <CardProduct
@@ -97,6 +93,18 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
                                 )
                             })
                         }
+    
+    
+                        {/* {
+                            data.map((p, index) => {
+                                return (
+                                    <CardProduct
+                                        data={p}
+                                        key={p._id + "CategorywiseProductDisplay" + index}
+                                    />
+                                )
+                            })
+                        } */}
     
                     </div>
                     <div className='w-full left-0 right-0 container mx-auto  px-2  absolute hidden lg:flex justify-between'>

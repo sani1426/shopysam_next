@@ -12,11 +12,11 @@ const CardProduct = ({data}) => {
     const [loading,setLoading] = useState(false)
   
   return (
-    <Link href={`/products/${data?._id}`} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-xl cursor-pointer bg-white dark:bg-gray-700 dark:text-gray-100 dark:border-gray-100' >
+    <Link href={`/products/${data?._id}?name=${data?.name}`} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-tr-xl rounded-bl-xl cursor-pointer bg-white dark:bg-gray-700 dark:text-gray-100 dark:border-gray-100' >
       <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded-t-xl overflow-hidden'>
             <img 
                 src={data?.image[0]}
-                className='w-full h-full object-scale-down lg:scale-125 rounded-t-xl'
+                className='w-full h-full object-scale-down lg:scale-125 rounded-tr-xl rounded-bl-xl'
             />
       </div>
       <div className='flex items-center gap-1'>
@@ -26,7 +26,7 @@ const CardProduct = ({data}) => {
         <div>
             {
               Boolean(data?.discount) && (
-                <p className='text-green-600 bg-green-100 px-2 w-fit text-xs rounded-full'>{data?.discount}% discount</p>
+                <p className='text-green-700 bg-green-300 px-2 w-fit text-sm rounded-full'>{data?.discount}% discount</p>
               )
             }
         </div>
@@ -53,7 +53,7 @@ const CardProduct = ({data}) => {
               <p className='text-red-500 text-sm text-center'>Out of stock</p>
             ) : (
         //       <AddToCartButton data={data} />
-        <Button className='text-white' color="success" endContent={<IoCart className='text-white'/>}>
+        <Button className='text-white' color="success" endContent={<IoCart className='text-white text-xl'/>}>
         Add To Cart
       </Button>
             )

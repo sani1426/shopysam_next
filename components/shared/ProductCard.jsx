@@ -12,7 +12,7 @@ const CardProduct = ({data}) => {
     const [loading,setLoading] = useState(false)
   
   return (
-    <Link href={`/products/${data?._id}?name=${data?.name}`} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-tr-xl rounded-bl-xl cursor-pointer bg_back-2   dark:text-gray-100 dark:border-gray-100' >
+    <Link href={`/products/${data?._id}?name=${data?.name}`} className='py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-tr-xl rounded-bl-xl cursor-pointer bg_back-2   dark:text-gray-100 dark:border-gray-100' >
       <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded-tr-xl rounded-bl-xl overflow-hidden'>
             <img 
                 src={data?.image[0]}
@@ -34,11 +34,11 @@ const CardProduct = ({data}) => {
       <div className='px-2 lg:px-0 font-medium text-ellipsis text-sm lg:text-base line-clamp-2'>
         {data?.name}
       </div>
-      <div className='w-full flex items-center gap-4'>
+      <div className='w-full flex items-center justify-between px-5'>
       <div className='line-through text-sm text-red-600'>
              {data?.price} $
           </div>
-      <div className='font-semibold text-blue-500'>
+      <div className='font-semibold text-green-600'>
               {pricewithDiscount(data?.price,data?.discount)} $
           </div>
       </div>

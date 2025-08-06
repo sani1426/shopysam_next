@@ -34,7 +34,10 @@
         --border-2: #fdfdfd;
    
       } 
-      
+      .dark{
+        background-color: #180828 !important;
+        color : #fff ;
+      }
       .bg_back-1{
         background-color: var(--background);
       }

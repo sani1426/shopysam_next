@@ -16,9 +16,7 @@ const page = async ({params}) => {
         const { data: responseData } = response
   
         if (responseData?.success) {
-          Product = responseData?.data
-        }else{
-          toast.error(responseData?.message)
+          Product = await responseData?.data
         }
   return (
     <div>

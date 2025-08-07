@@ -12,7 +12,7 @@ const CardProduct = ({data}) => {
     const [loading,setLoading] = useState(false)
   
   return (
-    <Link href={`/products/${data?._id}?name=${data?.name}`} className='py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-tr-xl rounded-bl-xl cursor-pointer bg_back-2   dark:text-gray-100 dark:border-gray-100' >
+    <Link href={`/products/${data?._id}`} className='py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-tr-xl rounded-bl-xl cursor-pointer bg_back-2   dark:text-gray-100 dark:border-gray-100' >
       <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded-tr-xl rounded-bl-xl overflow-hidden'>
             <img 
                 src={data?.image[0]}

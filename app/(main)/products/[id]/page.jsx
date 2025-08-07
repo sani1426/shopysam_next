@@ -3,21 +3,16 @@ import Axios from '@/utils/axios';
 import React from 'react'
 import BackendApi from '@/common/api'
 import { toast } from 'sonner';
+import axios from 'axios';
 
 const page = async ({params}) => {
         const {id} = params
-        let Product ;
 
-        const response = await Axios({
-          ...BackendApi.get_Product_Details,
-          id : id ,
-        })
-  
-        const { data: responseData } = response
-  
-        if (responseData?.success) {
-          Product = await responseData?.data
-        }
+
+     const {data} = await axios.post(BackendApi?.get_Product_Details?.url , {
+      id
+     })
+    const Product = await data?.data
   return (
     <div>
       <h1>{Product?.name}</h1>

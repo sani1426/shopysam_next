@@ -9,10 +9,10 @@ const page = async ({params}) => {
         const {id} = params
 
 
-     const {data} = await axios.post(BackendApi?.get_Product_Details?.url , {
-      id
-     })
-    const Product = await data?.data
+    //  const {data} = await axios.post(BackendApi?.get_Product_Details?.url , {
+    //   id
+    //  })
+    // const Product = await data?.data
   return (
     <div>
       <h1>{id}</h1>

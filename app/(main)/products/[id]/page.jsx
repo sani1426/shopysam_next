@@ -2,30 +2,22 @@ import Axios from '@/utils/axios'
 import React from 'react'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
+import axios from 'axios'
 
-const page =  ({ params }) => {
-  const { id } = params
-  let Product = {}
-  const getDetails = async () => {
-    try {
-      const response = await Axios({
-        ...BackendApi.get_Product_Details,
-        id: id,
-      })
+const page = async  ({ params }) => {
 
-      const { data: responseData } = response
+   let details
+  const { id } = await params
 
-      if (responseData?.success) {
-        Product = responseData?.data
-      }
-    } catch (error) {
-      AxiosToastError(error)
-    }
+  const { data } = await axios.post(BackendApi?.get_Product_Details?.url , {
+    id
+  })
+  if (data.success) {
+    details = data?.data
   }
-  getDetails()
   return (
     <div>
-      <h1>{Product?.name}</h1>
+      <h1>{details?.name}</h1>
     </div>
   )
 }

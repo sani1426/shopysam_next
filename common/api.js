@@ -113,6 +113,10 @@ const BackendApi = {
     url: '/api/product/by-category',
     method: 'post',
   },
+  get_Product_Details: {
+    url: '/api/product/details',
+    method: 'post',
+  },
 }
 
 export default BackendApi

@@ -15,7 +15,7 @@ const page = async ({params}) => {
     const Product = await data?.data
   return (
     <div>
-      <h1>{Product?.name}</h1>
+      <h1>{id}</h1>
     </div>
   )
 }

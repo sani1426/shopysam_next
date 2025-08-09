@@ -9,10 +9,8 @@ const page = async  ({ params }) => {
    let details
   const { id } = await params
 
-  const { data } = await axios.post(BackendApi?.get_Product_Details?.url , {
-    id
-  })
-  if (data.success) {
+  const { data } = await axios.get(`${BackendApi?.get_Product_Details?.url}/${id}`)
+  if (data?.success) {
     details = data?.data
   }
   return (

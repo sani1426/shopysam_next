@@ -1,19 +1,23 @@
-import Axios from '@/utils/axios'
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import axios from 'axios'
 import Details from '@/components/main/details'
+import { useParams } from 'next/navigation'
 
-const page = async  ({ params }) => {
+const page =  () => {
 
-   let details
-  const { id } = await params
+const [details , setDetails]=useState()
+  const  {id} = useParams()
 
-  const { data } = await axios.get(`${BackendApi?.get_Product_Details?.url}/${id}`)
-  if (data?.success) {
-    details = data?.data
+  const fetchDetails = async () => {
+    const { data } = await axios.get(`${BackendApi?.get_Product_Details?.url}/${id}`)
+    if (data?.success) {
+      setDetails(data?.data)
+    }
   }
+ 
   return (
     <div>
       <Details data={details} />

@@ -17,6 +17,9 @@ const CardProduct = ({data}) => {
       <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded-tr-xl rounded-bl-xl overflow-hidden'>
             <Image 
                 src={data?.image[0]}
+                loading='lazy'
+                placeholder='blur'
+                priority
                 className='w-full h-full object-scale-down lg:scale-125 rounded-tr-xl rounded-bl-xl'
                 
             />

@@ -115,7 +115,7 @@ const BackendApi = {
   },
   get_Product_Details: {
     url: '/api/product/details',
-    method: 'get',
+    method: 'post',
   },
 }
 

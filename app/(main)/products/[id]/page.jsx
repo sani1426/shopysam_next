@@ -16,7 +16,7 @@ const [details , setDetails]=useState()
     try {
       const response = await Axios({
         ...BackendApi.get_Product_Details,
-       id
+       id: id
       })
 
       const { data: responseData } = response

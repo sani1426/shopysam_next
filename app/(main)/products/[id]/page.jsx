@@ -3,6 +3,7 @@ import React from 'react'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import axios from 'axios'
+import Details from '@/components/main/details'
 
 const page = async  ({ params }) => {
 
@@ -15,7 +16,7 @@ const page = async  ({ params }) => {
   }
   return (
     <div>
-      <h1>{details?.name}</h1>
+      <Details data={details} />
     </div>
   )
 }

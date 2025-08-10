@@ -1,9 +1,9 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import axios from 'axios'
-import Details from '@/components/main/details'
+
 import { useParams } from 'next/navigation'
 
 const page =  () => {
@@ -18,9 +18,12 @@ const [details , setDetails]=useState()
     }
   }
  
+  useEffect(()=>{
+    fetchDetails()
+  },[])
   return (
     <div>
-      <Details data={details} />
+      <h1>{details?.name}</h1>
     </div>
   )
 }

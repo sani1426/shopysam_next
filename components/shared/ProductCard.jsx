@@ -1,6 +1,7 @@
 "use client"
 import { pricewithDiscount } from '@/utils/priceWithDiscount'
 import { Button } from '@heroui/react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { IoCart } from "react-icons/io5";
@@ -14,9 +15,10 @@ const CardProduct = ({data}) => {
   return (
     <Link href={`/products/${data?._id}`} className='py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded-tr-xl rounded-bl-xl cursor-pointer bg_back-2   dark:text-gray-100 dark:border-gray-100' >
       <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded-tr-xl rounded-bl-xl overflow-hidden'>
-            <img 
+            <Image 
                 src={data?.image[0]}
                 className='w-full h-full object-scale-down lg:scale-125 rounded-tr-xl rounded-bl-xl'
+                
             />
       </div>
       <div className='flex items-center justify-between'>

@@ -14,7 +14,7 @@ const [details , setDetails]=useState()
   const params =  useParams()
 
   const fetchDetails = async () => {
-     const response = await fetch(`${BackendApi.get_Product_Details.url}/${params?.id}`)
+     const response = await fetch(`https://shopysam-back.onrender.com/api/product/details/${params?.id}`)
      const data = await response.json()
 
       if (data?.success) {

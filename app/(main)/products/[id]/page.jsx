@@ -114,7 +114,7 @@ const page =  () => {
                 </div>
                 {
                   data?.discount && (
-                    <p className='line-through'>{DisplayPriceInRupees(data.price)}</p>
+                    <p className='line-through'>{data?.price}</p>
                   )
                 }
                 {

@@ -11,10 +11,10 @@ import axios from 'axios'
 const page =  () => {
 
 const [details , setDetails]=useState()
-  const {id} =  useParams()
+  const params =  useParams()
 
   const fetchDetails = async () => {
-     const response = await fetch(`${BackendApi.get_Product_Details.url}/${id}`)
+     const response = await fetch(`${BackendApi.get_Product_Details.url}/${params?.id}`)
      const data = await response.json()
 
       if (data?.success) {

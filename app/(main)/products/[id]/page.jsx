@@ -118,7 +118,7 @@ const page = () => {
         <p className='bg-green-300 w-fit px-2 rounded-full'>10 Min</p>
         <h2 className='text-lg font-semibold lg:text-3xl'>{data?.name}</h2>
         <p className=''>{data?.unit}</p>
-      <Divider />
+
         <div>
           <p className=''>Price</p>
           <div className='flex items-center gap-2 lg:gap-4'>
@@ -153,7 +153,7 @@ const page = () => {
             </Button>
           </div>
         )}
-
+      <Divider className="my-4" />
         <h2 className='font-semibold'>Why shop from Shopysam? </h2>
         <div>
           <div className='flex  items-center gap-4 my-4'>

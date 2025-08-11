@@ -38,7 +38,7 @@ setDetails(responseData?.data)
   return (
     <div>
       <h1>{details?.name}</h1>
-      <h1>{id}</h1>
+  
     </div>
   )
 }

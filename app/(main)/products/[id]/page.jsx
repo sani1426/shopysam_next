@@ -14,10 +14,7 @@ const [details , setDetails]=useState()
   const {id} =  useParams()
 
   const fetchDetails = async () => {
-     const response = await fetch(BackendApi.get_Product_Details.url ,{
-      method : 'post' ,
-      body : id ,
-     })
+     const response = await fetch(`${BackendApi.get.get_Product_Details.url}/${id}`)
      const data = await response.json()
 
       if (data?.success) {

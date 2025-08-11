@@ -10,13 +10,15 @@ import Axios from '@/utils/axios'
 const page =  () => {
 
 const [details , setDetails]=useState()
-  const  {id} = useParams()
+  const  params =  useParams()
 
   const fetchDetails = async () => {
+    console.log(params)
     try {
+      const {id} = await params
       const response = await Axios({
         ...BackendApi.get_Product_Details,
-       id: id
+       id: id ,
       })
 
       const { data: responseData } = response

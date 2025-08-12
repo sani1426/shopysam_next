@@ -153,7 +153,7 @@ const page = () => {
             </Button>
           </div>
         )}
-      <Divider className="my-4" />
+      <Divider className="my-8" />
         <h2 className='font-semibold'>Why shop from Shopysam? </h2>
         <div>
           <div className='flex  items-center gap-4 my-4'>

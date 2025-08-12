@@ -38,11 +38,10 @@ const ShowCategory = () => {
               <div
                 key={cat._id + 'displayCategory'}
                 className='w-full h-full  rounded-xl text-center'
-                // onClick={() => handleRedirectProductListpage(cat._id, cat.name)}
               >
                 <div>
-                  <img
-                    src={cat.image}
+                  <Image
+                    src={cat?.image}
                     className='  rounded-xl min-w-full min-h-[100px] max-h-[100px] object-cover'
                   />
                 </div>

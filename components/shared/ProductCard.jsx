@@ -64,8 +64,8 @@ const CardProduct = ({data}) => {
               <p className='text-red-500 text-sm text-center'>Out of stock</p>
             ) : (
         //       <AddToCartButton data={data} />
-        <Button className='text-white' color="success" endContent={<IoCart className='text-white text-2xl'/>}>
-        Add To Cart
+        <Button className='text-white' color="success">
+      <IoCart className='text-white text-2xl'/>
       </Button>
             )
           }

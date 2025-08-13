@@ -15,7 +15,8 @@ import { TfiAngleDown } from "react-icons/tfi";
 
 import { RiMenu2Fill } from "react-icons/ri";
 import { useAppContext } from '@/context/appContext';
-import Link from 'next/link';
+
+import SubCategoryAccordion from './SubCategoryAccordion';
 
 const CategoryMenu = () => {
   const { allCategory } = useAppContext()
@@ -68,22 +69,11 @@ const CategoryMenu = () => {
               {
                 allCategory?.map((category , index) => (
                   <AccordionItem key={index} title={category?.name} className='w-full ' >
+                    <SubCategoryAccordion categoryId={c?._id} />
                     
                   </AccordionItem>
                 ))
               }
-            {/* <AccordionItem key='1' title="Digitals" className='w-full ' >
-<div className='flex flex-col gap-1'>
-                {
-                  digitals?.map(item => (
-               <Link key={item?.id} className='category_link' href={`/digitals/${item}`}>{item}</Link>
-                  ))
-                }
-        </div>
-            </AccordionItem> */}
-
-
-
             </Accordion>
 
               </DrawerBody>

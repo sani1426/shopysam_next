@@ -22,6 +22,7 @@ import {
 } from '@heroui/react'
 import ViewImage from '@/components/UI/ViewImage'
 import EditSubCategory from '@/components/admin/subCategory.jsx/EditSubCategory'
+import AxiosToastError from '@/utils/axiosToastError'
 
 const page = () => {
   const { dashboardOpen } = useAppContext()
@@ -51,7 +52,7 @@ const page = () => {
         console.log(subCategoryData)
       }
     } catch (error) {
-      toast.error('error')
+      AxiosToastError(error)
     } finally {
       setLoading(false)
     }

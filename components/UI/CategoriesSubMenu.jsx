@@ -14,12 +14,11 @@ AccordionItem ,
 import { TfiAngleDown } from "react-icons/tfi";
 
 import { RiMenu2Fill } from "react-icons/ri";
-import {FaRegSquarePlus} from 'react-icons/fa6'
 import { useAppContext } from '@/context/appContext';
 import Link from 'next/link';
 
 const CategoryMenu = () => {
-  const { digitals, clothes } = useAppContext()
+  const { allCategory } = useAppContext()
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   return (
@@ -66,7 +65,14 @@ const CategoryMenu = () => {
 
               <DrawerBody className='relative'>
             <Accordion  variant='faded'>
-            <AccordionItem key='1' title="Digitals" className='w-full ' >
+              {
+                allCategory?.map((category , index) => (
+                  <AccordionItem key={index} title={category?.name} className='w-full ' >
+                    
+                  </AccordionItem>
+                ))
+              }
+            {/* <AccordionItem key='1' title="Digitals" className='w-full ' >
 <div className='flex flex-col gap-1'>
                 {
                   digitals?.map(item => (
@@ -74,23 +80,10 @@ const CategoryMenu = () => {
                   ))
                 }
         </div>
-            </AccordionItem>
+            </AccordionItem> */}
 
-            <AccordionItem key='2' title="Fashion" className='w-full ' >
-<div className='flex flex-col gap-1'>
-                {
-                  clothes?.map(item => (
-               <Link key={item?.id} className='category_link' href={`/cloth/${item}`}>{item}</Link>
-                  ))
-                }
-        </div>
-            </AccordionItem>
 
-            <AccordionItem key='3' title="Tools" className='w-full ' >
-<div className='flex flex-col gap-1'>
-       
-        </div>
-            </AccordionItem>
+
             </Accordion>
 
               </DrawerBody>

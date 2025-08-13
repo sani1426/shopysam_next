@@ -13,7 +13,7 @@ const SubCategoryAccordion = ({ categoryId }) => {
   const fetchSubCategory = async () => {
     try {
       setLoading(true)
-      const {data} = await axios.post(`${BASE_URL}/${BackendApi.get_SubCategory_By_categoryId.url}`,{
+      const {data} = await axios.post('https://shopysam-back.onrender.com/api/subcategory/by-category-id',{
         categoryId: categoryId
       })
     

@@ -3,6 +3,7 @@ import Axios from '@/utils/axios';
 import React from 'react'
 import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError';
+import ProductNewCard from '@/components/main/ProductNewCard';
 
 const page = async ({params}) => {
         const {categoryId} = params
@@ -22,8 +23,14 @@ const page = async ({params}) => {
           AxiosToastError(error)
         } 
   return (
-    <section>
-      
+    <section className='w-full '>
+      <div className='container w-full mx-auto flex flex-col'>
+        {
+          products?.map((p,index) => (
+            <ProductNewCard key={index} data={p} />
+          ))
+        }
+      </div>
     </section>
   )
 }

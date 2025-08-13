@@ -72,7 +72,7 @@ const BackendApi = {
     method: 'get',
   },
   get_SubCategory_By_categoryId: {
-    url: '/api/subcategory//by-category-id',
+    url: '/api/subcategory/by-category-id',
     method: 'post',
   },
   upload_Image: {

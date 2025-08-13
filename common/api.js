@@ -71,6 +71,10 @@ const BackendApi = {
     url: '/api/subcategory/all',
     method: 'get',
   },
+  get_SubCategory_By_categoryId: {
+    url: '/api/subcategory//by-category-id',
+    method: 'post',
+  },
   upload_Image: {
     url: '/api/file/upload',
     method: 'post',

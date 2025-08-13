@@ -15,7 +15,8 @@ const SubCategoryAccordion = ({ categoryId }) => {
     try {
       setLoading(true)
       const response = await Axios({
-        ...BackendApi.get_SubCategories,
+        ...BackendApi.get_SubCategory_By_categoryId,
+        categoryId : categoryId
       })
       const { data: responseData } = response
 

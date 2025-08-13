@@ -2,8 +2,7 @@
 
 import AxiosToastError from '@/utils/axiosToastError'
 import { useEffect, useState } from 'react'
-import BackendApi from '@/common/api'
-import Axios from '@/utils/axios'
+import BackendApi, { BASE_URL } from '@/common/api'
 import Loading from '../shared/loading'
 import Link from 'next/link'
 
@@ -14,14 +13,13 @@ const SubCategoryAccordion = ({ categoryId }) => {
   const fetchSubCategory = async () => {
     try {
       setLoading(true)
-      const response = await Axios({
-        ...BackendApi.get_SubCategory_By_categoryId,
-        categoryId : categoryId
+      const {data} = await axios.post(`${BASE_URL}/${BackendApi.get_SubCategory_By_categoryId.url}`,{
+        categoryId: categoryId
       })
-      const { data: responseData } = response
+    
 
-      if (responseData?.success) {
-        setSubCategoryData(responseData?.data)
+      if (data?.success) {
+        setSubCategoryData(data?.data)
       }
     } catch (error) {
       AxiosToastError(error)

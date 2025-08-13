@@ -69,7 +69,7 @@ const CategoryMenu = () => {
               {
                 allCategory?.map((category , index) => (
                   <AccordionItem key={index} title={category?.name} className='w-full ' >
-                    <SubCategoryAccordion categoryId={c?._id} />
+                    <SubCategoryAccordion categoryId={category?._id} />
                     
                   </AccordionItem>
                 ))

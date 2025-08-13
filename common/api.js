@@ -117,6 +117,10 @@ const BackendApi = {
     url: '/api/product/by-category',
     method: 'post',
   },
+  get_Product_By_SubCategory: {
+    url: '/api/product/by-subcategory',
+    method: 'post',
+  },
   get_Product_Details: {
     url: '/api/product/details',
     method: 'get',

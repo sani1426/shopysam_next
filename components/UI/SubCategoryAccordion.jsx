@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import BackendApi, { BASE_URL } from '@/common/api'
 import Loading from '../shared/loading'
 import Link from 'next/link'
+import axios from 'axios'
 
 const SubCategoryAccordion = ({ categoryId }) => {
   const [loading, setLoading] = useState(false)

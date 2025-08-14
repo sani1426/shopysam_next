@@ -1,15 +1,10 @@
 
-import CategorySidebar from '@/components/category&subCategory/CategorySidebar'
 import React from 'react'
 
-const page = (props) => {
-        console.log(props)
+const page = () => {
+      
   return (
-    <section>
-        <CategorySidebar />
-
-
-    </section>
+   <div></div>
   )
 }
 

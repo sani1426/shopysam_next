@@ -2,12 +2,12 @@
 import CategorySidebar from '@/components/category&subCategory/CategorySidebar'
 import React from 'react'
 
-const page = ({params}) => {
-        console.log(params)
+const page = (props) => {
+        console.log(props)
   return (
     <section>
         <CategorySidebar />
-        
+
 
     </section>
   )

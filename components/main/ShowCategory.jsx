@@ -5,6 +5,7 @@ import BackendApi from '@/common/api'
 import AxiosToastError from '@/utils/axiosToastError'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ShowCategory = () => {
   const [allCat, setAllCat] = useState([])
@@ -35,7 +36,8 @@ const ShowCategory = () => {
         <>
           {allCat?.map((cat, index) => {
             return (
-              <div
+              <Link
+              href={`/category/${cat?._id}?name=${cate?.name}`}
                 key={cat._id + 'displayCategory'}
                 className='w-full h-full  rounded-xl text-center'
               >
@@ -46,13 +48,13 @@ const ShowCategory = () => {
                   />
                 </div>
                 <h1 className='text-center text-sm font-semibold my-2'>{cat?.name}</h1>
-              </div>
+              </Link>
             )
           })}
         </>
       ) : (
         <>
-          {new Array(12).fill(null).map((c, index) => {
+          {new Array(10).fill(null).map((c, index) => {
             return (
               <div
                 key={index + 'loadingcategory'}

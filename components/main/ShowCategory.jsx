@@ -37,7 +37,7 @@ const ShowCategory = () => {
           {allCat?.map((cat, index) => {
             return (
               <Link
-              href={`/category/${cat?._id}?name=${cate?.name}`}
+              href={`/category/${cat?._id}?name=${cat?.name}`}
                 key={cat._id + 'displayCategory'}
                 className='w-full h-full  rounded-xl text-center'
               >

@@ -5,7 +5,7 @@ const layout = ({ children }) => {
     <div className='flex flex-col overflow-hidden'>
     <Header  />
  
-       <main className='flex flex-col w-full mt-[10rem] lg:mt-[12.5rem]  '>
+       <main className='flex flex-col w-full mt-[8rem] lg:mt-[10.5rem]  '>
          {children}
        </main>
 

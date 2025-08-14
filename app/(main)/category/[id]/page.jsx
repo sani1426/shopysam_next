@@ -10,8 +10,7 @@ const page = ({params , searchParams}) => {
         <section>
         <CategorySidebar categoryId={id} name={name} />
   
-        <h1>{id}</h1>
-        <h1>{name}</h1>
+      
 
     </section>
   )

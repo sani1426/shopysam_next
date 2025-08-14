@@ -27,7 +27,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <nav className='w-full flex flex-col fixed nav-clr shadow lg:top-8  py-6 px-3  lg:px-12  z-50 dark:shadow-gray-600'>
+    <nav className='w-full flex flex-col fixed nav-clr shadow  py-6 px-3  lg:px-12  z-50 dark:shadow-gray-600'>
       <div className='flex items-center justify-between w-full gap-6'>
         <div className='flex items-center gap-6'>
           <SidebarMenu />

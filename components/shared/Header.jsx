@@ -10,7 +10,7 @@ const Header = () => {
  
   return (
     <>
-    <TopBar />
+    {/* <TopBar /> */}
     <Navbar  />
     <NavigationMenu />
     </>

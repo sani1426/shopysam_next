@@ -25,8 +25,8 @@ let subCategoryData ;
               }
   return (
     <div className='w-[300px] h-screen fixed left-0 top-[8rem] lg:top[12rem] shadow-lg'>
-        <div className='flex items-center justify-center border-b-1'>
-                <h1 className='text-2xl'>{name}</h1>
+        <div className='flex items-center justify-center py-4 bg-gray-200'>
+                <h1 className='text-2xl font-semibold'>{name}</h1>
         </div>
         <div className='flex flex-col gap-4 w-full'>
                 {

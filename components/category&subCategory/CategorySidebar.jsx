@@ -5,7 +5,7 @@ import React from 'react'
 import Loading from '../shared/loading';
 import Image from 'next/image';
 
-const CategorySidebar = async ({categoryId}) => {
+const CategorySidebar = async ({categoryId,name}) => {
 let loading = false
 let subCategoryData ;
         try {
@@ -25,15 +25,18 @@ let subCategoryData ;
               }
   return (
     <div className='w-[300px] h-screen fixed left-0 top-[10rem] lg:top[12.5rem] shadow-lg'>
+        <div className='flex items-center justify-center border-b-1'>
+                <h1 className='text-2xl'>{name}</h1>
+        </div>
         <div className='flex flex-col gap-4 w-full'>
                 {
                         loading && <Loading />
                 }
                 {
                         subCategoryData?.map((c,index) => (
-                                <div key={index} className='w-full flex items-center gap-3'>
-                                        <Image src={c?.image} alt={c?.name} width={50} height={50} />
-                                        <h1>{c?.name}</h1>
+                                <div key={index} className='pl-5 w-full flex items-center gap-5 border-b-1 py-2'>
+                                        <Image src={c?.image} alt={c?.name} width={60} height={60} />
+                                        <h1 className=''>{c?.name}</h1>
                                 </div>
                         ))
                 }

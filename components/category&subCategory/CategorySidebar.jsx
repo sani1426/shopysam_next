@@ -24,7 +24,7 @@ let subCategoryData ;
                 loading = false
               }
   return (
-    <div className='w-[300px] h-screen fixed left-0 top-[9rem] lg:top[13rem] shadow-lg'>
+    <div className='w-[300px] h-screen fixed left-0 top-[8.7rem] lg:top[13.5rem] shadow-lg'>
         <div className='flex items-center justify-center py-4 bg-gray-200'>
                 <h1 className='text-2xl font-semibold'>{name}</h1>
         </div>
@@ -34,7 +34,7 @@ let subCategoryData ;
                 }
                 {
                         subCategoryData?.map((c,index) => (
-                                <div key={index} className='pl-2 w-full flex items-center gap-5  hover:bg-gray-200 transition-all duration-200'>
+                                <div key={index} className='pl-2 w-full flex items-center gap-5 hover:bg-gray-200 transition-all duration-200'>
                                         <Image src={c?.image} alt={c?.name} width={60} height={60} />
                                         <h1 className=''>{c?.name}</h1>
                                 </div>

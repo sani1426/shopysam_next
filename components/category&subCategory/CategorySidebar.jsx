@@ -24,7 +24,7 @@ let subCategoryData ;
                 loading = false
               }
   return (
-    <div className='w-[300px] h-screen fixed left-0 top-0 bg-red-400'>
+    <div className='w-[300px] h-screen fixed left-0 top-[10rem] lg:top[12.5rem] shadow-lg'>
         <div className='flex flex-col gap-4 w-full'>
                 {
                         loading && <Loading />
@@ -32,7 +32,7 @@ let subCategoryData ;
                 {
                         subCategoryData?.map((c,index) => (
                                 <div key={index} className='w-full flex items-center gap-3'>
-                                        <Image src={c?.image} alt={c?.name} width={35} height={35} />
+                                        <Image src={c?.image} alt={c?.name} width={50} height={50} />
                                         <h1>{c?.name}</h1>
                                 </div>
                         ))

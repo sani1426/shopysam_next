@@ -24,7 +24,7 @@ let subCategoryData ;
                 loading = false
               }
   return (
-    <div className='w-[300px] h-screen fixed left-0 top-[8.7rem] lg:top[13.5rem] shadow-lg'>
+    <div className='w-[300px] h-screen  mt-[8.7rem] lg:mt[13.5rem] shadow-lg'>
         <div className='flex items-center justify-center py-4 bg-gray-200'>
                 <h1 className='text-2xl font-semibold'>{name}</h1>
         </div>

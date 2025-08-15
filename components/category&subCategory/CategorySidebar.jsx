@@ -3,7 +3,8 @@ import AxiosToastError from '@/utils/axiosToastError';
 import axios from 'axios'
 import React from 'react'
 import Loading from '../shared/loading';
-import Image from 'next/image';
+
+import SubCategoryItem from './SubCategoryItem';
 
 const CategorySidebar = async ({categoryId,name}) => {
 let loading = false
@@ -34,10 +35,7 @@ let subCategoryData ;
                 }
                 {
                         subCategoryData?.map((c,index) => (
-                                <div key={index} className='pl-2 w-full flex items-center gap-5 bg_hover'>
-                                        <Image src={c?.image} alt={c?.name} width={60} height={60} className='object-cover' />
-                                        <h1 className=''>{c?.name}</h1>
-                                </div>
+                           <SubCategoryItem key={index} data={c} />
                         ))
                 }
         </div>

@@ -7,7 +7,7 @@ const page =  ({ params, searchParams }) => {
   const { name } = searchParams
 
   return (
-    <section>
+    <section className='grid grid-cols-2'>
       <CategorySidebar categoryId={id} name={name} />
       <ProductsBySubCategory categoryId={id}  />
     </section>

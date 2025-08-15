@@ -40,7 +40,7 @@ const SubCategoryAccordion = ({ categoryId }) => {
         <Link
           key={item?._id}
           className='category_link'
-          href={`/category/${item?.name}`}
+          href={`/category/${item?._id}?name=${item?.name}`} 
         >
           {item?.name}
         </Link>

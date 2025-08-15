@@ -31,7 +31,9 @@ const ShowCategory = () => {
     fetchCategory()
   }, [])
   return (
-    <div className='container mx-auto px-4 my-8 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-8'>
+    <section className='w-full bg_back-2'>
+
+    <div className='container  mx-auto px-4 my-8 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-x-2 gap-y-8'>
       {!loading ? (
         <>
           {allCat?.map((cat, index) => {
@@ -68,6 +70,7 @@ const ShowCategory = () => {
         </>
       )}
     </div>
+    </section>
   )
 }
 

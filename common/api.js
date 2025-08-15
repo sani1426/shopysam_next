@@ -97,22 +97,7 @@ const BackendApi = {
   },
 
   //  // shop api // //
-  getDigitalsCategory: {
-    url: '/api/digitals/categories',
-    method: 'get',
-  },
-  getClothCategory: {
-    url: 'api/cloth/categories',
-    method: 'get',
-  },
-  getDigitalsByFilter: {
-    url: '/api/digitals/filtering',
-    method: 'get',
-  },
-  getClothByFilter: {
-    url: '/api/cloth/filtering',
-    method: 'get',
-  },
+
   get_Product_ByCategory: {
     url: '/api/product/by-category',
     method: 'post',

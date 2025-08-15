@@ -34,8 +34,8 @@ let subCategoryData ;
                 }
                 {
                         subCategoryData?.map((c,index) => (
-                                <div key={index} className='pl-2 w-full flex items-center gap-5 hover:bg-gray-200 transition-all duration-200'>
-                                        <Image src={c?.image} alt={c?.name} width={60} height={60} />
+                                <div key={index} className='pl-2 w-full flex items-center gap-5 bg_hover'>
+                                        <Image src={c?.image} alt={c?.name} width={60} height={60} className='object-cover' />
                                         <h1 className=''>{c?.name}</h1>
                                 </div>
                         ))

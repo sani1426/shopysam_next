@@ -19,7 +19,7 @@ const HeroCarousel = () => {
   return (
     <div className=' w-full px-4 lg:px-8 overflow-hidden rounded-xl'>
       <div>
-        <div className='h-[25rem] rounded-xl '>
+        <div className='h-[20rem] rounded-xl '>
           <Swiper
             loop={true}
             grabCursor={true}
@@ -47,7 +47,7 @@ const HeroCarousel = () => {
                 <img
                   src={item.src}
                   alt=''
-                  className='min-h-full rounded-xl object-center'
+                  className='min-h-full rounded-xl object-cover'
                 />
               </SwiperSlide>
             ))}

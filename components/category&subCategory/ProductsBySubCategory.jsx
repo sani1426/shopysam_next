@@ -32,7 +32,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
   
   return (
         <div className='w-full'>
-                <div className='container grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+                <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
                         {
                                 loading && <Loading />
                         }

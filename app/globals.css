@@ -109,3 +109,8 @@
 .bg_hover:hover {
   background-color: #e5e7eb;
 }
+
+.display_grid{
+  display: grid;
+  grid-template-columns: 20% 1fr;
+}

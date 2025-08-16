@@ -12,7 +12,9 @@ const ProductsBySubCategory = ({ categoryId }) => {
   const { products, setProducts } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [pageNumber,setPageNumber]=useState(1)
-  const [total,setTotal]=useState()
+  const [totalProduct,setTotalProduct]=useState()
+  const [totalPage,setTotalPage]=useState()
+  
 
   const getProducts = async () => {
     try {
@@ -27,7 +29,8 @@ const ProductsBySubCategory = ({ categoryId }) => {
 
       if (data?.success) {
         setProducts(data?.data)
-        setTotal(data?.total)
+        setTotalProduct(data?.total)
+        setTotalPage(totalProduct / 10)
       }
     } catch (error) {
       AxiosToastError(error)
@@ -53,7 +56,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
                         }
                 </div>
                 <div className='w-full flex items-center justify-center'>
-                  <PaginationComponent page={pageNumber} total={total} set={setPageNumber} />
+                  <PaginationComponent page={pageNumber} total={totalPage} set={setPageNumber} />
                 </div>
         </div>
   )

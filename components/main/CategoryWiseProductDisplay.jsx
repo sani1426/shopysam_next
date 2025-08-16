@@ -78,7 +78,7 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
                     <Link href={`/category/${id}?name=${valideURLConvert(name)}`}  className='text-green-600 hover:text-green-400'>See All</Link>
                 </div>
                 <div className='relative flex items-center '>
-                    <div className=' flex gap-4 md:gap-6 lg:gap-8 container mx-auto px-4 overflow-x-scroll scrollbar-none scroll-smooth py-4' ref={containerRef}>
+                    <div className=' flex gap-4 md:gap-6 lg:gap-8 container mx-auto px-4 overflow-x-scroll scrollbar-hide scroll-smooth py-4' ref={containerRef}>
                         {loading ?
                             loadingCardNumber.map((_, index) => {
                                 return (
@@ -97,10 +97,10 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
     
                     </div>
                     <div className='w-full left-0 right-0 container mx-auto  px-2  absolute hidden lg:flex justify-between'>
-                        <button onClick={handleScrollLeft} className='z-10 relative  dark:text-gray-100 bg_back-2 shadow-lg text-lg p-2 rounded-full'>
+                        <button onClick={handleScrollLeft} className='z-10 relative   bg_back-2 shadow-lg text-lg p-2 rounded-full'>
                             <FaAngleLeft />
                         </button>
-                        <button onClick={handleScrollRight} className='z-10 relative  bg_back-2 dark:text-gray-100 shadow-lg p-2 text-lg rounded-full'>
+                        <button onClick={handleScrollRight} className='z-10 relative  bg_back-2  shadow-lg p-2 text-lg rounded-full'>
                             <FaAngleRight />
                         </button>
                     </div>

@@ -6,6 +6,7 @@ import BackendApi, { BASE_URL } from '@/common/api'
 import Loading from '../shared/loading'
 import Link from 'next/link'
 import axios from 'axios'
+import { valideURLConvert } from '@/utils/nameConverter'
 
 const SubCategoryAccordion = ({ categoryId }) => {
   const [loading, setLoading] = useState(false)
@@ -40,7 +41,7 @@ const SubCategoryAccordion = ({ categoryId }) => {
         <Link
           key={item?._id}
           className='category_link'
-          href={`/category/${item?._id}?name=${item?.name}`} 
+          href={`/category/${item?._id}?name=${valideURLConvert(item?.name)}`} 
         >
           {item?.name}
         </Link>

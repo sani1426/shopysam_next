@@ -6,6 +6,7 @@ import AxiosToastError from '@/utils/axiosToastError'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { valideURLConvert } from '@/utils/nameConverter'
 
 const ShowCategory = () => {
   const [allCat, setAllCat] = useState([])
@@ -39,7 +40,7 @@ const ShowCategory = () => {
           {allCat?.map((cat, index) => {
             return (
               <Link
-              href={`/category/${cat?._id}?name=${cat?.name}`}
+              href={`/category/${cat?._id}?name=${valideURLConvert(cat?.name)}`}
                 key={cat._id + 'displayCategory'}
                 className='w-full h-full  rounded-xl text-center'
               >

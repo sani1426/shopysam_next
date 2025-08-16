@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --background-2: #fafafa;
+  --background-2: #ebebeb;
   --sidebar-clr: #f4f4f5;
   --primary-clr: #006FEE;
   --primary-clr-2: #2a2185;
@@ -31,7 +31,7 @@
   --border-2: rgba(17, 17, 17, 0.15);
 }
 ::webkit-scrollbar-thumb {
-  background: var(--scroll-clr)
+  background: var(--scroll-clr) !important;
 }
 .dark {
   background-color: #180828 !important;
@@ -120,24 +120,24 @@
 }
 
 .category-scroll::-webkit-scrollbar {
-  width: 5px;
+  width: 5px !important;
 }
 .category-scroll::-webkit-scrollbar-track {
-  background: var(--primary-clr); 
+  background: var(--primary-clr) !important; 
 }
 .dark .category-scroll::-webkit-scrollbar-track {
-  background: var(--primary-clr-2); 
+  background: var(--primary-clr-2) !important; 
 }
 .category-scroll::-webkit-scrollbar-thumb {
-  background:  var(--primary-clr-2); 
+  background:  var(--primary-clr-2) !important; 
 }
 .dark .category-scroll::-webkit-scrollbar-thumb {
-  background:  var(--primary-clr); 
+  background:  var(--primary-clr) !important ; 
 }
 
  .category-scroll::-webkit-scrollbar-thumb:hover {
-  background: #4138a0; 
+  background: #4138a0 !important ; 
 }
 .dark .category-scroll::-webkit-scrollbar-thumb:hover {
-  background: #325c8b65; 
+  background: #325c8b65 !important; 
 }

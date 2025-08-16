@@ -78,7 +78,7 @@ const CategoryWiseProductDisplay = ({ id, name }) => {
                     <Link href={`/category/${id}?name=${valideURLConvert(name)}`}  className='text-green-600 hover:text-green-400'>See All</Link>
                 </div>
                 <div className='relative flex items-center '>
-                    <div className=' flex gap-4 md:gap-6 lg:gap-8 container mx-auto px-4 overflow-x-scroll category-scroll scroll-smooth py-4' ref={containerRef}>
+                    <div className=' flex gap-4 md:gap-6 lg:gap-8 container mx-auto px-4 overflow-x-scroll scrollbar-hide scroll-smooth py-4' ref={containerRef}>
                         {loading ?
                             loadingCardNumber.map((_, index) => {
                                 return (

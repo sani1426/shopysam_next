@@ -30,7 +30,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
       if (data?.success) {
         setProducts(data?.data)
         setTotalProduct(data?.total)
-
+        console.log(totalProduct)
       }
     } catch (error) {
       AxiosToastError(error)
@@ -40,8 +40,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
   }
   useEffect(()=>{
     getProducts()
-    setTotalPage(totalProduct / 10)
-    console.log('total' ,totalPage)
+
   },[pageNumber])
   
   return (
@@ -60,7 +59,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
                         }
                 </div>
                 <div className='w-full flex items-center justify-center'>
-                  <PaginationComponent page={pageNumber} total={totalPage} set={setPageNumber} />
+                  <PaginationComponent page={pageNumber} total={totalProduct} set={setPageNumber} />
                 </div>
         </div>
   )

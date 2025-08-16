@@ -5,10 +5,15 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Loading from '../shared/loading'
 import CardProduct from '../shared/ProductCard'
+import Pagination from '../UI/Pagination'
+
 
 const ProductsBySubCategory = ({ categoryId }) => {
   const { products, setProducts } = useAppContext()
   const [loading, setLoading] = useState(false)
+  const [pageNumber,setPageNumber]=useState(1)
+  const [total,setTotal]=useState()
+
   const getProducts = async () => {
     try {
       setLoading(true)
@@ -16,11 +21,13 @@ const ProductsBySubCategory = ({ categoryId }) => {
         'https://shopysam-back.onrender.com/api/product/by-category',
         {
           id: categoryId,
+          pageNumber: pageNumber
         }
       )
 
       if (data?.success) {
         setProducts(data?.data)
+        setTotal(data?.total)
       }
     } catch (error) {
       AxiosToastError(error)
@@ -28,7 +35,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
       setLoading(false)
     }
   }
-  useEffect(()=>{getProducts()},[])
+  useEffect(()=>{getProducts()},[pageNumber])
   
   return (
         <div className='w-full'>
@@ -44,6 +51,9 @@ const ProductsBySubCategory = ({ categoryId }) => {
                                     />
                                 ))
                         }
+                </div>
+                <div className='w-full flex items-center justify-center'>
+                  <Pagination page={pageNumber} total={total} set={setPageNumber} />
                 </div>
         </div>
   )

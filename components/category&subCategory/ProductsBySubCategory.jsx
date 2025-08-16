@@ -5,7 +5,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Loading from '../shared/loading'
 import CardProduct from '../shared/ProductCard'
-import Pagination from '../UI/Pagination'
+import PaginationComponent from '../UI/Pagination'
 
 
 const ProductsBySubCategory = ({ categoryId }) => {
@@ -53,7 +53,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
                         }
                 </div>
                 <div className='w-full flex items-center justify-center'>
-                  <Pagination page={pageNumber} total={total} set={setPageNumber} />
+                  <PaginationComponent page={pageNumber} total={total} set={setPageNumber} />
                 </div>
         </div>
   )

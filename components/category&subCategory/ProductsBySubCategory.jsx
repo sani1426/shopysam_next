@@ -30,7 +30,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
       if (data?.success) {
         setProducts(data?.data)
         setTotalProduct(data?.total)
-        console.log(totalProduct)
+        console.log('page',totalProduct)
       }
     } catch (error) {
       AxiosToastError(error)

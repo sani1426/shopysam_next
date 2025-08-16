@@ -30,8 +30,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
       if (data?.success) {
         setProducts(data?.data)
         setTotalProduct(data?.total)
-        setTotalPage(totalProduct / 10)
-        console.log(totalPage)
+
       }
     } catch (error) {
       AxiosToastError(error)
@@ -39,7 +38,11 @@ const ProductsBySubCategory = ({ categoryId }) => {
       setLoading(false)
     }
   }
-  useEffect(()=>{getProducts()},[pageNumber])
+  useEffect(()=>{
+    getProducts()
+    setTotalPage(totalProduct / 10)
+    console.log('total' ,totalPage)
+  },[pageNumber])
   
   return (
         <div className='w-full'>

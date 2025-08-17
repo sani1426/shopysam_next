@@ -14,6 +14,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
   const [pageNumber,setPageNumber]=useState(1)
   const [totalProduct,setTotalProduct]=useState()
   const [totalPage,setTotalPage]=useState()
+  let total ;
   
 
   const getProducts = async () => {
@@ -30,8 +31,8 @@ const ProductsBySubCategory = ({ categoryId }) => {
       if (data?.success) {
         setProducts(data?.data)
         setTotalProduct(await data?.total )
-
-        console.log('page',data?.total , totalProduct)
+        total = await data?.total
+        console.log('page',data?.total , totalProduct , total)
       }
     } catch (error) {
       AxiosToastError(error)

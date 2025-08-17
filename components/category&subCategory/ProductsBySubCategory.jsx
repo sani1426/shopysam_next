@@ -12,8 +12,8 @@ const ProductsBySubCategory = ({ categoryId }) => {
   const { products, setProducts } = useAppContext()
   const [loading, setLoading] = useState(false)
   const [pageNumber,setPageNumber]=useState(1)
-  const [totalProduct,setTotalProduct]=useState()
-  const [totalPage,setTotalPage]=useState()
+  const [totalProduct,setTotalProduct]=useState(0)
+  const [totalPage,setTotalPage]=useState(0)
   
 
   const getProducts = async () => {

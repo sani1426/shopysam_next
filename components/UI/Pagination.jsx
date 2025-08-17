@@ -1,10 +1,19 @@
 "use client"
 
-
 import {Pagination} from "@heroui/react";
-import { useEffect } from "react";
 
-export default function PaginationComponent({page , total , set}) {
-  useEffect(()=>{console.log('t' ,total)},[])
-  return <Pagination showShadow color="warning" page={page} onChange={set} total={total} />;
+export default function PaginationComponent({page , set , total}) {
+  return (
+    <Pagination
+    onChange={set}
+    page={page}
+      classNames={{
+        wrapper: "gap-0 overflow-visible h-8 rounded-sm border border-divider",
+        item: "w-8 h-8 text-small rounded-none bg-transparent",
+        cursor:
+          "bg-linear-to-b shadow-lg from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold",
+      }}
+      total={total}
+    />
+  );
 }

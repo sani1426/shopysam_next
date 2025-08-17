@@ -17,6 +17,10 @@ const ProductsBySubCategory = ({ categoryId }) => {
   
 
   const getProducts = async () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
     try {
       setLoading(true)
       const { data } = await axios.post(
@@ -31,10 +35,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
         setProducts(data?.data)
         totalProduct = await data?.totalCount
        setTotalPage(Math.ceil(totalProduct / 10))
-       window.scrollTo({
-        top: 0,
-        left: 0,
-      });
+   
       }
     } catch (error) {
       AxiosToastError(error)

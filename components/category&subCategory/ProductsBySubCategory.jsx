@@ -22,8 +22,8 @@ const ProductsBySubCategory = ({ categoryId }) => {
       const { data } = await axios.post(
         'https://shopysam-back.onrender.com/api/product/by-category-subcategory',
         {
-          id: categoryId,
-          pageNumber: pageNumber
+          categoryId: categoryId,
+          page: pageNumber
         }
       )
 

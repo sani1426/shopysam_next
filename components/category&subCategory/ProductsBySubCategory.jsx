@@ -30,7 +30,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
       if (data?.success) {
         setProducts(data?.data)
         totalProduct = await data?.total
-        totalPage = totalProduct / 10
+        totalPage = Math.ceil(totalProduct / 10)
         console.log(totalPage)
       }
     } catch (error) {

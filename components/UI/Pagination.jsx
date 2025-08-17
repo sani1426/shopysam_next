@@ -19,7 +19,7 @@ export default function PaginationComponent({page , set , total}) {
       />
        <div className="flex gap-2">
         <Button
-          color="secondary"
+       className="bg-linear-to-b shadow-lg from-default-500 to-default-800 dark:from-default-300 dark:to-default-100 text-white font-bold"
           size="sm"
           variant="flat"
           onPress={() => set((prev) => (prev > 1 ? prev - 1 : prev))}

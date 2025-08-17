@@ -29,7 +29,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
 
       if (data?.success) {
         setProducts(data?.data)
-        setTotalProduct(Number(data?.total))
+        setTotalProduct(Number(data.total))
 
         console.log('page',data?.total , totalProduct)
       }

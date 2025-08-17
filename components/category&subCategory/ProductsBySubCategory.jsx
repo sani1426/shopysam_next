@@ -31,7 +31,11 @@ const ProductsBySubCategory = ({ categoryId }) => {
         setProducts(data?.data)
         totalProduct = await data?.totalCount
        setTotalPage(Math.ceil(totalProduct / 10))
-       window.scrollY = 0
+       window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
       }
     } catch (error) {
       AxiosToastError(error)

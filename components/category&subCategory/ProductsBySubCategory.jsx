@@ -20,7 +20,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
     try {
       setLoading(true)
       const { data } = await axios.post(
-        'https://shopysam-back.onrender.com/api/product/by-category',
+        'https://shopysam-back.onrender.com/api/product/by-category-subcategory',
         {
           id: categoryId,
           pageNumber: pageNumber

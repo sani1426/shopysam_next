@@ -64,7 +64,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
                                 ))
                         }
                 </div>
-                <div className='w-full flex items-center justify-center my-5 py-3'>
+                <div className='w-full flex items-center justify-center my-8 py-3'>
                   <PaginationComponent page={pageNumber} total={totalPage} set={setPageNumber} />
                 </div>
         </div>

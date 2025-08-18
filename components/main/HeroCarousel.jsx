@@ -17,7 +17,7 @@ import { Carousel_items } from '@/constance'
 
 const HeroCarousel = () => {
   return (
-    <div className=' w-full px-4 lg:px-8 overflow-hidden rounded-xl'>
+    <div className=' w-full px-4 lg:px-8 overflow-hidden rounded-xl pb-5'>
       <div>
         <div className='h-[20rem] rounded-xl '>
           <Swiper

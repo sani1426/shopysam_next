@@ -13,7 +13,7 @@ const SubCategoryItem = ({data}) => {
    const getProducts = async () => {
      try {
        const { data } = await axios.post(
-         'https://shopysam-back.onrender.com/api/product/by-subcategory',
+         'https://shopysam-back.onrender.com/api/product/by-category-subcategory',
          {
          subCategoryId:id
          }

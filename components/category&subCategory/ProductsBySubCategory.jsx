@@ -17,6 +17,7 @@ const ProductsBySubCategory = ({ categoryId }) => {
   
 
   const getProducts = async () => {
+    setProducts([])
     window.scrollTo({
       top: 0,
       left: 0,
